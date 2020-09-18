@@ -46,6 +46,10 @@ public class PlayerRaycast : MonoBehaviour
         }
         else
         {
+            if(hitObject != null)
+            {
+                hitObject.isHit = false;
+            }
             CrosshairNormal();
         }
     }
