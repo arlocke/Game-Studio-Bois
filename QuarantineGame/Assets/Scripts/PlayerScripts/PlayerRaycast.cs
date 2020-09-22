@@ -34,7 +34,7 @@ public class PlayerRaycast : MonoBehaviour
                 if (hitObject != null && hitObject != dud)
                 {
                     hitObject.isHit = false;
-                    isCarrying = hitObject.DropDown();
+                    //isCarrying = hitObject.DropDown();
                 }
                 hitObject = dud;
                 hitObject.isHit = true;
@@ -47,16 +47,16 @@ public class PlayerRaycast : MonoBehaviour
         }
         else
         {
-            if(hitObject != null)
+            if (hitObject != null)
             {
                 hitObject.isHit = false;
-                isCarrying = hitObject.DropDown();
+                //isCarrying = hitObject.DropDown();
                 hitObject = null;
             }
             CrosshairNormal();
         }
 
-        if(hitObject != null && uiCActive && !isCarrying)
+        if (hitObject != null && uiCActive && !isCarrying)
         {
             if(Input.GetMouseButtonDown(0))
             {

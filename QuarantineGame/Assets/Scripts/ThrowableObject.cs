@@ -11,7 +11,9 @@ public class ThrowableObject : MonoBehaviour
     protected bool beingCarried = false;
     protected bool touched = false;
 
+    protected Vector3 lastPosition;
     protected Rigidbody self;
+    protected Transform carrier;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +26,14 @@ public class ThrowableObject : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if(carrier != null)
+        {
+            self.velocity = Vector3.zero;
+            self.angularVelocity = Vector3.zero;
+            transform.localPosition = lastPosition;
+        }
     }
 
     //This is for bumping the object into the environment - need help with this
@@ -46,6 +54,8 @@ public class ThrowableObject : MonoBehaviour
             beingCarried = true;
             self.useGravity = false;
         }
+        lastPosition = transform.localPosition;
+        carrier = tran;
         return isHit;
     }
 
@@ -55,6 +65,7 @@ public class ThrowableObject : MonoBehaviour
         transform.parent = null;
         beingCarried = false;
         self.useGravity = true;
+        carrier = null;
         return false;
     }
 }
