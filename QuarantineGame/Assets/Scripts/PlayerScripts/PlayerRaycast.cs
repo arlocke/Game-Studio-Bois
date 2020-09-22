@@ -14,6 +14,9 @@ public class PlayerRaycast : MonoBehaviour
 
     [SerializeField] private Image uiCrosshair;
 
+    private bool uiCActive = false;
+    private bool isCarrying = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -26,17 +29,15 @@ public class PlayerRaycast : MonoBehaviour
             {
                 raycastedObject = hit.collider.gameObject;
                 CrosshairActive();
-                hitObject = raycastedObject.GetComponent<ThrowableObject>();
-                hitObject.isHit = true;
-
-                //NEED HELP IMPLEMENTING THIS - was in throwable object script but can't be on every single interactable object in the game
-                /*if (Input.GetMouseButtonDown(1))
+                var dud = raycastedObject.GetComponent<ThrowableObject>();
+                Debug.Log(dud);
+                if (hitObject != null && hitObject != dud)
                 {
-                    GetComponent<Rigidbody>().isKinematic = false;
-                    transform.parent = null;
-                    beingCarried = false;
-                    GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
-                }*/
+                    hitObject.isHit = false;
+                    isCarrying = hitObject.DropDown();
+                }
+                hitObject = dud;
+                hitObject.isHit = true;
             }
             else
             {
@@ -49,18 +50,37 @@ public class PlayerRaycast : MonoBehaviour
             if(hitObject != null)
             {
                 hitObject.isHit = false;
+                isCarrying = hitObject.DropDown();
+                hitObject = null;
             }
             CrosshairNormal();
+        }
+
+        if(hitObject != null && uiCActive && !isCarrying)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                isCarrying = hitObject.PickUp(transform);
+            }
+        }
+        else if(hitObject != null && isCarrying)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                isCarrying = hitObject.DropDown();
+            }
         }
     }
 
     void CrosshairActive()
     {
+        uiCActive = true;
         uiCrosshair.color = Color.cyan;
     }
 
     void CrosshairNormal()
     {
+        uiCActive = true;
         uiCrosshair.color = Color.white;
     }
 }

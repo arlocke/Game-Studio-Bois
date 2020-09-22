@@ -5,59 +5,27 @@ using UnityEngine;
 
 public class ThrowableObject : MonoBehaviour
 {
-
-    // This is bad programming
-    public Transform player;
-    public Transform playerCam;
-    // This is bad programming
-
     public float throwForce = 10;
-    bool hasPlayer = false;
-    bool beingCarried = false;
-    private bool touched = false;
     public bool isHit = false;
+
+    protected bool beingCarried = false;
+    protected bool touched = false;
+
+    protected Rigidbody self;
 
     // Start is called before the first frame update
     void Start()
     {
-        // This is bad programming
-        this.player = GameObject.FindWithTag("Player").transform;
-        this.playerCam = GameObject.FindWithTag("MainCamera").transform;
-        // This is bad programming
+        self = GetComponent<Rigidbody>();
+        if(self == null)
+        {
+            Debug.Log("Can't Find RigidBody - Throwable Object Script");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //float distToPlayer = Vector3.Distance(gameObject.transform.position, player.position);
-
-        //THIS NEEDS TO BE PUT IN PLAYER RAYCAST
-        if (Input.GetMouseButtonDown(0) && isHit)
-        {
-            GetComponent<Rigidbody>().isKinematic = true;
-            transform.parent = playerCam;
-            beingCarried = true;
-        }
-
-        
-        if (beingCarried)
-        {
-            //This is for bumping into objects while being carried
-            if (touched)
-            {
-                GetComponent<Rigidbody>().isKinematic = false;
-                transform.parent = null;
-                beingCarried = false;
-                touched = false;
-            }
-            if (Input.GetMouseButtonDown(1))
-            {
-                GetComponent<Rigidbody>().isKinematic = false;
-                transform.parent = null;
-                beingCarried = false;
-                GetComponent<Rigidbody>().AddForce(playerCam.forward * throwForce);
-            }
-        }
     }
 
     //This is for bumping the object into the environment - need help with this
@@ -67,6 +35,27 @@ public class ThrowableObject : MonoBehaviour
         {
             touched = true;
         }
+    }
+
+    public bool PickUp(Transform tran)
+    {
+        Debug.Log("Picking Up");
+        if (isHit)
+        {
+            transform.parent = tran;
+            beingCarried = true;
+            self.useGravity = false;
+        }
+        return isHit;
+    }
+
+    public bool DropDown()
+    {
+        Debug.Log("Dropping");
+        transform.parent = null;
+        beingCarried = false;
+        self.useGravity = true;
+        return false;
     }
 }
 
