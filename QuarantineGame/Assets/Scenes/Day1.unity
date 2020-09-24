@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -277,15 +277,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7620b02e6a949bd48aa6a11cf7748733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 359015189}
-  playerCam: {fileID: 963194227}
   walkSpeed: 12
   gravity: -9.81
-  groundCheck: {fileID: 1197818304}
   groundDistance: 0.4
+  controller: {fileID: 359015189}
+  playerCam: {fileID: 963194227}
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+  groundCheck: {fileID: 1197818304}
 --- !u!1 &668032866
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,8 +855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97968f89c42660a40a49bdb30b6baa6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerCam: {fileID: 0}
   throwForce: 10
   isHit: 0
 --- !u!1 &1346156303
