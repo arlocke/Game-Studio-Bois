@@ -10,11 +10,16 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
 
     private float xRotation = 0f;
+    private float yRotation = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        if(playerBody != null)
+        {
+            yRotation = playerBody.eulerAngles.y;
+        }
     }
 
     // Update is called once per frame
@@ -26,7 +31,10 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
+        yRotation += mouseX;
+
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        playerBody.rotation = Quaternion.Euler(playerBody.rotation.x, yRotation, playerBody.rotation.z);
+        //playerBody.Rotate(Vector3.up * mouseX);
     }
 }
