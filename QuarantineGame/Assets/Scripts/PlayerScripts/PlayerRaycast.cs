@@ -5,17 +5,24 @@ using UnityEngine.UI;
 
 public class PlayerRaycast : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public ThrowableObject hitObject;
 
     public GameObject raycastedObject;
+
+    public Text innerThoughtsUI;
 
     [SerializeField] private int rayLength = 10;
     [SerializeField] private LayerMask layerMaskInteract;
 
     [SerializeField] private Image uiCrosshair;
 
-    private bool uiCActive = false;
-    private bool isCarrying = false;
+    public bool uiCActive = false;
+    public bool isCarrying = false;
+
+    //boolean for if the player picked up the pills
+    public bool havePills = false;
 
     // Update is called once per frame
     void Update()
@@ -24,13 +31,19 @@ public class PlayerRaycast : MonoBehaviour
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         if (Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMaskInteract.value))
-        {    
-            if (hit.collider.CompareTag("Ball"))
+        {
+            raycastedObject = hit.collider.gameObject;
+            CrosshairActive();
+
+            //This is for objects that can be pickedup/thrown but not put into inventory or inspected
+            if (hit.collider.CompareTag("Throwable"))
             {
-                raycastedObject = hit.collider.gameObject;
-                CrosshairActive();
+                ////////////////////////////////
+                ///I MOVED THIS HERE vvvvvvvvvvvvvvvvvvvvvvv
+                ////////////////////////////////
+                Debug.Log("Throwable");
                 var dud = raycastedObject.GetComponent<ThrowableObject>();
-                Debug.Log(dud);
+                //Debug.Log(dud);
                 if (hitObject != null && hitObject != dud)
                 {
                     hitObject.isHit = false;
@@ -38,12 +51,56 @@ public class PlayerRaycast : MonoBehaviour
                 }
                 hitObject = dud;
                 hitObject.isHit = true;
+                
+
+
+                
+                if (hitObject != null && uiCActive && !isCarrying)
+                {
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        isCarrying = hitObject.PickUp(transform);
+                    }
+                }
+                else if (hitObject != null && isCarrying)
+                {
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        isCarrying = hitObject.DropDown();
+                    }
+                }
+                ////////////////////////////////
+                ///I MOVED THIS HERE ^^^^^^^^^^^^^^^^^^^^^^^
+                ////////////////////////////////
             }
-            else
+
+            else if (hit.collider.CompareTag("Objective"))
             {
-                //CrosshairNormal();
-                hitObject.isHit = false;
+                CrosshairActive();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("Grabbin Pills");
+                    innerThoughtsUI.text = "Got my pills!!!!";
+                    havePills = true;
+                }
+
             }
+
+            else if (hit.collider.CompareTag("Bed"))
+            {
+                CrosshairActive();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    gameManager.CompleteDay();
+                }
+                   
+            }
+           
+            //else  //I CHANGED THIS LEMME KNOW IF THIS IS BAD
+            //{
+                //CrosshairNormal();
+                //hitObject.isHit = false;
+            //}
         }
         else
         {
@@ -56,20 +113,7 @@ public class PlayerRaycast : MonoBehaviour
             CrosshairNormal();
         }
 
-        if (hitObject != null && uiCActive && !isCarrying)
-        {
-            if(Input.GetMouseButtonDown(0))
-            {
-                isCarrying = hitObject.PickUp(transform);
-            }
-        }
-        else if(hitObject != null && isCarrying)
-        {
-            if (Input.GetMouseButtonDown(1))
-            {
-                isCarrying = hitObject.DropDown();
-            }
-        }
+       
     }
 
     void CrosshairActive()
