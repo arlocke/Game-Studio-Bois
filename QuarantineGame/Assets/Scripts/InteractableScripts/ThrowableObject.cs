@@ -59,14 +59,13 @@ public class ThrowableObject : MonoBehaviour
         return isHit;
     }
 
-    public bool DropDown()
+    public void DropDown()
     {
         Debug.Log("Dropping");
         transform.parent = null;
         beingCarried = false;
         self.useGravity = true;
         carrier = null;
-        return false;
     }
 }
 

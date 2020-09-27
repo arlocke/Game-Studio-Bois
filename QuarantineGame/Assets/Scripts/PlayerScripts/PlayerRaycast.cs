@@ -5,115 +5,110 @@ using UnityEngine.UI;
 
 public class PlayerRaycast : MonoBehaviour
 {
+    //Public Variables
+    public bool uiCActive = false; //Currently always true?
+    public bool isCarrying = false; //Is currently carrying an object!
+    public bool havePills = false; //boolean for if the player picked up the pills
+
+    //Public Classes
     public GameManager gameManager;
-
-    public ThrowableObject hitObject;
-
+    public ThrowableObject hitThrowable;
     public GameObject raycastedObject;
-
     public Text innerThoughtsUI;
 
+    //Private Serialized Fields
     [SerializeField] private int rayLength = 10;
     [SerializeField] private LayerMask layerMaskInteract;
-
     [SerializeField] private Image uiCrosshair;
-
-    public bool uiCActive = false;
-    public bool isCarrying = false;
-
-    //boolean for if the player picked up the pills
-    public bool havePills = false;
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        RaycastHit hit; //Create Temporary raycast variable
+        Vector3 fwd = transform.TransformDirection(Vector3.forward); //Take Forward Vector 3
 
-        if (Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMaskInteract.value))
+        //If not carrying, then run raycast.
+        if(!isCarrying)
         {
-            raycastedObject = hit.collider.gameObject;
-            CrosshairActive();
-
-            //This is for objects that can be pickedup/thrown but not put into inventory or inspected
-            if (hit.collider.CompareTag("Throwable"))
+            //Run Raycast
+            if(Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMaskInteract.value))
             {
-                ////////////////////////////////
-                ///I MOVED THIS HERE vvvvvvvvvvvvvvvvvvvvvvv
-                ////////////////////////////////
-                Debug.Log("Throwable");
-                var dud = raycastedObject.GetComponent<ThrowableObject>();
-                //Debug.Log(dud);
-                if (hitObject != null && hitObject != dud)
+                raycastedObject = hit.collider.gameObject; //Store hit object.
+                CrosshairActive(); //Active if hit object within layer mask.
+
+                //If Throwable
+                if(hit.collider.CompareTag("Throwable"))
                 {
-                    hitObject.isHit = false;
-                    //isCarrying = hitObject.DropDown();
+                    Debug.Log("Throwable");
+
+                    //Grab throwable script.
+                    var dud = raycastedObject.GetComponent<ThrowableObject>();
+
+                    //If you already have hit a throwable, and you are looking at a different throwable, the last throwable seen is no longer hit.
+                    if (hitThrowable != null && hitThrowable != dud)
+                    {
+                        hitThrowable.isHit = false;
+                        //isCarrying = hitObject.DropDown();
+                    }
+
+                    //Save the hit throwable.
+                    hitThrowable = dud;
+
+                    //Tell throwable it is hit.
+                    hitThrowable.isHit = true;
+
+                    //If you have hit a throwable (Preventing bugs) and uiCActive is true (Which it always is...)
+                    if (hitThrowable != null && uiCActive)
+                    {
+                        //Pick up object.
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            isCarrying = hitThrowable.PickUp(transform);
+                        }
+                    }
                 }
-                hitObject = dud;
-                hitObject.isHit = true;
-                
-
-
-                
-                if (hitObject != null && uiCActive && !isCarrying)
+                else if(hit.collider.CompareTag("Objective"))
                 {
+                    CrosshairActive();
                     if (Input.GetMouseButtonDown(0))
                     {
-                        isCarrying = hitObject.PickUp(transform);
+                        Debug.Log("Grabbin Pills");
+                        innerThoughtsUI.text = "Got my pills!!!!";
+                        havePills = true;
                     }
                 }
-                else if (hitObject != null && isCarrying)
+                else if (hit.collider.CompareTag("Bed"))
                 {
-                    if (Input.GetMouseButtonDown(1))
+                    CrosshairActive();
+                    if (Input.GetMouseButtonDown(0))
                     {
-                        isCarrying = hitObject.DropDown();
+                        gameManager.CompleteDay();
                     }
-                }
-                ////////////////////////////////
-                ///I MOVED THIS HERE ^^^^^^^^^^^^^^^^^^^^^^^
-                ////////////////////////////////
-            }
 
-            else if (hit.collider.CompareTag("Objective"))
+                }
+            }
+            else
             {
-                CrosshairActive();
-                if (Input.GetMouseButtonDown(0))
+                if (hitThrowable != null)
                 {
-                    Debug.Log("Grabbin Pills");
-                    innerThoughtsUI.text = "Got my pills!!!!";
-                    havePills = true;
+                    hitThrowable.isHit = false;
+                    //isCarrying = hitObject.DropDown();
+                    hitThrowable = null;
                 }
-
+                CrosshairNormal();
             }
-
-            else if (hit.collider.CompareTag("Bed"))
-            {
-                CrosshairActive();
-                if (Input.GetMouseButtonDown(0))
-                {
-                    gameManager.CompleteDay();
-                }
-                   
-            }
-           
-            //else  //I CHANGED THIS LEMME KNOW IF THIS IS BAD
-            //{
-                //CrosshairNormal();
-                //hitObject.isHit = false;
-            //}
         }
-        else
+        else //If carrying object, see if you want to drop it and disable raycast until dropped.
         {
-            if (hitObject != null)
+            if(Input.GetMouseButtonDown(1))
             {
-                hitObject.isHit = false;
-                //isCarrying = hitObject.DropDown();
-                hitObject = null;
+                if(hitThrowable != null)
+                {
+                    hitThrowable.DropDown();
+                }
+                isCarrying = false;
             }
-            CrosshairNormal();
         }
-
-       
     }
 
     void CrosshairActive()
