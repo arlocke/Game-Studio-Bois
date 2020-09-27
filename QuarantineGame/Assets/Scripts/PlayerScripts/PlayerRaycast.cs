@@ -13,6 +13,7 @@ public class PlayerRaycast : MonoBehaviour
     //Public Classes
     public GameManager gameManager;
     public ThrowableObject hitThrowable;
+    public Lookable hitLookable;
     public GameObject raycastedObject;
     public Text innerThoughtsUI;
 
@@ -41,6 +42,8 @@ public class PlayerRaycast : MonoBehaviour
                 {
                     Debug.Log("Throwable");
 
+                    hitLookable = null;
+
                     //Grab throwable script.
                     var dud = raycastedObject.GetComponent<ThrowableObject>();
 
@@ -64,6 +67,29 @@ public class PlayerRaycast : MonoBehaviour
                         if (Input.GetMouseButtonDown(0))
                         {
                             isCarrying = hitThrowable.PickUp(transform);
+                        }
+                    }
+                }
+                else if(hit.collider.CompareTag("Lookable"))
+                {
+                    hitThrowable = null;
+
+                    var dud = raycastedObject.GetComponent<Lookable>();
+
+                    if(hitLookable != null && hitLookable != dud)
+                    {
+                        hitLookable.isHit = false;
+                    }
+
+                    hitLookable = dud;
+
+                    hitLookable.isHit = true;
+
+                    if(hitLookable != null && uiCActive)
+                    {
+                        if (Input.GetMouseButton(0))
+                        {
+                            isCarrying = hitLookable.PickUp(transform);
                         }
                     }
                 }
@@ -105,6 +131,10 @@ public class PlayerRaycast : MonoBehaviour
                 if(hitThrowable != null)
                 {
                     hitThrowable.DropDown();
+                }
+                if(hitLookable != null)
+                {
+                    hitLookable.DropDown();
                 }
                 isCarrying = false;
             }

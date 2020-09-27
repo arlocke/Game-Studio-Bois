@@ -53,9 +53,9 @@ public class ThrowableObject : MonoBehaviour
             transform.parent = tran;
             beingCarried = true;
             self.useGravity = false;
+            lastPosition = transform.localPosition;
+            carrier = tran;
         }
-        lastPosition = transform.localPosition;
-        carrier = tran;
         return isHit;
     }
 

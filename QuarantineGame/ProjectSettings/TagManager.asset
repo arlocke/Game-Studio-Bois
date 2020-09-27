@@ -7,6 +7,8 @@ TagManager:
   - Throwable
   - Objective
   - Bed
+  - Ball
+  - Lookable
   layers:
   - Default
   - TransparentFX
