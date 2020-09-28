@@ -9,6 +9,7 @@ TagManager:
   - Bed
   - Ball
   - Lookable
+  - Ground
   layers:
   - Default
   - TransparentFX
