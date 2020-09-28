@@ -126,6 +126,14 @@ public class PlayerRaycast : MonoBehaviour
         }
         else //If carrying object, see if you want to drop it and disable raycast until dropped.
         {
+            if(Input.GetMouseButtonDown(0))
+            {
+                if (hitThrowable != null)
+                {
+                    hitThrowable.ThrowDown();
+                    isCarrying = false;
+                }
+            }
             if(Input.GetMouseButtonDown(1))
             {
                 if(hitThrowable != null)
