@@ -95,6 +95,9 @@ public class PlayerRaycast : MonoBehaviour
                 }
                 else if(hit.collider.CompareTag("Objective"))
                 {
+                    hitLookable = null;
+                    hitThrowable = null;
+
                     CrosshairActive();
                     if (Input.GetMouseButtonDown(0))
                     {
@@ -105,6 +108,9 @@ public class PlayerRaycast : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Bed"))
                 {
+                    hitLookable = null;
+                    hitThrowable = null;
+
                     CrosshairActive();
                     if (Input.GetMouseButtonDown(0))
                     {
@@ -120,6 +126,11 @@ public class PlayerRaycast : MonoBehaviour
                     hitThrowable.isHit = false;
                     //isCarrying = hitObject.DropDown();
                     hitThrowable = null;
+                }
+                if(hitLookable != null)
+                {
+                    hitLookable.isHit = false;
+                    hitLookable = null;
                 }
                 CrosshairNormal();
             }
