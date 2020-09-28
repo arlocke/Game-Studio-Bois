@@ -85,6 +85,15 @@ public class ThrowableObject : MonoBehaviour
         transform.parent = null;
         beingCarried = false;
         self.useGravity = true;
+        carrier = null;
+    }
+
+    public void ThrowDown()
+    {
+        Debug.Log("Dropping");
+        transform.parent = null;
+        beingCarried = false;
+        self.useGravity = true;
         //add a throw impulse on drop.
         self.AddForce(carrier.forward * throwForce, ForceMode.Impulse);
         carrier = null;
