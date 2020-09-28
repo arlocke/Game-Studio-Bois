@@ -6,12 +6,16 @@ using UnityEngine;
 public class ThrowableObject : MonoBehaviour
 {
     public float throwForce = 10;
+    public float angleForgiveness = 5.0f;
     public bool isHit = false;
 
     protected bool beingCarried = false;
     protected bool touched = false;
 
-    protected Vector3 lastPosition;
+    protected Vector3 pickUpPosition;
+    protected Vector3 lastCamAngle;
+    protected Vector3 lastHitNorm;
+    protected Vector3 pinnedPosition;
     protected Rigidbody self;
     protected Transform carrier;
 
@@ -32,16 +36,32 @@ public class ThrowableObject : MonoBehaviour
         {
             self.velocity = Vector3.zero;
             self.angularVelocity = Vector3.zero;
-            transform.localPosition = lastPosition;
+            if(!touched)
+            {
+                transform.localPosition = pickUpPosition;
+            }
+            else
+            {
+                transform.position = pinnedPosition;
+                if(Vector3.Angle(carrier.forward, lastHitNorm) < Vector3.Angle(lastCamAngle, lastHitNorm))
+                {
+                    touched = false;
+                    transform.parent = carrier;
+                }
+            }
         }
     }
 
     //This is for bumping the object into the environment - need help with this
-    void OnTriggerEnter()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (beingCarried)
+        if(collision.transform.CompareTag("Ground") && beingCarried)
         {
             touched = true;
+            transform.parent = null;
+            lastCamAngle = carrier.forward;
+            pinnedPosition = transform.position;
+            lastHitNorm = collision.GetContact(0).normal;
         }
     }
 
@@ -53,9 +73,9 @@ public class ThrowableObject : MonoBehaviour
             transform.parent = tran;
             beingCarried = true;
             self.useGravity = false;
+            pickUpPosition = transform.localPosition;
+            carrier = tran;
         }
-        lastPosition = transform.localPosition;
-        carrier = tran;
         return isHit;
     }
 
@@ -65,6 +85,8 @@ public class ThrowableObject : MonoBehaviour
         transform.parent = null;
         beingCarried = false;
         self.useGravity = true;
+        //add a throw impulse on drop.
+        self.AddForce(carrier.forward * throwForce, ForceMode.Impulse);
         carrier = null;
     }
 }
