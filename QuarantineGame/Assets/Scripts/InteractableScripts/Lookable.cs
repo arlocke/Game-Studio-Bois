@@ -63,7 +63,7 @@ public class Lookable : MonoBehaviour
             {
                 cameraLook = carrier.GetComponent<MouseLook>();
             }
-            if (player == null)
+            if (player == null && cameraLook != null)
             {
                 player = cameraLook.playerBody.GetComponent<PlayerMovement>();
             }
@@ -115,7 +115,7 @@ public class Lookable : MonoBehaviour
     {
         if(beingCarried && !snapped)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, carrier.rotation, rSpeed);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, carrier.rotation, rSpeed * Time.deltaTime);
             if(transform.rotation == carrier.rotation)
             {
                 snapped = true;
@@ -123,7 +123,7 @@ public class Lookable : MonoBehaviour
         }
         else if(!beingCarried && snapped)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(lastRotation), rSpeed);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(lastRotation), rSpeed * Time.deltaTime);
             if(transform.rotation == Quaternion.Euler(lastRotation))
             {
                 snapped = false;
@@ -136,7 +136,7 @@ public class Lookable : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseRotateSpeed * Time.deltaTime;
 
-        transform.RotateAround(transform.position, carrier.up, mouseX);
+        transform.RotateAround(transform.position, carrier.up, -mouseX);
         transform.RotateAround(transform.position, carrier.right, mouseY);
     }
 }

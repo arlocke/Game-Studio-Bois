@@ -25,14 +25,14 @@ public class PlayerRaycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit; //Create Temporary raycast variable
-        Vector3 fwd = transform.TransformDirection(Vector3.forward); //Take Forward Vector 3
-
         //If not carrying, then run raycast.
         if(!isCarrying)
         {
+            RaycastHit hit; //Create Temporary raycast variable
+            Vector3 fwd = transform.TransformDirection(Vector3.forward); //Take Forward Vector 3
+
             //Run Raycast
-            if(Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMaskInteract.value))
+            if (Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMaskInteract.value))
             {
                 raycastedObject = hit.collider.gameObject; //Store hit object.
                 CrosshairActive(); //Active if hit object within layer mask.

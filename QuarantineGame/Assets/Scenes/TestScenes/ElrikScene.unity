@@ -423,7 +423,7 @@ MonoBehaviour:
   distanceFromCamera: 2
   mouseRotateSpeed: 50
   dSpeed: 10
-  rSpeed: 10
+  rSpeed: 100
   isHit: 0
 --- !u!65 &337975616
 BoxCollider:
