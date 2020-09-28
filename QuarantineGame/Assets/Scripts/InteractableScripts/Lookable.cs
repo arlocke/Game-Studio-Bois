@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lookable : MonoBehaviour
 {
     public float distanceFromCamera = 2.0f;
+    public float mouseRotateSpeed = 5.0f;
     public float dSpeed = 1.0f;
     public float rSpeed = 1.0f;
     public bool isHit = false;
@@ -39,6 +40,10 @@ public class Lookable : MonoBehaviour
             cameraLook.enabled = true;
             player.enabled = true;
             self.enabled = true;
+        }
+        else if(arrived && snapped && beingCarried)
+        {
+            MouseRotate();
         }
     }
 
@@ -77,8 +82,6 @@ public class Lookable : MonoBehaviour
     {
         Debug.Log("Dropping");
         transform.parent = null;
-        //transform.position = lastPosition;
-        //transform.eulerAngles = lastRotation;
         beingCarried = false;
         carrier = null;
     }
@@ -123,5 +126,14 @@ public class Lookable : MonoBehaviour
                 snapped = false;
             }
         }
+    }
+
+    private void MouseRotate()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseRotateSpeed * Time.deltaTime;
+
+        transform.RotateAround(transform.position, carrier.up, mouseX);
+        transform.RotateAround(transform.position, carrier.right, mouseY);
     }
 }

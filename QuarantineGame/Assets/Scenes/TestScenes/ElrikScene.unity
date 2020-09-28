@@ -421,7 +421,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFromCamera: 2
-  speed: 10
+  mouseRotateSpeed: 50
+  dSpeed: 10
+  rSpeed: 10
   isHit: 0
 --- !u!65 &337975616
 BoxCollider:
