@@ -10,6 +10,7 @@ public class Lookable : MonoBehaviour
     public float rSpeed = 1.0f;
     public bool isHit = false;
 
+    protected bool initializing = true;
     protected bool beingCarried = false;
     protected bool touched = false;
     protected bool arrived = false;
@@ -35,11 +36,12 @@ public class Lookable : MonoBehaviour
     {
         MoveObject();
         RotateObject();
-        if(!arrived && !snapped && !beingCarried)
+        if(!arrived && !snapped && !beingCarried && !initializing)
         {
             cameraLook.enabled = true;
             player.enabled = true;
             self.enabled = true;
+            initializing = true;
         }
         else if(arrived && snapped && beingCarried)
         {
@@ -75,6 +77,7 @@ public class Lookable : MonoBehaviour
             }
             self.enabled = false;
         }
+        initializing = false;
         return isHit;
     }
 

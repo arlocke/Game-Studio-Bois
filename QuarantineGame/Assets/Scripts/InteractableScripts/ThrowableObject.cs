@@ -32,12 +32,15 @@ public class ThrowableObject : MonoBehaviour
         {
             self.velocity = Vector3.zero;
             self.angularVelocity = Vector3.zero;
-            transform.localPosition = lastPosition;
+            if(touched == false)
+            {
+                transform.localPosition = lastPosition;
+            }
         }
     }
 
     //This is for bumping the object into the environment - need help with this
-    void OnTriggerEnter()
+    void OnCollisionEnter()
     {
         if (beingCarried)
         {
@@ -65,6 +68,8 @@ public class ThrowableObject : MonoBehaviour
         transform.parent = null;
         beingCarried = false;
         self.useGravity = true;
+        //add a throw impulse on drop.
+        self.AddForce(carrier.forward * throwForce, ForceMode.Impulse);
         carrier = null;
     }
 }
