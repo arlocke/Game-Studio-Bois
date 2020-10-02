@@ -1,0 +1,38 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Clock : MonoBehaviour
+{
+    public Text timeText; //Drag drop timeText in editor
+
+    private const float REAL_SECONDS_PER_INGAME_DAY = 990f; //16.5 minutes (7:30am-12am)
+    private float day; 
+    private float hoursPerDay = 24f; 
+    private float minutesPerHour = 60f;
+
+    string hoursString;
+    string minutesString;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        day += .3125f; //has the player start at 7:30am (7.5/24 = .3125)
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        day += Time.deltaTime / REAL_SECONDS_PER_INGAME_DAY;
+
+        float dayNormalized = day % 1f;
+
+        hoursString = Mathf.Floor(dayNormalized * hoursPerDay).ToString("0"); 
+        minutesString = Mathf.Floor(((dayNormalized * hoursPerDay) % 1f) * minutesPerHour).ToString("00");
+
+        timeText.text = hoursString + ":" + minutesString;
+        Debug.Log(timeText.text);
+    }
+}
