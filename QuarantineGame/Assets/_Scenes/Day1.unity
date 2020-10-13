@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3195,7 +3195,7 @@ Transform:
   - {fileID: 15095145}
   - {fileID: 862409125}
   - {fileID: 1640921748}
-  - {fileID: 1190888127}
+  - {fileID: 519503546}
   - {fileID: 1650086974}
   - {fileID: 964991784}
   - {fileID: 1825185642}
@@ -3203,9 +3203,9 @@ Transform:
   - {fileID: 29471644}
   - {fileID: 424488528}
   - {fileID: 1300846145}
-  - {fileID: 519503546}
-  - {fileID: 1004814175}
   - {fileID: 1098706092}
+  - {fileID: 1004814175}
+  - {fileID: 1190888127}
   - {fileID: 226928157}
   - {fileID: 754392921}
   m_Father: {fileID: 668032867}
@@ -5628,13 +5628,13 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 272393728}
-  - {fileID: 1375000063}
-  - {fileID: 250498959}
+  - {fileID: 1117628096}
+  - {fileID: 1657679031}
   - {fileID: 1107408283}
   - {fileID: 301493739}
-  - {fileID: 1117628096}
+  - {fileID: 1375000063}
   - {fileID: 915998226}
-  - {fileID: 1657679031}
+  - {fileID: 250498959}
   - {fileID: 63604505}
   m_Father: {fileID: 668032867}
   m_RootOrder: 14
@@ -5844,9 +5844,9 @@ Transform:
   m_Children:
   - {fileID: 1169757581}
   - {fileID: 407162243}
-  - {fileID: 781034401}
-  - {fileID: 1792908895}
   - {fileID: 414389152}
+  - {fileID: 1792908895}
+  - {fileID: 781034401}
   - {fileID: 1476085790}
   - {fileID: 1883715808}
   - {fileID: 1198391004}
@@ -6205,6 +6205,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 1197818304}
+  camScript: {fileID: 963194229}
   crouch: 0
 --- !u!1 &363020390
 GameObject:
@@ -6628,9 +6629,9 @@ Transform:
   m_Children:
   - {fileID: 2046907994}
   - {fileID: 245395389}
-  - {fileID: 1610894390}
-  - {fileID: 407369414}
   - {fileID: 1392262632}
+  - {fileID: 407369414}
+  - {fileID: 1610894390}
   - {fileID: 697964049}
   - {fileID: 2035983364}
   - {fileID: 806654388}
@@ -6638,10 +6639,10 @@ Transform:
   - {fileID: 1815833922}
   - {fileID: 2060169036}
   - {fileID: 1609950402}
-  - {fileID: 2043485106}
+  - {fileID: 1489202105}
   - {fileID: 1767884389}
   - {fileID: 1262569710}
-  - {fileID: 1489202105}
+  - {fileID: 2043485106}
   - {fileID: 1502679979}
   - {fileID: 1793208912}
   - {fileID: 1021209685}
@@ -8857,12 +8858,12 @@ Transform:
   m_Children:
   - {fileID: 285959956}
   - {fileID: 609985767}
-  - {fileID: 1347275937}
+  - {fileID: 547803453}
   - {fileID: 769260770}
   - {fileID: 386720222}
-  - {fileID: 84769259}
+  - {fileID: 1347275937}
   - {fileID: 1435541935}
-  - {fileID: 547803453}
+  - {fileID: 84769259}
   m_Father: {fileID: 668032867}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9347,6 +9348,7 @@ GameObject:
   - component: {fileID: 569670905}
   - component: {fileID: 569670904}
   - component: {fileID: 569670903}
+  - component: {fileID: 569670908}
   m_Layer: 9
   m_Name: Cube (2)
   m_TagString: Throwable
@@ -9381,7 +9383,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &569670904
 Rigidbody:
@@ -9458,6 +9463,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569670901}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &569670908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569670901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &570169185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5211013256831271821, guid: de144f109470d9946a2b6659533f310c,
@@ -9841,6 +9858,7 @@ GameObject:
   - component: {fileID: 607003145}
   - component: {fileID: 607003144}
   - component: {fileID: 607003143}
+  - component: {fileID: 607003148}
   m_Layer: 9
   m_Name: Cube (4)
   m_TagString: Throwable
@@ -9875,7 +9893,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &607003144
 Rigidbody:
@@ -9952,6 +9973,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607003141}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &607003148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607003141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &608765682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10759,6 +10792,7 @@ GameObject:
   - component: {fileID: 655988423}
   - component: {fileID: 655988422}
   - component: {fileID: 655988421}
+  - component: {fileID: 655988426}
   m_Layer: 9
   m_Name: Cube (7)
   m_TagString: Throwable
@@ -10793,7 +10827,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &655988422
 Rigidbody:
@@ -10870,6 +10907,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655988419}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &655988426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655988419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &667314504
 GameObject:
   m_ObjectHideFlags: 0
@@ -11738,6 +11787,7 @@ GameObject:
   - component: {fileID: 728407391}
   - component: {fileID: 728407390}
   - component: {fileID: 728407389}
+  - component: {fileID: 728407394}
   m_Layer: 9
   m_Name: Cube (14)
   m_TagString: Throwable
@@ -11772,7 +11822,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &728407390
 Rigidbody:
@@ -11849,6 +11902,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728407387}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &728407394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728407387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &729335639
 GameObject:
   m_ObjectHideFlags: 0
@@ -14073,6 +14138,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 913363013}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &885856055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885856057}
+  - component: {fileID: 885856056}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &885856056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885856055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edaa7edcd6433548bfe18f99257ee56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &885856057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885856055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.0456874, y: -5.269098, z: 20.03675}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 109
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &887853831
 GameObject:
   m_ObjectHideFlags: 0
@@ -14719,6 +14827,7 @@ GameObject:
   - component: {fileID: 938712197}
   - component: {fileID: 938712196}
   - component: {fileID: 938712195}
+  - component: {fileID: 938712200}
   m_Layer: 9
   m_Name: Cube (6)
   m_TagString: Throwable
@@ -14753,7 +14862,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &938712196
 Rigidbody:
@@ -14830,6 +14942,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938712193}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &938712200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938712193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &939015163
 GameObject:
   m_ObjectHideFlags: 0
@@ -17542,21 +17666,21 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 815406841}
-  - {fileID: 1727969606}
+  - {fileID: 1714766413}
   - {fileID: 674785333}
   - {fileID: 1848017580}
-  - {fileID: 1858482688}
+  - {fileID: 1727969606}
   - {fileID: 570169185}
   - {fileID: 694402512}
   - {fileID: 730127201}
   - {fileID: 1482378923}
-  - {fileID: 1714766413}
+  - {fileID: 1010387863}
   - {fileID: 814875468}
   - {fileID: 1295202637}
   - {fileID: 1538503788}
   - {fileID: 304503576}
   - {fileID: 249789846}
-  - {fileID: 1010387863}
+  - {fileID: 1858482688}
   - {fileID: 1095011910}
   - {fileID: 1236574472}
   - {fileID: 372970401}
@@ -17846,10 +17970,10 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 1194716036}
-  - {fileID: 1293449455}
+  - {fileID: 589397443}
   - {fileID: 94393403}
   - {fileID: 177559129}
-  - {fileID: 589397443}
+  - {fileID: 1293449455}
   - {fileID: 2115020670}
   m_Father: {fileID: 668032867}
   m_RootOrder: 20
@@ -21782,6 +21906,7 @@ GameObject:
   - component: {fileID: 1325691484}
   - component: {fileID: 1325691483}
   - component: {fileID: 1325691487}
+  - component: {fileID: 1325691488}
   m_Layer: 9
   m_Name: Cube
   m_TagString: Throwable
@@ -21891,8 +22016,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
+--- !u!114 &1325691488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325691481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1337512761
 GameObject:
   m_ObjectHideFlags: 0
@@ -22343,6 +22483,7 @@ GameObject:
   - component: {fileID: 1369784190}
   - component: {fileID: 1369784189}
   - component: {fileID: 1369784188}
+  - component: {fileID: 1369784193}
   m_Layer: 9
   m_Name: Cube (5)
   m_TagString: Throwable
@@ -22377,7 +22518,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &1369784189
 Rigidbody:
@@ -22454,6 +22598,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369784186}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1369784193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369784186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1371320196
 GameObject:
   m_ObjectHideFlags: 0
@@ -24767,6 +24923,7 @@ GameObject:
   - component: {fileID: 1551506683}
   - component: {fileID: 1551506682}
   - component: {fileID: 1551506681}
+  - component: {fileID: 1551506686}
   m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Throwable
@@ -24801,7 +24958,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &1551506682
 Rigidbody:
@@ -24878,6 +25038,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551506679}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1551506686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551506679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1554240491
 GameObject:
   m_ObjectHideFlags: 0
@@ -28211,6 +28383,7 @@ GameObject:
   - component: {fileID: 1846574701}
   - component: {fileID: 1846574700}
   - component: {fileID: 1846574699}
+  - component: {fileID: 1846574704}
   m_Layer: 9
   m_Name: Cube (3)
   m_TagString: Throwable
@@ -28245,7 +28418,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &1846574700
 Rigidbody:
@@ -28322,6 +28498,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846574697}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1846574704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846574697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1848017580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3770148356301265821, guid: 2e68008652d368e4081a033e993282d7,
@@ -29437,6 +29625,7 @@ GameObject:
   - component: {fileID: 1938093782}
   - component: {fileID: 1938093781}
   - component: {fileID: 1938093780}
+  - component: {fileID: 1938093785}
   m_Layer: 9
   m_Name: Cube (9)
   m_TagString: Throwable
@@ -29471,7 +29660,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &1938093781
 Rigidbody:
@@ -29548,6 +29740,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938093778}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1938093785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938093778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1938409673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29960,6 +30164,7 @@ GameObject:
   - component: {fileID: 1964571230}
   - component: {fileID: 1964571229}
   - component: {fileID: 1964571228}
+  - component: {fileID: 1964571233}
   m_Layer: 9
   m_Name: Cube (8)
   m_TagString: Throwable
@@ -29994,7 +30199,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &1964571229
 Rigidbody:
@@ -30071,6 +30279,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964571226}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1964571233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964571226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1966812274
 GameObject:
   m_ObjectHideFlags: 0
@@ -32352,6 +32572,7 @@ GameObject:
   - component: {fileID: 2125497074}
   - component: {fileID: 2125497073}
   - component: {fileID: 2125497072}
+  - component: {fileID: 2125497077}
   m_Layer: 9
   m_Name: Cube (10)
   m_TagString: Throwable
@@ -32386,7 +32607,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwForce: 10
-  angleForgiveness: 5
+  maxDistance: 1
+  maxSpeed: 1000
+  minSpeed: 0
+  rotationSpeed: 100
   isHit: 0
 --- !u!54 &2125497073
 Rigidbody:
@@ -32463,6 +32687,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125497070}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2125497077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125497070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818434375324974b8d752ab6931a58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2137681178
 PrefabInstance:
   m_ObjectHideFlags: 0

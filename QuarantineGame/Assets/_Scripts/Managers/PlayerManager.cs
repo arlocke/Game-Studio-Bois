@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     //Public Variables:
     public float walkSpeed = 8f;
@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public Camera playerCam;
     public LayerMask groundMask;  //PLEASE SET TO GROUND OR ELSE Y GRAVITY IS GOING TO INFINITELY INCREASE. PLEASE.
     public Transform groundCheck;
+    public MouseLook camScript;
 
     //Private Variables:
     protected float xAxis = 0.0f;
@@ -28,12 +29,15 @@ public class PlayerMovement : MonoBehaviour
     protected Transform body;
     protected Vector3 CameraOrigin;
     //protected Vector3 velocity = new Vector3(0,0,0);  //No need to add this tbh, if x/z movement won't vary then there's no reason to use a class to hold a float.
-    
+
 
     void Start()
     {
+        //Add Save to Events;
+        EventManager.SaveInitiated += Save;
+        EventManager.LoadInitiated += Load;
         body = transform.GetComponent<Transform>();
-        if(body == null)
+        if (body == null)
         {
             Debug.Log("Can't find Transform - PlayerMovement Script");
         }
@@ -53,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             CheckCrouch();
         }
-        
+
         //HANDLING X/Z AXIS.
         //Create move to consider X and Z axis.
         Vector3 move = transform.right * xAxis + transform.forward * zAxis;
@@ -81,16 +85,26 @@ public class PlayerMovement : MonoBehaviour
 
         //Move on the Y Axis.
         controller.Move(move * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            EventManager.OnSaveInitiated();
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            EventManager.OnLoadInitiated();
+        }
     }
 
     private void CheckCrouch()
     {
-        if(!crouch)
+        if (!crouch)
         {
             crouch = true;
             controller.height = crouchHeight;
             controller.enabled = false; //Need to disable controller to adjust position directly.
-            body.transform.position -= (Vector3.up * ((defHeight-crouchHeight)/2));
+            body.transform.position -= (Vector3.up * ((defHeight - crouchHeight) / 2));
             controller.enabled = true;
             playerCam.transform.position -= (Vector3.up * ((defHeight - crouchHeight) / 4));
         }
@@ -100,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
             RaycastHit hit;
             ray.origin = transform.position;
             ray.direction = Vector3.up;
-            if(!Physics.Raycast(ray, out hit, defHeight))
+            if (!Physics.Raycast(ray, out hit, defHeight))
             {
                 crouch = false;
                 controller.height = defHeight;
@@ -115,19 +129,26 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    //void CheckCrouch()
-    //{
-    //    if(crouch == true)
-    //    {
-    //        playerCam.transform.localPosition = new Vector3(0, 0, 0);
-    //        controller.height = 1f;
-    //    }
-    //    else
-    //    {
-    //        //This should be fixed to just change character controller height and not have them jump up like a dumbass
-    //        playerCam.transform.localPosition = new Vector3(0, 1, 0);
-    //        controller.height = 3.8f;
-    //        //controller.Move(new Vector3(0, 3, 0));
-    //    }
-    //}
+
+    private void Save()
+    {
+        SaveLoad.SavePlayer(this);
+    }
+
+    private void Load()
+    {
+        controller.enabled = false;
+        PlayerData data = SaveLoad.LoadPlayer();
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        Vector3 rotation;
+        rotation.x = data.rotation[0];
+        rotation.y = data.rotation[1];
+        rotation.z = data.rotation[2];
+        camScript.setY(rotation.y);
+        transform.position = position;
+        controller.enabled = true;
+    }
 }

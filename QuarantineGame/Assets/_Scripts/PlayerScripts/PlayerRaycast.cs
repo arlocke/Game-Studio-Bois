@@ -22,6 +22,11 @@ public class PlayerRaycast : MonoBehaviour
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private Image uiCrosshair;
 
+    private void Start()
+    {
+        EventManager.LoadInitiated += DropAll;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -40,7 +45,7 @@ public class PlayerRaycast : MonoBehaviour
                 //If Throwable
                 if(hit.collider.CompareTag("Throwable"))
                 {
-                    Debug.Log("Throwable");
+                    //Debug.Log("Throwable");
 
                     hitLookable = null;
 
@@ -170,6 +175,19 @@ public class PlayerRaycast : MonoBehaviour
     {
         uiCActive = true;
         uiCrosshair.color = Color.white;
+    }
+
+    void DropAll()
+    {
+        if (hitThrowable != null)
+        {
+            hitThrowable.DropDown();
+        }
+        if (hitLookable != null)
+        {
+            hitLookable.DropDown();
+        }
+        isCarrying = false;
     }
 }
     
