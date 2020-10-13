@@ -8,7 +8,7 @@ public class ThrowableObject : MonoBehaviour
     public float throwForce = 10;
     //public float angleForgiveness = 5.0f;
     public float maxDistance = 1.0f;
-    public float maxSpeed = 1000.0f;
+    public float maxSpeed = 500.0f;
     public float minSpeed = 0.0f;
     public float rotationSpeed = 100.0f;
     public bool isHit = false;

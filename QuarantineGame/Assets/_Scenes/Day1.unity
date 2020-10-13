@@ -9384,7 +9384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -9894,7 +9894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -10828,7 +10828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -11823,7 +11823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -14863,7 +14863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -22017,7 +22017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -22519,7 +22519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -24959,7 +24959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -28419,7 +28419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -29661,7 +29661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -30200,7 +30200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
@@ -32608,7 +32608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   maxDistance: 1
-  maxSpeed: 1000
+  maxSpeed: 500
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
