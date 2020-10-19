@@ -7,7 +7,8 @@ public class Clock : MonoBehaviour
 {
     public Text timeText; //Drag drop timeText in editor
 
-    private const float REAL_SECONDS_PER_INGAME_DAY = 990f; //16.5 minutes (7:30am-12am)
+    private const float REAL_SECONDS_WHILE_AWAKE = 990f; //16.5 minutes (7:30am-12am)
+    private const float REAL_SECONDS_PER_INGAME_DAY = 1440f; //24 minutes (1440 seconds)
     private float day; 
     private float hoursPerDay = 24f; 
     private float minutesPerHour = 60f;
@@ -25,7 +26,7 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        day += Time.deltaTime / REAL_SECONDS_PER_INGAME_DAY;
+        day += Time.deltaTime / REAL_SECONDS_PER_INGAME_DAY; // this needs to be fixed
 
         float dayNormalized = day % 1f;
 
