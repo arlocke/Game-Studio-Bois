@@ -20,7 +20,7 @@ public class Lookable : MonoBehaviour
     protected Vector3 lastRotation;
     protected Transform carrier;
     protected MouseLook cameraLook = null;
-    protected PlayerMovement player = null;
+    protected PlayerManager player = null;
     protected Collider self;
 
     private void Start()
@@ -65,7 +65,7 @@ public class Lookable : MonoBehaviour
             }
             if (player == null && cameraLook != null)
             {
-                player = cameraLook.playerBody.GetComponent<PlayerMovement>();
+                player = cameraLook.playerBody.GetComponent<PlayerManager>();
             }
             if(cameraLook != null)
             {
