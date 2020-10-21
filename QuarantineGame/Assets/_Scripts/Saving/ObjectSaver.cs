@@ -11,22 +11,18 @@ public class ObjectSaver : MonoBehaviour
     {
         ID = transform.position.sqrMagnitude + "-" + name + "-" + transform.GetSiblingIndex();
         Debug.Log("ID is " + ID);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
+        //Adding Saving to Events
         EventManager.SaveInitiated += Save;
         EventManager.LoadInitiated += Load;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Destroy(gameObject);
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.C))
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     private void Save()
     {

@@ -35,5 +35,10 @@ public class Clock : MonoBehaviour
 
         timeText.text = hoursString + ":" + minutesString;
         Debug.Log(timeText.text);
+
+        if(day >= 0.34)
+        {
+            EventManager.OnFirstCallInitiated();
+        }
     }
 }

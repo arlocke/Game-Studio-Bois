@@ -7,6 +7,7 @@ public static class EventManager
     //Creating Event Actions
     public static System.Action SaveInitiated;
     public static System.Action LoadInitiated;
+    public static System.Action FirstCall;
 
     public static void OnSaveInitiated()
     {
@@ -16,5 +17,10 @@ public static class EventManager
     public static void OnLoadInitiated()
     {
         LoadInitiated?.Invoke();
+    }
+
+    public static void OnFirstCallInitiated()
+    {
+        FirstCall?.Invoke();
     }
 }

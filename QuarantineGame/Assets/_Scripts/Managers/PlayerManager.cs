@@ -30,12 +30,15 @@ public class PlayerManager : MonoBehaviour
     protected Vector3 CameraOrigin;
     //protected Vector3 velocity = new Vector3(0,0,0);  //No need to add this tbh, if x/z movement won't vary then there's no reason to use a class to hold a float.
 
-
-    void Start()
+    private void Awake()
     {
         //Add Save to Events;
         EventManager.SaveInitiated += Save;
         EventManager.LoadInitiated += Load;
+    }
+
+    void Start()
+    {
         body = transform.GetComponent<Transform>();
         if (body == null)
         {

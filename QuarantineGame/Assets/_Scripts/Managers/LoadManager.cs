@@ -9,4 +9,12 @@ public class LoadManager : MonoBehaviour
     {
         DestroyedObjectManager.Initiate();
     }
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("Load", 0) == 1)
+        {
+            EventManager.OnLoadInitiated();
+        }
+    }
 }
