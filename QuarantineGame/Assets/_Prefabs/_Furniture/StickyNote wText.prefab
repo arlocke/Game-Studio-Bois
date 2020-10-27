@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 661693465442444977}
   - component: {fileID: 6490329006992202312}
   m_Layer: 0
-  m_Name: StickyNote
+  m_Name: StickyNote wText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4768909397512236692}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.04, z: 0.05}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 571357081971470322}
   m_Father: {fileID: 0}
