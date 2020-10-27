@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         if(playerCam.GetComponent<PlayerRaycast>().havePills == true) 
         {
             innerThoughtsUI.text = "DAY COMPLETED";
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // THIS IS SO FUCKING BAD CODING BITCH BLAH POOPIE BUTT
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // THIS IS SO FUCKING BAD CODING
         }
         else
         {

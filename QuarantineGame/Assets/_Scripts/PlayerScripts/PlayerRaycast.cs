@@ -14,8 +14,10 @@ public class PlayerRaycast : MonoBehaviour
     public GameManager gameManager;
     public ThrowableObject hitThrowable;
     public Lookable hitLookable;
+    public QuestGiver hitQuestGiver;
     public GameObject raycastedObject;
     public Text innerThoughtsUI;
+   
 
     //Private Serialized Fields
     [SerializeField] private int rayLength = 10;
@@ -43,7 +45,7 @@ public class PlayerRaycast : MonoBehaviour
                 CrosshairActive(); //Active if hit object within layer mask.
 
                 //If Throwable
-                if(hit.collider.CompareTag("Throwable"))
+                if (hit.collider.CompareTag("Throwable"))
                 {
                     //Debug.Log("Throwable");
 
@@ -75,13 +77,13 @@ public class PlayerRaycast : MonoBehaviour
                         }
                     }
                 }
-                else if(hit.collider.CompareTag("Lookable"))
+                else if (hit.collider.CompareTag("Lookable"))
                 {
                     hitThrowable = null;
 
                     var dud = raycastedObject.GetComponent<Lookable>();
 
-                    if(hitLookable != null && hitLookable != dud)
+                    if (hitLookable != null && hitLookable != dud)
                     {
                         hitLookable.isHit = false;
                     }
@@ -90,7 +92,7 @@ public class PlayerRaycast : MonoBehaviour
 
                     hitLookable.isHit = true;
 
-                    if(hitLookable != null && uiCActive)
+                    if (hitLookable != null && uiCActive)
                     {
                         if (Input.GetMouseButton(0))
                         {
@@ -98,7 +100,7 @@ public class PlayerRaycast : MonoBehaviour
                         }
                     }
                 }
-                else if(hit.collider.CompareTag("Objective"))
+                else if (hit.collider.CompareTag("Objective"))
                 {
                     hitLookable = null;
                     hitThrowable = null;
@@ -123,6 +125,32 @@ public class PlayerRaycast : MonoBehaviour
                     }
 
                 }
+                else if (hit.collider.CompareTag("QuestGiver"))
+                {
+                    hitLookable = null;
+                    hitThrowable = null;
+
+                    var dud = raycastedObject.GetComponent<QuestGiver>();
+
+                    if (hitQuestGiver != null && hitQuestGiver != dud)
+                    {
+                        hitQuestGiver.isHit = false;
+                    }
+
+                    hitQuestGiver = dud;
+
+                    hitQuestGiver.isHit = true;
+
+                    if (hitQuestGiver != null && uiCActive)
+                    {
+                        if (Input.GetMouseButton(0) && !hitQuestGiver.activated)
+                        {
+                            Debug.Log("Give a quest");
+                            hitQuestGiver.UpdateQuestLog();
+                        }
+                    }
+
+                }
             }
             else
             {
@@ -136,6 +164,11 @@ public class PlayerRaycast : MonoBehaviour
                 {
                     hitLookable.isHit = false;
                     hitLookable = null;
+                }
+                if (hitQuestGiver != null)
+                {
+                    hitQuestGiver.isHit = false;
+                    hitQuestGiver = null;
                 }
                 CrosshairNormal();
             }
