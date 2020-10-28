@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2700959530440939840}
   - component: {fileID: 8522839139981764025}
   - component: {fileID: 7911228374012307041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Floor_purple_lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}

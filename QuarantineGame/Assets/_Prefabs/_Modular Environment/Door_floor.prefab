@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9573961101881227}
   - component: {fileID: 9041264085896598973}
   - component: {fileID: 3334225734546155844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door_floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2944156582256948363}
   - component: {fileID: 4589892645688390728}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
