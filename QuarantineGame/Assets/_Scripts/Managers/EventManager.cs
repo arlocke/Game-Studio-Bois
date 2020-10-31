@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class EventManager
 {
+
     //Creating Event Actions
     public static System.Action SaveInitiated;
     public static System.Action LoadInitiated;
     public static System.Action FirstCall;
+    //public static System.Action InnerThought;
 
     public static void OnSaveInitiated()
     {
@@ -23,4 +26,10 @@ public static class EventManager
     {
         FirstCall?.Invoke();
     }
+
+    /*
+    public static void OnInnerThoughtInitiated(string ThoughtText)
+    {
+
+    }*/
 }

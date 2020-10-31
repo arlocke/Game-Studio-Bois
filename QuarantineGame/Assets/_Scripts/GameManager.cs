@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Right now havePills is in playerRaycast - maybe make a script in the future for storing playerData 
-    public void CompleteDay()
+    public void CompleteDay() // This needs to be changed to ask the player if they want to transistion to the next day
     {
         if(playerCam.GetComponent<PlayerRaycast>().havePills == true) 
         {

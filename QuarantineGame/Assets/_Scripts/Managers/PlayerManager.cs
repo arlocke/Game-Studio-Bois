@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    //Public Gameplay Necessary Variables
+    //public bool havePills = false; //boolean for if the player picked up the pills
+    //public string currentRoom; //Placeholder string for room the player is currently in
+
     //Public Variables:
     public float walkSpeed = 8f;
     public float gravity = -9.81f;

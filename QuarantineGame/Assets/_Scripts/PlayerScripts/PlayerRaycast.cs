@@ -9,6 +9,7 @@ public class PlayerRaycast : MonoBehaviour
     public bool uiCActive = false; //Currently always true?
     public bool isCarrying = false; //Is currently carrying an object!
     public bool havePills = false; //boolean for if the player picked up the pills
+    public string currentRoom; //Placeholder string for room the player is currently in
 
     //Public Classes
     public GameManager gameManager;
@@ -17,6 +18,7 @@ public class PlayerRaycast : MonoBehaviour
     public QuestGiver hitQuestGiver;
     public GameObject raycastedObject;
     public Text innerThoughtsUI;
+    public PlayerUI playerUI;
    
 
     //Private Serialized Fields
@@ -109,7 +111,9 @@ public class PlayerRaycast : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         Debug.Log("Grabbin Pills");
-                        innerThoughtsUI.text = "Got my pills!!!!";
+                        //innerThoughtsUI.text = "Got my pills!!!!";
+                        StartCoroutine(playerUI.InnerThought("Here are my pills", 10.0f));
+                        // add playerUI script here
                         havePills = true;
                     }
                 }
