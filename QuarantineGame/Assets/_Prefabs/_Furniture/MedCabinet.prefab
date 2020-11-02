@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5958149367665463661}
   - component: {fileID: 3455562698725796699}
   - component: {fileID: 8991461515725887394}
+  - component: {fileID: 9033425410308651858}
   m_Layer: 0
   m_Name: MedCabinet
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9033425410308651858
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274651025737114494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 3400378522910437757, guid: 5b041fcc9f4a9c341b67ab3a113abf8e, type: 3}
 --- !u!1001 &3244143566066126198
 PrefabInstance:
   m_ObjectHideFlags: 0
