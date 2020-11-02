@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     public float gravity = -9.81f;
     public float groundDistance = 0.4f;
     public float crouchHeight = 1.0f;
+    public float pushPower = 2.0f; // Allows for pushing objects with the character controller!
 
     //Public Classes:
     public CharacterController controller;
@@ -157,5 +158,16 @@ public class PlayerManager : MonoBehaviour
         camScript.setY(rotation.y);
         transform.position = position;
         controller.enabled = true;
+    }
+
+    //This allows the controller to hit things which are rigid bodies!!!
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        var body = hit.collider.attachedRigidbody;
+        if (body == null || body.isKinematic) { return; }
+        if (hit.moveDirection.y < -0.3) { return; }
+        var pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        //body.velocity = pushDir * pushPower;
+        body.AddForce(pushDir * pushPower, ForceMode.Impulse);
     }
 }
