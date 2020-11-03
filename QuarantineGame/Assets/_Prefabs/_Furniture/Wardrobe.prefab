@@ -177,6 +177,24 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &2078799047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542261151913491209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97968f89c42660a40a49bdb30b6baa6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwForce: 10
+  maxDistance: 1
+  maxSpeed: 500
+  minSpeed: 0
+  rotationSpeed: 100
+  isHit: 0
 --- !u!54 &1880867782
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -242,6 +260,24 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1709731252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542261152247282791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97968f89c42660a40a49bdb30b6baa6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwForce: 10
+  maxDistance: 1
+  maxSpeed: 500
+  minSpeed: 0
+  rotationSpeed: 100
+  isHit: 0
 --- !u!1001 &7369818971188110702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -323,6 +359,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WardrobeRightDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b7f4341099ad6b046a7b5779ab4a5292,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b7f4341099ad6b046a7b5779ab4a5292,
+        type: 3}
+      propertyPath: m_TagString
+      value: Throwable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f4341099ad6b046a7b5779ab4a5292, type: 3}
@@ -419,6 +465,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WardrobeLeftDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c2ac11caf2f1de5438c070ece7130c67,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c2ac11caf2f1de5438c070ece7130c67,
+        type: 3}
+      propertyPath: m_TagString
+      value: Throwable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2ac11caf2f1de5438c070ece7130c67, type: 3}
