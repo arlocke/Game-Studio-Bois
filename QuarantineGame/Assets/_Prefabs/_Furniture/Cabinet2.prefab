@@ -355,7 +355,7 @@ Transform:
   m_GameObject: {fileID: 6569203017296059366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.047549, y: 0.047549, z: 0.047549}
+  m_LocalScale: {x: 0.0508, y: 0.0508, z: 0.0508}
   m_Children:
   - {fileID: 453137124}
   - {fileID: 7886126813863525478}
@@ -462,6 +462,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &358019567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6569203017802993269}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30.224497, y: 12.973398, z: 2.813965}
+  m_Center: {x: -15.112248, y: 6.4866915, z: 26.624016}
 --- !u!153 &1385592738
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -473,7 +486,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -13.638999, y: 3.9720173, z: -0.08557892}
+  m_ConnectedAnchor: {x: -0.23239255, y: 1.6173851, z: -1.297}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -557,19 +570,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!65 &358019567
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6569203017802993269}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 30.224497, y: 12.973398, z: 2.813965}
-  m_Center: {x: -15.112248, y: 6.4866915, z: 26.624016}
 --- !u!114 &358019562
 MonoBehaviour:
   m_ObjectHideFlags: 0
