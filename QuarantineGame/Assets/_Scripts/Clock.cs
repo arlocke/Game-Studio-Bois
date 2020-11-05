@@ -16,6 +16,8 @@ public class Clock : MonoBehaviour
     string hoursString;
     string minutesString;
 
+    bool called = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +39,10 @@ public class Clock : MonoBehaviour
         timeText.text = hoursString + ":" + minutesString;
         //Debug.Log(timeText.text);
 
-        if(day >= 0.32)
+        if(day >= 0.32 && !called)
         {
-            //EventManager.OnInnerThoughtInitiated("hello I want to do this");
+            called = true;
+            EventManager.OnInnerThoughtInitiated("hello I want to do this", 5.0f);
         }
     }
 }

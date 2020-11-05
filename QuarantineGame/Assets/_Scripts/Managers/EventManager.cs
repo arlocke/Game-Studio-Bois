@@ -10,7 +10,7 @@ public static class EventManager
     public static System.Action SaveInitiated;
     public static System.Action LoadInitiated;
     public static System.Action FirstCall;
-    //public static System.Action InnerThought;
+    public static System.Action<string, float> InnerThought;
 
     public static void OnSaveInitiated()
     {
@@ -27,9 +27,8 @@ public static class EventManager
         FirstCall?.Invoke();
     }
 
-    /*
-    public static void OnInnerThoughtInitiated(string ThoughtText)
+    public static void OnInnerThoughtInitiated(string thought, float time)
     {
-
-    }*/
+        InnerThought?.Invoke(thought, time);
+    }
 }
