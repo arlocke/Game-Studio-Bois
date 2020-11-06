@@ -29,8 +29,7 @@ public class Clock : MonoBehaviour
         time += 450; //has the player start at 7:30am (60 * 7.5 = 450)
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         time += Time.deltaTime; // use this when calling events
         timeRounded = Mathf.Ceil(time);
@@ -49,8 +48,6 @@ public class Clock : MonoBehaviour
         {
              clocksToDisplay[i].text = hoursString + ":" + minutesString; // is this bad?
         }
-        //timeText.text = hoursString + ":" + minutesString;
-        //Debug.Log(timeText.text);
 
         if(timeRounded == 455)
         {

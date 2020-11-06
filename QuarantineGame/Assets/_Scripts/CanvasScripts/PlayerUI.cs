@@ -11,6 +11,8 @@ public class PlayerUI : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log(transform.gameObject.name);
+        EventManager.AddQuest += ActivateQuestUI;
         EventManager.InnerThought += startInner;
     }
 
@@ -27,9 +29,9 @@ public class PlayerUI : MonoBehaviour
         innerThoughtsUI.enabled = false;
     }
     
-    public void ActivateQuest(string QuestText)
+    public void ActivateQuestUI(string QuestText)
     {
+        Debug.Log("Creating text SIR");
         questLogUI.text += QuestText + "\n";
     }
-
 }

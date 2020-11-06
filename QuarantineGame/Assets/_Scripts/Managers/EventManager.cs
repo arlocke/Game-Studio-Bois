@@ -12,6 +12,7 @@ public static class EventManager
     public static System.Action FirstCall;
     public static System.Action<string, float> InnerThought;
     public static System.Action<string> AddEmail;
+    public static System.Action<string> AddQuest;
 
     public static void OnSaveInitiated()
     {
@@ -36,5 +37,11 @@ public static class EventManager
     public static void OnAddEmailInitiated(string email)
     {
         AddEmail?.Invoke(email);
+    }
+
+    public static void OnAddQuestInitiated(string name)
+    {
+        Debug.Log("Adding quest SIR");
+        AddQuest?.Invoke(name);
     }
 }

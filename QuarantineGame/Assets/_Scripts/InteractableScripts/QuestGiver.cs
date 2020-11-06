@@ -6,19 +6,22 @@ using UnityEngine.UI;
 public class QuestGiver : MonoBehaviour
 {
     //public variables
+    public string key = "";
     public bool isHit = false;
     public bool activated = false; //if quest has already been discovered
-    public string QuestText;
     //public Text questLogUI; //Click and drag the QuestLog from the FPSPlayer -> Canvas -> QuestLog
-    public PlayerUI playerUI;
-    
+    public LoadManager loader;
 
 
     public void UpdateQuestLog()
     {
+        Debug.Log("Updating Quest Log SIR");
         activated = true;
-        playerUI.ActivateQuest(QuestText);
-        transform.localScale = new Vector3(0, 0, 0);
+        if (loader.checkDictionary(key))
+        {
+            EventManager.OnAddQuestInitiated(loader.getQuestName(key));
+        }
+        gameObject.SetActive(false);
     }
 
     //Some bullshit with giving time constraints and flags for quest completion and all that complicated junk
