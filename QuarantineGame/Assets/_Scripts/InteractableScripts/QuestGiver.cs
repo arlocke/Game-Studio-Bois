@@ -17,9 +17,12 @@ public class QuestGiver : MonoBehaviour
     {
         Debug.Log("Updating Quest Log SIR");
         activated = true;
-        if (loader.checkDictionary(key))
+        if(loader != null)
         {
-            EventManager.OnAddQuestInitiated(loader.getQuestName(key));
+            if (loader.checkDictionary(key))
+            {
+                EventManager.OnAddQuestInitiated(loader.getQuestName(key));
+            }
         }
         gameObject.SetActive(false);
     }

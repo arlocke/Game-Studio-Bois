@@ -110,11 +110,16 @@ public class PlayerRaycast : MonoBehaviour
                     CrosshairActive();
                     if (Input.GetMouseButtonDown(0))
                     {
-                        Debug.Log("Grabbin Pills");
-                        //innerThoughtsUI.text = "Got my pills!!!!";
-                        StartCoroutine(playerUI.InnerThought("Here are my pills", 10.0f));
-                        // add playerUI script here
-                        havePills = true;
+                        var dud = hit.transform.GetComponent<QuestObjective>();
+                        if(dud != null)
+                        {
+                            Debug.Log("Grabbin Pills");
+                            //innerThoughtsUI.text = "Got my pills!!!!";
+                            //StartCoroutine(playerUI.InnerThought("Here are my pills", 10.0f));
+                            // add playerUI script here
+                            havePills = true;
+                            dud.SetComplete();
+                        }
                     }
                 }
                 else if (hit.collider.CompareTag("Bed"))

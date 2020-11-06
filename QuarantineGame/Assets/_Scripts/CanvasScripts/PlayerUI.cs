@@ -13,6 +13,7 @@ public class PlayerUI : MonoBehaviour
     {
         Debug.Log(transform.gameObject.name);
         EventManager.AddQuest += ActivateQuestUI;
+        EventManager.CompleteQuest += CompleteQuestUI;
         EventManager.InnerThought += startInner;
     }
 
@@ -33,5 +34,13 @@ public class PlayerUI : MonoBehaviour
     {
         Debug.Log("Creating text SIR");
         questLogUI.text += QuestText + "\n";
+    }
+
+    public void CompleteQuestUI(string QuestText)
+    {
+        if(questLogUI.text.Contains(QuestText))
+        {
+            Debug.Log("I am found - complete quest");
+        }
     }
 }
