@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public static class EventManager
 {
+    public static string name = "";
 
     //Creating Event Actions
     public static System.Action SaveInitiated;
@@ -14,6 +15,7 @@ public static class EventManager
     public static System.Action<string> AddEmail;
     public static System.Action<string> AddQuest;
     public static System.Action<string> CompleteQuest;
+    public static System.Action<string> GetName;
 
     public static void OnSaveInitiated()
     {
@@ -42,12 +44,18 @@ public static class EventManager
 
     public static void OnAddQuestInitiated(string name)
     {
-        Debug.Log("Adding quest SIR");
+        //Debug.Log("Adding quest SIR");
         AddQuest?.Invoke(name);
     }
 
     public static void OnCompleteQuestInitiated(string name)
     {
         CompleteQuest?.Invoke(name);
+    }
+
+    public static string NameFromLoader(string key)
+    {
+        GetName?.Invoke(key);
+        return name;
     }
 }

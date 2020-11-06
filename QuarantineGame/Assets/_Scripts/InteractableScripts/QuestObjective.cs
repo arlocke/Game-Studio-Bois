@@ -5,16 +5,14 @@ using UnityEngine;
 public class QuestObjective : MonoBehaviour
 {
     public string key = "";
-    public LoadManager loader;
+    //public LoadManager loader;
 
     public void SetComplete()
     {
-        if(loader != null)
+        string dud = EventManager.NameFromLoader(key);
+        if(!dud.Equals(""))
         {
-            if (loader.checkDictionary(key))
-            {
-                EventManager.OnCompleteQuestInitiated(loader.getQuestName(key));
-            }
+            EventManager.OnCompleteQuestInitiated(dud);
         }
     }
 }

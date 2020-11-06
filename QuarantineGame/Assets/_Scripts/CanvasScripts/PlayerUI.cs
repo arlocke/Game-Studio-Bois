@@ -32,15 +32,16 @@ public class PlayerUI : MonoBehaviour
     
     public void ActivateQuestUI(string QuestText)
     {
-        Debug.Log("Creating text SIR");
+        //Debug.Log("Creating text SIR");
         questLogUI.text += QuestText + "\n";
     }
 
     public void CompleteQuestUI(string QuestText)
     {
-        if(questLogUI.text.Contains(QuestText))
+        if(questLogUI.text.Contains(QuestText) && !questLogUI.text.Contains(QuestText + " - Completed"))
         {
-            Debug.Log("I am found - complete quest");
+            Debug.Log("Replacing Found");
+            questLogUI.text = questLogUI.text.Replace(QuestText, QuestText + " - Completed");
         }
     }
 }

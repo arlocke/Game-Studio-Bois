@@ -26,6 +26,7 @@ public class LoadManager : MonoBehaviour
 
     private void Start()
     {
+        EventManager.GetName += getQuestName;
         if (PlayerPrefs.GetInt("Load", 0) == 1)
         {
             EventManager.OnLoadInitiated();
@@ -44,8 +45,15 @@ public class LoadManager : MonoBehaviour
         }
     }
 
-    public string getQuestName(string key)
+    public void getQuestName(string key)
     {
-        return Quests[key];
+        if(checkDictionary(key))
+        {
+            EventManager.name = Quests[key];
+        }
+        else
+        {
+            EventManager.name = "";
+        }
     }
 }

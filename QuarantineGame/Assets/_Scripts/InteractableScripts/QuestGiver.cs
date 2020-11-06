@@ -10,19 +10,17 @@ public class QuestGiver : MonoBehaviour
     public bool isHit = false;
     public bool activated = false; //if quest has already been discovered
     //public Text questLogUI; //Click and drag the QuestLog from the FPSPlayer -> Canvas -> QuestLog
-    public LoadManager loader;
 
 
     public void UpdateQuestLog()
     {
-        Debug.Log("Updating Quest Log SIR");
+        //Debug.Log("Updating Quest Log SIR");
         activated = true;
-        if(loader != null)
+
+        string dud = EventManager.NameFromLoader(key);
+        if (!dud.Equals(""))
         {
-            if (loader.checkDictionary(key))
-            {
-                EventManager.OnAddQuestInitiated(loader.getQuestName(key));
-            }
+            EventManager.OnAddQuestInitiated(dud);
         }
         gameObject.SetActive(false);
     }
