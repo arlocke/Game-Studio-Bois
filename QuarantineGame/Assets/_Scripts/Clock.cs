@@ -20,7 +20,7 @@ public class Clock : MonoBehaviour
     string hoursString;
     string minutesString;
 
-    bool called = false;
+    float lastTime = 0.0f;
 
 
     // Start is called before the first frame update
@@ -52,20 +52,42 @@ public class Clock : MonoBehaviour
         //timeText.text = hoursString + ":" + minutesString;
         //Debug.Log(timeText.text);
 
-        if(timeRounded == 455 /*&& !called*/)
+        if(timeRounded == 455)
         {
-            //called = true;
-            EventManager.OnInnerThoughtInitiated("hello I want to do this", 5.0f);
+            if(lastTime < 454)
+            {
+                lastTime = time;
+            }
+            if(lastTime == time)
+            {
+                Debug.Log("First Thought");
+                EventManager.OnInnerThoughtInitiated("hello I want to do this", 5.0f);
+            }
         }
-        if (timeRounded == 465 /*&& !called*/)
+
+        if(timeRounded == 465)
         {
-            //called = true;
-            EventManager.OnInnerThoughtInitiated("this is the second thing Im thinking of", 5.0f);
+            if(lastTime < 464)
+            {
+                lastTime = time;
+            }
+            if(lastTime == time)
+            {
+                Debug.Log("Second Thought");
+                EventManager.OnInnerThoughtInitiated("this is the second thing Im thinking of", 5.0f);
+            }
         }
-        if (timeRounded == 480 /*&& !called*/)
+
+        if(timeRounded == 480)
         {
-            //called = true;
-            EventManager.OnAddEmailInitiated("What is up ladies and gentleman");
+            if(lastTime < 480)
+            {
+                lastTime = time;
+            }
+            if(lastTime == time)
+            {
+                EventManager.OnAddEmailInitiated("What is up ladies and gentleman");
+            }
         }
     }
 }
