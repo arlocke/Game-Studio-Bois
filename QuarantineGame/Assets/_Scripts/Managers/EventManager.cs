@@ -11,6 +11,7 @@ public static class EventManager
     public static System.Action LoadInitiated;
     public static System.Action FirstCall;
     public static System.Action<string, float> InnerThought;
+    public static System.Action<string> AddEmail;
 
     public static void OnSaveInitiated()
     {
@@ -30,5 +31,10 @@ public static class EventManager
     public static void OnInnerThoughtInitiated(string thought, float time)
     {
         InnerThought?.Invoke(thought, time);
+    }
+
+    public static void OnAddEmailInitiated(string email)
+    {
+        AddEmail?.Invoke(email);
     }
 }
