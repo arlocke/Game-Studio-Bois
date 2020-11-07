@@ -66,6 +66,7 @@ public class Clock : MonoBehaviour
 
             if (timeRounded == 455 && !Thought1)
             {
+                Debug.Log("Doing 1st thought");
                 EventManager.OnInnerThoughtInitiated("hello I want to do this", 10.0f);
                 Thought1 = true;
             }

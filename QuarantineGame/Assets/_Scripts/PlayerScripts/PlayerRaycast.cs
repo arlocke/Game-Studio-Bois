@@ -117,6 +117,7 @@ public class PlayerRaycast : MonoBehaviour
                             //innerThoughtsUI.text = "Got my pills!!!!";
                             //StartCoroutine(playerUI.InnerThought("Here are my pills", 10.0f));
                             // add playerUI script here
+                            EventManager.OnInnerThoughtInitiated("Here are my pills", 10.0f);
                             havePills = true;
                             dud.SetComplete();
                         }
