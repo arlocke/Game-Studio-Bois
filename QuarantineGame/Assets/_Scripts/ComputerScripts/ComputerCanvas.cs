@@ -9,6 +9,8 @@ public class ComputerCanvas : MonoBehaviour
     public Text emailText;
     public int currentEmail;
 
+    public Button nextEmailButt;
+
     public List<string> emailsInInbox = new List<string>();
 
     // Start is called before the first frame update
