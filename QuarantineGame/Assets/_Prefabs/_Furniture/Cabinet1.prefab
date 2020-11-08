@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 52809d4e7836d6947a9fb2788ed684ac, type: 3}
+  - {fileID: 2100000, guid: 2c5313e08e1dad94b8d0a2575b9a5faa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,7 +152,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -4.1641235, y: 25.622013, z: 0}
+  m_ConnectedAnchor: {x: -4.164121, y: 25.622011, z: 0}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -271,6 +271,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 7a4effd260546d34abffe7f671e4a2a8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 95ff930384d096e41b7da785a24c9b7b, type: 2}
     - target: {fileID: -927199367670048503, guid: 7a4effd260546d34abffe7f671e4a2a8,
         type: 3}
       propertyPath: m_Name

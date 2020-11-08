@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 21bb43fdda942e047aa69f992bdfdb0a, type: 3}
+  - {fileID: 2100000, guid: 007270d76350c8b4fb3a54ca45ce689f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -486,7 +486,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.23239255, y: 1.6173851, z: -1.297}
+  m_ConnectedAnchor: {x: -0.23611082, y: 1.6432632, z: -1.317752}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -665,6 +665,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 4c9b9c43a2c41464e88d30f4759948ed,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc8d12c01440f4740a0708057fb2cdb2, type: 2}
     - target: {fileID: -927199367670048503, guid: 4c9b9c43a2c41464e88d30f4759948ed,
         type: 3}
       propertyPath: m_Name
@@ -771,6 +776,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: dc3a3d93844fe8c46be1ffd3c838f628,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84986d309c365da4fb1965c5166ba292, type: 2}
     - target: {fileID: -927199367670048503, guid: dc3a3d93844fe8c46be1ffd3c838f628,
         type: 3}
       propertyPath: m_Name
