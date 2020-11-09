@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class PlayerUI : MonoBehaviour
         EventManager.AddQuest += ActivateQuestUI;
         EventManager.CompleteQuest += CompleteQuestUI;
         EventManager.InnerThought += startInner;
+        EventManager.GetCompletion += CheckCompletion;
 
         if (innerThoughtsUI != null)
         {
@@ -39,12 +42,27 @@ public class PlayerUI : MonoBehaviour
         //fadeInInnerThoughts.SetBool("activated", false);
         //yield return new WaitForSeconds(1.0f);
         innerThoughtsUI.enabled = false;
+        if(EventManager.ending)
+        {
+            if(EventManager.completed)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadScene(0, LoadSceneMode.Single);
+            }
+        }
     }
 
     public void ActivateQuestUI(string QuestText)
     {
         //Debug.Log("Creating text SIR");
         questLogUI.text += QuestText + "\n";
+        if(questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
+        {
+            questLogUI.text = questLogUI.text.Replace("Work", "Work - Completed");
+        }
     }
 
     public void CompleteQuestUI(string QuestText)
@@ -53,6 +71,16 @@ public class PlayerUI : MonoBehaviour
         {
             Debug.Log("Replacing Found");
             questLogUI.text = questLogUI.text.Replace(QuestText, QuestText + " - Completed");
+        }
+    }
+
+    public void CheckCompletion()
+    {
+        int dud = Regex.Matches(questLogUI.text, "Completed").Count;
+        Debug.Log(dud);
+        if (dud == EventManager.questSize)
+        {
+            EventManager.completed = true;
         }
     }
 }

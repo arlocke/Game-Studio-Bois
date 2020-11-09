@@ -128,5 +128,18 @@ public class Clock : MonoBehaviour
                     EventManager.OnAddEmailInitiated("What is up ladies and gentleman");
                 }
             }*/
+
+        if(timeRounded > 525 & !EventManager.ending)
+        {
+            EventManager.ending = true;
+            if(EventManager.EndingType())
+            {
+                EventManager.OnInnerThoughtInitiated("You have found your pills and done your work!", 10.0f);
+            }
+            else
+            {
+                EventManager.OnInnerThoughtInitiated("You have not found your pills or done your work!", 10.0f);
+            }
+        }
     }
 }

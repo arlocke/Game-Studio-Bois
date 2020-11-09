@@ -17,9 +17,13 @@ public class LoadManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        foreach(var quest in QuestEditor)
+        if(QuestEditor != null)
         {
-            Quests.Add(quest.key, quest.questName);
+            foreach (var quest in QuestEditor)
+            {
+                Quests.Add(quest.key, quest.questName);
+            }
+            EventManager.questSize = Quests.Count;
         }
         DestroyedObjectManager.Initiate();
     }

@@ -13,8 +13,8 @@ public class Lookable : MonoBehaviour
     protected bool initializing = true;
     protected bool beingCarried = false;
     protected bool touched = false;
-    protected bool arrived = false;
-    protected bool snapped = false;
+    public bool arrived = false;
+    public bool snapped = false;
 
     protected Vector3 lastPosition;
     protected Vector3 lastRotation;
@@ -30,6 +30,8 @@ public class Lookable : MonoBehaviour
         {
             Debug.Log("Self can't find Collider - Lookable");
         }
+        lastPosition = transform.position;
+        lastRotation = transform.eulerAngles;
     }
 
     private void Update()
@@ -56,8 +58,6 @@ public class Lookable : MonoBehaviour
         {
             transform.parent = tran;
             beingCarried = true;
-            lastPosition = transform.position;
-            lastRotation = transform.eulerAngles;
             carrier = tran;
             if(cameraLook == null)
             {
@@ -106,7 +106,6 @@ public class Lookable : MonoBehaviour
             if (transform.position == lastPosition)
             {
                 arrived = false;
-                
             }
         }
     }
@@ -121,7 +120,7 @@ public class Lookable : MonoBehaviour
                 snapped = true;
             }
         }
-        else if(!beingCarried && snapped)
+        else if(!beingCarried)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(lastRotation), rSpeed * Time.deltaTime);
             if(transform.rotation == Quaternion.Euler(lastRotation))

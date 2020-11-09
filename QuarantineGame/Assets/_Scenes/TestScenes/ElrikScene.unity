@@ -561,6 +561,8 @@ MonoBehaviour:
   dSpeed: 10
   rSpeed: 100
   isHit: 0
+  arrived: 0
+  snapped: 0
 --- !u!65 &337975616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2113,6 +2115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6edaa7edcd6433548bfe18f99257ee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QuestEditor: []
 --- !u!4 &1001023937
 Transform:
   m_ObjectHideFlags: 0
@@ -2140,30 +2143,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047277301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97968f89c42660a40a49bdb30b6baa6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwForce: 10
-  maxDistance: 1
-  maxSpeed: 500
-  minSpeed: 0
-  rotationSpeed: 100
-  isHit: 0
---- !u!1 &1054739398 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6783668387411317887, guid: 2ac621544df594a4cbe7170a397a8b69,
-    type: 3}
-  m_PrefabInstance: {fileID: 1687818887}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1054739405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054739398}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97968f89c42660a40a49bdb30b6baa6b, type: 3}
@@ -3885,16 +3864,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783668387411317887, guid: 2ac621544df594a4cbe7170a397a8b69,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783668387411317887, guid: 2ac621544df594a4cbe7170a397a8b69,
-        type: 3}
-      propertyPath: m_TagString
-      value: Throwable
       objectReference: {fileID: 0}
     - target: {fileID: 7274651025737114494, guid: 2ac621544df594a4cbe7170a397a8b69,
         type: 3}

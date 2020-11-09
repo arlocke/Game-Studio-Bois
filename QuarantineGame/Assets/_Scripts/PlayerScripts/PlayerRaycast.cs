@@ -96,7 +96,7 @@ public class PlayerRaycast : MonoBehaviour
 
                     if (hitLookable != null && uiCActive)
                     {
-                        if (Input.GetMouseButton(0))
+                        if (Input.GetMouseButton(0) && !hitLookable.arrived && !hitLookable.snapped)
                         {
                             isCarrying = hitLookable.PickUp(transform);
                         }
@@ -198,12 +198,16 @@ public class PlayerRaycast : MonoBehaviour
                 if(hitThrowable != null)
                 {
                     hitThrowable.DropDown();
+                    isCarrying = false;
                 }
                 if(hitLookable != null)
                 {
-                    hitLookable.DropDown();
+                    if(hitLookable.arrived && hitLookable.snapped)
+                    {
+                        hitLookable.DropDown();
+                        isCarrying = false;
+                    }
                 }
-                isCarrying = false;
             }
         }
     }
