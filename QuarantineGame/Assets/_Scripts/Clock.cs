@@ -67,24 +67,24 @@ public class Clock : MonoBehaviour
             if (timeRounded == 455 && !Thought1)
             {
                 Debug.Log("Doing 1st thought");
-                EventManager.OnInnerThoughtInitiated("Ugh I'm so tired... Better check my bulletin board for todays task", 10.0f);
+                EventManager.OnInnerThoughtInitiated("Ugh I'm so tired... I should check my bulletin board for my daily tasks", 10.0f);
                 Thought1 = true;
             }
 
-            if (timeRounded == 461 && !Thought2)
+            if (timeRounded == 470 && !Thought2)
             {
-                EventManager.OnInnerThoughtInitiated("I better check if the boss emailed me", 10.0f);
+                EventManager.OnInnerThoughtInitiated("Oh crap... I bet my boss emailed me", 10.0f);
                 Thought2 = true;
             }
 
-            if (timeRounded == 460 && !Email1)
+            if (timeRounded == 470 && !Email1)
             {
                 EventManager.OnAddEmailInitiated("Sender: The Boss \n \n Hey Gahara! \n Make sure you attend the remote work meeting today." +
                     " I'm counting on you to be the star employee to show the other guys we can transition to remote working smoothly. Don't let me down! \n -The Boss");
                 Email1 = true;
             }
 
-            if (timeRounded == 480 && !Email2)
+            if (timeRounded == 490 && !Email2)
             {
                 EventManager.OnAddEmailInitiated("Sender: The Boss \n \n Hey Gahara! \n Also FYI... Don't do anything crazy in the meeting... The team is a little worried about you \n -The Boss");
                 Email2 = true;

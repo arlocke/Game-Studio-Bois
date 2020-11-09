@@ -32,12 +32,12 @@ public class PlayerUI : MonoBehaviour
     public IEnumerator InnerThought(string ThoughtText, float DelayTime)
     {
         bool isActivated = fadeInInnerThoughts.GetBool("activated");
-        fadeInInnerThoughts.SetBool("activated", true);
+        //fadeInInnerThoughts.SetBool("activated", true);
         innerThoughtsUI.text = ThoughtText;
         innerThoughtsUI.enabled = true;
         yield return new WaitForSeconds(DelayTime);
-        fadeInInnerThoughts.SetBool("activated", false);
-        yield return new WaitForSeconds(1.0f);
+        //fadeInInnerThoughts.SetBool("activated", false);
+        //yield return new WaitForSeconds(1.0f);
         innerThoughtsUI.enabled = false;
     }
 
