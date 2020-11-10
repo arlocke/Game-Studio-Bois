@@ -134,11 +134,11 @@ public class Clock : MonoBehaviour
             EventManager.ending = true;
             if(EventManager.EndingType())
             {
-                EventManager.OnInnerThoughtInitiated("You have found your pills and done your work!", 10.0f);
+                EventManager.OnInnerThoughtInitiated("I found my pills and did my work!", 10.0f);
             }
             else
             {
-                EventManager.OnInnerThoughtInitiated("You have not found your pills or done your work!", 10.0f);
+                EventManager.OnInnerThoughtInitiated("I have not found my pills or done my work!", 10.0f);
             }
         }
     }
