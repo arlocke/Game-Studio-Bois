@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2046573459354753285}
   - component: {fileID: 7007008421091877683}
   - component: {fileID: 3603280351638708170}
-  - component: {fileID: 8281240614343914623}
+  - component: {fileID: 4347160307599830017}
   m_Layer: 0
   m_Name: CabinetBlank
   m_TagString: Untagged
@@ -79,22 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &8281240614343914623
-Animator:
-  serializedVersion: 3
+--- !u!64 &4347160307599830017
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3043793910083349270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 08e7ba33e3c4cd44ca3a7840ff10690f, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 3822247309040838107, guid: 08e7ba33e3c4cd44ca3a7840ff10690f, type: 3}

@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 8522839139981764025}
   - component: {fileID: 7911228374012307041}
   m_Layer: 8
-  m_Name: Floor_purple_lights
+  m_Name: Floor_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6350280941036659574
 Transform:

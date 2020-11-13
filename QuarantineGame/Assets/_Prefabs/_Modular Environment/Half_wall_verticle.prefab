@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6175565491454811603
 Transform:
@@ -57,11 +57,11 @@ GameObject:
   - component: {fileID: 3783406888505393873}
   - component: {fileID: 7475366175806504488}
   m_Layer: 0
-  m_Name: Half_wall
+  m_Name: Half_wall_verticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5321665115264547047
 Transform:
