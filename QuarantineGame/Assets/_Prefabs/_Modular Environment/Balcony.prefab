@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3317591969183814429}
   - component: {fileID: 6003706147040454955}
   - component: {fileID: 30957324514825682}
+  - component: {fileID: 5680686864744871214}
   m_Layer: 0
   m_Name: Balcony
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1752231798595985678}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -9, y: -3.5, z: 17.5}
-  m_LocalScale: {x: 0.02, y: 0.017, z: 0.02}
+  m_LocalScale: {x: 0.02, y: 0.015, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,3 +81,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5680686864744871214
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752231798595985678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -889180119648741084, guid: 92f22faba5861204186693aea53d8a05, type: 3}
