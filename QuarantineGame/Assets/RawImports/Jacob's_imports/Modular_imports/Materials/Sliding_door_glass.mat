@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Balcony_glass
+  m_Name: Sliding_door_glass
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 4
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: fc5c7ae82f2295e48b410a16634ff0a0, type: 3}
+        m_Texture: {fileID: 2800000, guid: f74660e10ba14cd4ca2addeea27dce42, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -41,24 +41,24 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4d0ed343ba33296479ad7ef6a062d7ab, type: 3}
+        m_Texture: {fileID: 2800000, guid: 636620891d184734c803edb88bcef285, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 8fcf4a9fffea0a2448ac5e01679c891d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 301cc85fbe1a6964086be45b02e69835, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: c47287ba6f9e72f4381eac55293ae084, type: 3}
+        m_Texture: {fileID: 2800000, guid: a638a1a2ba628b04b97a3a4e939f8f86, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 660143423d1b8004db1a20ba964fb38f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9709f00116ea05242a77df86a1b1a3eb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: 0
+    - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
