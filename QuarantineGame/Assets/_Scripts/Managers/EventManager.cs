@@ -63,6 +63,7 @@ public static class EventManager
         return name;
     }
 
+    //Checks what the current type of ending is for the player.
     public static bool EndingType()
     {
         GetCompletion?.Invoke();

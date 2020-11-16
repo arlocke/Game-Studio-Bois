@@ -35,6 +35,15 @@ public class MenuManager : MonoBehaviour
         keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
     }
 
+    private void Start()
+    {
+        if(!isInGame)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape) && isInGame && !seize)
