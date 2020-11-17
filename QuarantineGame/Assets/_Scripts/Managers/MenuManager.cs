@@ -125,7 +125,7 @@ public class MenuManager : MonoBehaviour
 
     public void SaveGame()
     {
-        //PlayerPrefs.SetInt("SavedScene", SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetInt("SavedScene", SceneManager.GetActiveScene().buildIndex);
         EventManager.OnSaveInitiated();
     }
 

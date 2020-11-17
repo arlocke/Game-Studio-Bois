@@ -93,11 +93,6 @@ public class PlayerManager : MonoBehaviour
 
         //Move on the Y Axis.
         controller.Move(move * Time.deltaTime);
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            EventManager.OnSaveInitiated();
-        }
     }
 
     private void CheckCrouch()

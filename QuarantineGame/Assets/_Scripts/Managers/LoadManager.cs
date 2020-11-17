@@ -17,6 +17,8 @@ public class LoadManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        EventManager.ending = false;
+        EventManager.completed = false;
         if(QuestEditor != null)
         {
             foreach (var quest in QuestEditor)
