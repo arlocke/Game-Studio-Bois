@@ -33,4 +33,9 @@ public class ComputerCanvas : MonoBehaviour
             emailsInInbox[i] = emailText.text; // is this bad?
         }
     }
+
+    private void OnDestroy()
+    {
+        EventManager.AddEmail -= StartAddEmail;
+    }
 }

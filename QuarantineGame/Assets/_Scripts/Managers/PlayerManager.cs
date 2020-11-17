@@ -98,11 +98,6 @@ public class PlayerManager : MonoBehaviour
         {
             EventManager.OnSaveInitiated();
         }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            EventManager.OnLoadInitiated();
-        }
     }
 
     private void CheckCrouch()
@@ -169,5 +164,11 @@ public class PlayerManager : MonoBehaviour
         var pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
         //body.velocity = pushDir * pushPower;
         body.AddForce(pushDir * pushPower, ForceMode.Impulse);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.SaveInitiated -= Save;
+        EventManager.LoadInitiated -= Load;
     }
 }

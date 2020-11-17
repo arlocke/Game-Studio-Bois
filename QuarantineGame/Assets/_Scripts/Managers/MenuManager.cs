@@ -28,6 +28,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private CanvasGroup KeyBindMenu;
 
+    [SerializeField]
+    private CanvasGroup PauseMenu;
+
     private GameObject[] keybindButtons;
 
     private void Awake()
@@ -39,7 +42,7 @@ public class MenuManager : MonoBehaviour
     {
         if(!isInGame)
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         else
@@ -51,17 +54,26 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && isInGame && !seize)
+        if(Input.GetKeyDown(KeyCode.L) && isInGame && !seize)
         {
-            ShowHideOptions();
-            if(KeyBindMenu != null)
+            if(KeyBindMenu != null && PauseMenu != null)
             {
-                if(KeyBindMenu.alpha == 0)
+                if(PauseMenu.alpha == 1)
                 {
+                    KeyBindMenu.alpha = 0;
+                    KeyBindMenu.blocksRaycasts = false;
+                    PauseMenu.alpha = 0;
+                    PauseMenu.blocksRaycasts = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
                     Time.timeScale = 1;
                 }
                 else
                 {
+                    PauseMenu.alpha = 1;
+                    PauseMenu.blocksRaycasts = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                     Time.timeScale = 0;
                 }
             }
@@ -70,13 +82,8 @@ public class MenuManager : MonoBehaviour
 
     public void NewGame()
     {
+        Time.timeScale = 1;
         PlayerPrefs.SetInt("Load", 0);
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
-    }
-
-    public void LoadGame()
-    {
-        PlayerPrefs.SetInt("Load", 1);
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
@@ -98,5 +105,34 @@ public class MenuManager : MonoBehaviour
     {
         Text tmp = Array.Find(keybindButtons, x => x.name == key).GetComponentInChildren<Text>();
         tmp.text = code.ToString();
+    }
+
+    public void Resume()
+    {
+        KeyBindMenu.alpha = 0;
+        KeyBindMenu.blocksRaycasts = false;
+        PauseMenu.alpha = 0;
+        PauseMenu.blocksRaycasts = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+    }
+
+    public void GameQuit()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
+
+    public void SaveGame()
+    {
+        //PlayerPrefs.SetInt("SavedScene", SceneManager.GetActiveScene().buildIndex);
+        EventManager.OnSaveInitiated();
+    }
+
+    public void LoadGame()
+    {
+        Time.timeScale = 1;
+        PlayerPrefs.SetInt("Load", 1);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene", 1), LoadSceneMode.Single);
     }
 }

@@ -24,11 +24,13 @@ public static class EventManager
     public static void OnSaveInitiated()
     {
         SaveInitiated?.Invoke();
+        Debug.Log("Finished Saving");
     }
 
     public static void OnLoadInitiated()
     {
         LoadInitiated?.Invoke();
+        Debug.Log("Finished Loading");
     }
 
     public static void OnFirstCallInitiated()

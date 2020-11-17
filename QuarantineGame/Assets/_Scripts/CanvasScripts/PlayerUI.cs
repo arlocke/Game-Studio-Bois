@@ -83,4 +83,12 @@ public class PlayerUI : MonoBehaviour
             EventManager.completed = true;
         }
     }
+
+    private void OnDestroy()
+    {
+        EventManager.AddQuest -= ActivateQuestUI;
+        EventManager.CompleteQuest -= CompleteQuestUI;
+        EventManager.InnerThought -= startInner;
+        EventManager.GetCompletion -= CheckCompletion;
+    }
 }

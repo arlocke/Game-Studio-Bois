@@ -236,6 +236,11 @@ public class PlayerRaycast : MonoBehaviour
         }
         isCarrying = false;
     }
+
+    private void OnDestroy()
+    {
+        EventManager.LoadInitiated -= DropAll;
+    }
 }
     
 

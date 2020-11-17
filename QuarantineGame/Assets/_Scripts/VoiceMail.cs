@@ -13,4 +13,9 @@ public class VoiceMail : MonoBehaviour
     {
         Debug.Log("Hello Hello, I will be talking");
     }
+
+    private void OnDestroy()
+    {
+        EventManager.FirstCall -= FirstTalking;
+    }
 }

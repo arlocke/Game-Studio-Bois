@@ -60,4 +60,9 @@ public class LoadManager : MonoBehaviour
             EventManager.name = "";
         }
     }
+
+    private void OnDestroy()
+    {
+        EventManager.GetName -= getQuestName;
+    }
 }

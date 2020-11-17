@@ -13,9 +13,14 @@ public static class DestroyedObjectManager
 
     private static void Save()
     {
-        for(int i = 0; i < IDS.Count; i++)
+        Debug.Log("Destroyed Object Saving");
+        if(IDS.Count > 0)
         {
-            SaveLoad.SaveObjectDestruction(IDS[i]);
+            for (int i = 0; i < IDS.Count; i++)
+            {
+                Debug.Log("Inside Loop");
+                SaveLoad.SaveObjectDestruction(IDS[i]);
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ public static class SaveLoad
 {
     public static void SavePlayer(PlayerManager player)
     {
+        Debug.Log("Trying To Save Player");
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.test";
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -14,6 +15,7 @@ public static class SaveLoad
 
         formatter.Serialize(stream, data);
         stream.Close();
+        Debug.Log("Successfully Saved Player");
     }
 
     public static PlayerData LoadPlayer()
@@ -38,9 +40,10 @@ public static class SaveLoad
 
     public static void SaveObject(ObjectSaver obj, string key)
     {
+        Debug.Log("Trying To Save Object");
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/saves/";
-        if(!Directory.Exists(path))
+        if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
         }
@@ -51,6 +54,7 @@ public static class SaveLoad
 
         formatter.Serialize(stream, data);
         stream.Close();
+        Debug.Log("Successfully Saved Object");
     }
 
     public static ObjectData LoadObject(string key)
@@ -84,6 +88,7 @@ public static class SaveLoad
 
     public static void SaveObjectDestruction(string key)
     {
+        Debug.Log("Trying To Save Destroyed Objects");
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/saves/";
         if (!Directory.Exists(path))
@@ -97,5 +102,6 @@ public static class SaveLoad
 
         formatter.Serialize(stream, data);
         stream.Close();
+        Debug.Log("Successfully Saved Destroyed Objects");
     }
 }
