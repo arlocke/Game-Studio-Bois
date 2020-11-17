@@ -129,7 +129,7 @@ public class Clock : MonoBehaviour
                 }
             }*/
 
-        if(timeRounded > 525 & !EventManager.ending)
+        if(timeRounded > 1260 & !EventManager.ending)
         {
             EventManager.ending = true;
             if(EventManager.EndingType())
