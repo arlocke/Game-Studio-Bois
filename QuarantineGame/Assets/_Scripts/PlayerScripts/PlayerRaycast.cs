@@ -128,6 +128,21 @@ public class PlayerRaycast : MonoBehaviour
                     }
 
                 }
+                else if (hit.collider.name == "MainComputer")
+                {
+                    hitLookable = null;
+                    hitThrowable = null;
+
+                    var dud = raycastedObject.GetComponentInChildren<ComputerCanvas>();
+
+                    CrosshairActive();
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        Debug.Log("Trying to use computer");
+                        dud.SitAtComputer();
+                    }
+
+                }
                 else if (hit.collider.CompareTag("QuestGiver"))
                 {
                     hitLookable = null;
