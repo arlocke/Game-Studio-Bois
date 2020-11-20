@@ -18,6 +18,7 @@ public class PlayerUI : MonoBehaviour
         Debug.Log(transform.gameObject.name);
         EventManager.AddQuest += ActivateQuestUI;
         EventManager.CompleteQuest += CompleteQuestUI;
+        EventManager.QuestCheck += IsQuestCompleted;
         EventManager.InnerThought += startInner;
         EventManager.GetCompletion += CheckCompletion;
 
@@ -74,6 +75,18 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    public void IsQuestCompleted(string QuestText)
+    {
+        if(questLogUI.text.Contains(QuestText + " - Completed"))
+        {
+            EventManager.isQuestCompleted = true;
+        }
+        else
+        {
+            EventManager.isQuestCompleted = false;
+        }
+    }
+
     public void CheckCompletion()
     {
         int dud = Regex.Matches(questLogUI.text, "Completed").Count;
@@ -88,6 +101,7 @@ public class PlayerUI : MonoBehaviour
     {
         EventManager.AddQuest -= ActivateQuestUI;
         EventManager.CompleteQuest -= CompleteQuestUI;
+        EventManager.QuestCheck -= IsQuestCompleted;
         EventManager.InnerThought -= startInner;
         EventManager.GetCompletion -= CheckCompletion;
     }

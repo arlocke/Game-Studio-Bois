@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerRaycast : MonoBehaviour
@@ -8,7 +6,6 @@ public class PlayerRaycast : MonoBehaviour
     //Public Variables
     public bool uiCActive = false; //Currently always true?
     public bool isCarrying = false; //Is currently carrying an object!
-    public bool havePills = false; //boolean for if the player picked up the pills
     public string currentRoom; //Placeholder string for room the player is currently in
 
     //Public Classes
@@ -49,8 +46,6 @@ public class PlayerRaycast : MonoBehaviour
                 //If Throwable
                 if (hit.collider.CompareTag("Throwable"))
                 {
-                    //Debug.Log("Throwable");
-
                     hitLookable = null;
 
                     //Grab throwable script.
@@ -113,13 +108,11 @@ public class PlayerRaycast : MonoBehaviour
                         var dud = hit.transform.GetComponent<QuestObjective>();
                         if(dud != null)
                         {
-                            Debug.Log("Grabbin Pills");
-                            //innerThoughtsUI.text = "Got my pills!!!!";
-                            //StartCoroutine(playerUI.InnerThought("Here are my pills", 10.0f));
-                            // add playerUI script here
-                            EventManager.OnInnerThoughtInitiated("Here are my pills", 10.0f);
-                            havePills = true;
                             dud.SetComplete();
+                            if(dud.key == "1")
+                            {
+                                EventManager.OnInnerThoughtInitiated("Here are my pills", 4.0f);
+                            }
                         }
                     }
                 }

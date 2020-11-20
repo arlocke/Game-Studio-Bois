@@ -10,7 +10,7 @@ public class QuestObjective : MonoBehaviour
     public void SetComplete()
     {
         string dud = EventManager.NameFromLoader(key);
-        if(!dud.Equals(""))
+        if(!dud.Equals("") && dud != null)
         {
             EventManager.OnCompleteQuestInitiated(dud);
         }

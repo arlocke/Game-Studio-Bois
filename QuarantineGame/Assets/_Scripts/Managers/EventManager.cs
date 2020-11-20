@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public static class EventManager
 {
     public static string name = "";
+    public static bool isQuestCompleted = false;
     public static bool completed = false;
     public static bool ending = false;
     public static int questSize = 0;
@@ -18,6 +19,7 @@ public static class EventManager
     public static System.Action<string> AddEmail;
     public static System.Action<string> AddQuest;
     public static System.Action<string> CompleteQuest;
+    public static System.Action<string> QuestCheck;
     public static System.Action<string> GetName;
     public static System.Action GetCompletion;
 
@@ -57,6 +59,12 @@ public static class EventManager
     public static void OnCompleteQuestInitiated(string name)
     {
         CompleteQuest?.Invoke(name);
+    }
+
+    public static bool OnQuestCheck(string name)
+    {
+        QuestCheck?.Invoke(name);
+        return isQuestCompleted;
     }
 
     public static string NameFromLoader(string key)

@@ -20,10 +20,26 @@ public class GameManager : MonoBehaviour
     //Right now havePills is in playerRaycast - maybe make a script in the future for storing playerData 
     public void CompleteDay() // This needs to be changed to ask the player if they want to transistion to the next day
     {
-        if(playerCam.GetComponent<PlayerRaycast>().havePills == true) 
+        if(EventManager.OnQuestCheck("Pills") == true) 
         {
-            
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // THIS IS SO FUCKING BAD CODING
+            if(EventManager.EndingType())
+            {
+                var index = SceneManager.GetActiveScene().buildIndex;
+                if (index + 1 < SceneManager.sceneCountInBuildSettings)
+                {
+                    SceneManager.LoadScene(index);
+                }
+                else
+                {
+                    Debug.Log("Last Scene, nothing past here");
+                    SceneManager.LoadScene(0);
+                }
+            }
+            else
+            {
+                EventManager.OnInnerThoughtInitiated("I am not done for today...", 10.0f);
+            }
+
         }
         else
         {
