@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class TriggeredThoughtScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string context = "";
+    public float time = 5.0f;
 
-    // Update is called once per frame
-    void Update()
+    private bool triggered = false;
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.tag == "Player" && !triggered)
+        {
+            triggered = true;
+            EventManager.OnInnerThoughtInitiated(context, time);
+        }
     }
 }
