@@ -9,6 +9,7 @@ public class PadlockScript : MonoBehaviour
     public Text Display;
     private bool safeToUse = false;
     private bool locked = true;
+    private bool checking = false;
 
     [SerializeField]
     private CanvasGroup Padlock;
@@ -39,7 +40,7 @@ public class PadlockScript : MonoBehaviour
 
     public void buttonPressed(int num)
     {
-        if(safeToUse && locked)
+        if(safeToUse && locked && !checking)
         {
             if (Display.text != "####")
             {
@@ -53,29 +54,41 @@ public class PadlockScript : MonoBehaviour
             {
                 if(Display.text == Key)
                 {
+                    checking = true;
                     locked = false;
-                    StartCoroutine(winlose());
+                    StartCoroutine(winlose(true));
                 }
                 else
                 {
-                    Display.text = "####";
+                    checking = true;
+                    StartCoroutine(winlose(false));
                 }
             }
         }
     }
 
-    private IEnumerator winlose()
+    private IEnumerator winlose(bool condition)
     {
         for(int i = 0; i < 5; i++)
         {
             Display.text = "####";
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSecondsRealtime(0.5f);
             Display.text = "";
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSecondsRealtime(0.5f);
         }
-        Display.text = "Unlocked";
-        yield return new WaitForSeconds(2.5f);
-        Close();
+        if (condition)
+        {
+            Display.text = "Unlocked";
+            yield return new WaitForSecondsRealtime(2.5f);
+            Close();
+        }
+        else
+        {
+            Display.text = "Incorrect";
+            yield return new WaitForSecondsRealtime(2.5f);
+            Display.text = "####";
+            checking = false;
+        }
     }
 
     public void Open()
