@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                EventManager.OnInnerThoughtInitiated("I am not done for today...", 10.0f);
+                EventManager.OnInnerThoughtInitiated("I've taken my medicine, but I still have stuff to do...", 10.0f);
             }
 
         }
