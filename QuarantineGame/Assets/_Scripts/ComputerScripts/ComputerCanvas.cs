@@ -35,13 +35,15 @@ public class ComputerCanvas : MonoBehaviour
         emailText.text = Email;
     }
 
-    public void ChangeEmail()
+    public void ChangeEmail() //Need Help
     {
+        currentEmail += 1;
         Debug.Log("trying to change email");
-        for (int i = 0; i < emailsInInbox.Count; i++)
+        
+        for (int i = 0; i <= emailsInInbox.Count; i++)
         {
             currentEmail = i;
-            emailsInInbox[i] = emailText.text; // is this bad?
+            emailsInInbox[i] = emailText.text;
         }
     }
 
