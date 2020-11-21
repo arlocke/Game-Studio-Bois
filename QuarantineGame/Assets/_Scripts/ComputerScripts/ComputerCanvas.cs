@@ -10,7 +10,7 @@ public class ComputerCanvas : MonoBehaviour
 
     Canvas computerScreen;
     public Text emailText;
-    public int currentEmail;
+    public int currentEmail = 0;
 
     public List<string> emailsInInbox = new List<string>();
 
@@ -33,17 +33,22 @@ public class ComputerCanvas : MonoBehaviour
     {
         emailsInInbox.Add(Email);
         emailText.text = Email;
+        currentEmail = emailsInInbox.Count - 1;
     }
 
-    public void ChangeEmail() //Need Help
+    public void ChangeEmail()
     {
-        currentEmail += 1;
-        Debug.Log("trying to change email");
-        
-        for (int i = 0; i <= emailsInInbox.Count; i++)
+        if(emailsInInbox.Count > 0)
         {
-            currentEmail = i;
-            emailsInInbox[i] = emailText.text;
+            currentEmail += 1;
+            Debug.Log("trying to change email");
+
+            if (currentEmail >= emailsInInbox.Count)
+            {
+                currentEmail = 0;
+            }
+
+            emailText.text = emailsInInbox[currentEmail];
         }
     }
 
