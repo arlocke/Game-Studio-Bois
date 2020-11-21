@@ -3714,6 +3714,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 86315996}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &87646002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 512934506, guid: 925f1ea78e1f02b468f983970d5f7121,
+    type: 3}
+  m_PrefabInstance: {fileID: 7783024771112364032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &87646007
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87646002}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!4 &89359884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5415332690265491247, guid: 09047e0ab4c01a740b3a52f09650e80d,
@@ -65465,6 +65483,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f4b2e1d14f087244bd02d62f2b25ede, type: 3}
+--- !u!1 &1351966140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1702932402, guid: 925f1ea78e1f02b468f983970d5f7121,
+    type: 3}
+  m_PrefabInstance: {fileID: 7783024771112364032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1351966143
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351966140}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!4 &1353127354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5415332690265491247, guid: 09047e0ab4c01a740b3a52f09650e80d,
@@ -75266,7 +75302,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7783024771112364032}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1351966140}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -77938,6 +77974,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643331243}
   m_CullTransparentMesh: 0
+--- !u!1 &1643526170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2097703434, guid: 925f1ea78e1f02b468f983970d5f7121,
+    type: 3}
+  m_PrefabInstance: {fileID: 7783024771112364032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1643526174
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643526170}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!4 &1645057552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2862053850976626157, guid: 479eceea04b2dae46b18b2f39f67274b,
@@ -104450,6 +104504,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -10.6
       objectReference: {fileID: 0}
+    - target: {fileID: 3232822057933425404, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3232822057933425406, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd,
         type: 3}
       propertyPath: m_Colors.m_NormalColor.r
@@ -104986,7 +105045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 512934506, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 568294935, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
       propertyPath: m_AnchorMin.y
@@ -105159,6 +105218,10 @@ PrefabInstance:
     - target: {fileID: 1263978253, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1325756244, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1406964260, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
       propertyPath: m_LocalPosition.z

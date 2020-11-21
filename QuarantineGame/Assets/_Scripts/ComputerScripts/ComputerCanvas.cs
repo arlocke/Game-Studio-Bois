@@ -17,6 +17,9 @@ public class ComputerCanvas : MonoBehaviour
     private Vector3 originalPos;
     private Quaternion originalRot;
     private Vector3 originalScale;
+    private RectTransform self;
+    private float originalWidth;
+    private float originalHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +27,12 @@ public class ComputerCanvas : MonoBehaviour
         computerScreen = GetComponent<Canvas>();
         EventManager.AddEmail += StartAddEmail;
 
+        self = transform.GetComponent<RectTransform>();
         originalPos = transform.position;
         originalScale = transform.localScale;
         originalRot = transform.localRotation;
+        originalWidth = self.rect.width;
+        originalHeight = self.rect.height;
     }
 
     public void StartAddEmail(string Email)
@@ -62,6 +68,7 @@ public class ComputerCanvas : MonoBehaviour
         if(computerScreen.renderMode != RenderMode.ScreenSpaceOverlay)
         {
             computerScreen.renderMode = RenderMode.ScreenSpaceOverlay;
+            computerScreen.sortingOrder = -1;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -72,11 +79,13 @@ public class ComputerCanvas : MonoBehaviour
         if (computerScreen.renderMode != RenderMode.WorldSpace)
         {
             computerScreen.renderMode = RenderMode.WorldSpace;
+            computerScreen.sortingOrder = 0;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             transform.position = originalPos;
             transform.localScale = originalScale;
             transform.localRotation = originalRot;
+            self.sizeDelta = new Vector2(originalWidth, originalHeight);
         }
     }
 
