@@ -179,6 +179,16 @@ PrefabInstance:
       propertyPath: m_DynamicOccludee
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: a8d4c09c88bb96e43859897016d39831,
+        type: 3}
+      propertyPath: m_PreserveUVs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: a8d4c09c88bb96e43859897016d39831,
+        type: 3}
+      propertyPath: m_ImportantGI
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: a8d4c09c88bb96e43859897016d39831,
         type: 3}
       propertyPath: m_Name
