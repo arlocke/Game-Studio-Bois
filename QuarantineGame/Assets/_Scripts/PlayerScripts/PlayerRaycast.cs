@@ -22,6 +22,8 @@ public class PlayerRaycast : MonoBehaviour
     [SerializeField] private int rayLength = 10;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private Image uiCrosshair;
+    private string seenTag = "";
+    private string seenName = "";
 
     private void Start()
     {
@@ -42,12 +44,14 @@ public class PlayerRaycast : MonoBehaviour
             {
                 raycastedObject = hit.collider.gameObject; //Store hit object.
                 CrosshairActive(); //Active if hit object within layer mask.
+                seenTag = hit.collider.tag;
+                seenName = hit.collider.name;
 
                 //If Throwable
-                if (hit.collider.CompareTag("Throwable"))
+                if (seenTag == "Throwable")
                 {
                     hitLookable = null;
-
+                    
                     //Grab throwable script.
                     var dud = raycastedObject.GetComponent<ThrowableObject>();
 
@@ -74,7 +78,7 @@ public class PlayerRaycast : MonoBehaviour
                         }
                     }
                 }
-                else if (hit.collider.CompareTag("Lookable"))
+                else if (seenTag == "Lookable")
                 {
                     hitThrowable = null;
 
@@ -97,7 +101,7 @@ public class PlayerRaycast : MonoBehaviour
                         }
                     }
                 }
-                else if (hit.collider.CompareTag("Objective"))
+                else if (seenTag == "Objective")
                 {
                     hitLookable = null;
                     hitThrowable = null;
@@ -116,7 +120,7 @@ public class PlayerRaycast : MonoBehaviour
                         }
                     }
                 }
-                else if (hit.collider.CompareTag("Bed"))
+                else if (seenTag == "Bed")
                 {
                     hitLookable = null;
                     hitThrowable = null;
@@ -128,22 +132,7 @@ public class PlayerRaycast : MonoBehaviour
                     }
 
                 }
-                else if (hit.collider.name == "MainComputer")
-                {
-                    hitLookable = null;
-                    hitThrowable = null;
-
-                    var dud = raycastedObject.GetComponentInChildren<ComputerCanvas>();
-
-                    CrosshairActive();
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        Debug.Log("Trying to use computer");
-                        dud.SitAtComputer();
-                    }
-
-                }
-                else if (hit.collider.CompareTag("QuestGiver"))
+                else if (seenTag == "QuestGiver")
                 {
                     hitLookable = null;
                     hitThrowable = null;
@@ -167,7 +156,32 @@ public class PlayerRaycast : MonoBehaviour
                             hitQuestGiver.UpdateQuestLog();
                         }
                     }
+                }
+                else if (seenName == "MainComputer")
+                {
+                    hitLookable = null;
+                    hitThrowable = null;
 
+                    var dud = raycastedObject.GetComponentInChildren<ComputerCanvas>();
+
+                    CrosshairActive();
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        Debug.Log("Trying to use computer");
+                        dud.SitAtComputer();
+                    }
+                }
+                else if (seenName == "Lock")
+                {
+                    hitLookable = null;
+                    hitThrowable = null;
+
+                    var dud = raycastedObject.GetComponent<PadlockScript>();
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        dud.Open();
+                    }
                 }
             }
             else

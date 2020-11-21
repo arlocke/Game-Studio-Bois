@@ -23,21 +23,6 @@ public class PadlockScript : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            if(Padlock.alpha == 0)
-            {
-                Open();
-            }
-            else
-            {
-                Close();
-            }
-        }
-    }
-
     public void buttonPressed(int num)
     {
         if(safeToUse && locked && !checking)
