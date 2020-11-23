@@ -7,6 +7,8 @@ public class PadlockScript : MonoBehaviour
 {
     public string Key;
     public Text Display;
+    public Transform Top;
+    public Rigidbody TopsBody;
     private bool safeToUse = false;
     private bool locked = true;
     private bool checking = false;
@@ -17,9 +19,13 @@ public class PadlockScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(Key != null)
+        if(Key != null && Top != null)
         {
             safeToUse = true;
+        }
+        else
+        {
+            Debug.Log("Lock is missing important components to function");
         }
     }
 
@@ -64,6 +70,9 @@ public class PadlockScript : MonoBehaviour
         if (condition)
         {
             Display.text = "Unlocked";
+            Top.parent = null;
+            TopsBody.isKinematic = false;
+            TopsBody.useGravity = true;
             yield return new WaitForSecondsRealtime(2.5f);
             Close();
         }
@@ -78,7 +87,7 @@ public class PadlockScript : MonoBehaviour
 
     public void Open()
     {
-        if (locked && Padlock != null)
+        if (locked && Padlock != null && Display != null)
         {
             Time.timeScale = 0;
             Padlock.alpha = 1;
@@ -90,7 +99,7 @@ public class PadlockScript : MonoBehaviour
 
     public void Close()
     {
-        if(Padlock != null)
+        if(Padlock != null && Display != null)
         {
             Time.timeScale = 1;
             Padlock.alpha = 0;
