@@ -102355,6 +102355,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 885856059}
+    - target: {fileID: 243964017, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 885856059}
+    - target: {fileID: 243964017, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowHideOptions
+      objectReference: {fileID: 0}
     - target: {fileID: 263732274, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -102591,6 +102599,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 885856059}
+    - target: {fileID: 1263978253, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameQuit
+      objectReference: {fileID: 0}
     - target: {fileID: 1406964260, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
