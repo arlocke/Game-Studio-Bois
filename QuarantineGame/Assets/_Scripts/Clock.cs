@@ -16,12 +16,18 @@ public class Clock : MonoBehaviour
     private float timeToDisplay;
     private float hoursPerDay = 24f; 
     private float minutesPerHour = 60f;
+    private bool tutorial = false;
 
     string hoursString;
     string minutesString;
 
     float lastTime = 0.0f;
 
+    private void Awake()
+    {
+        EventManager.StartTutorial += StartTutorial;
+        EventManager.EndTutorial += EndTutorial;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +37,10 @@ public class Clock : MonoBehaviour
 
     void FixedUpdate()
     {
-        time += Time.deltaTime; // use this when calling events
+        if(!tutorial)
+        {
+            time += Time.deltaTime; // use this when calling events
+        }
         timeRounded = Mathf.Ceil(time);
         //Debug.Log(timeRounded);
 
@@ -61,5 +70,21 @@ public class Clock : MonoBehaviour
                 EventManager.OnInnerThoughtInitiated("I have not found my pills or done my work!", 10.0f);
             }
         }
+    }
+
+    private void StartTutorial()
+    {
+        tutorial = true;
+    }
+
+    private void EndTutorial()
+    {
+        tutorial = false;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.StartTutorial -= StartTutorial;
+        EventManager.EndTutorial -= EndTutorial;
     }
 }

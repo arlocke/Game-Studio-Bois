@@ -22,6 +22,8 @@ public static class EventManager
     public static System.Action<string> QuestCheck;
     public static System.Action<string> GetName;
     public static System.Action GetCompletion;
+    public static System.Action StartTutorial;
+    public static System.Action EndTutorial;
 
     public static void OnSaveInitiated()
     {
@@ -78,5 +80,15 @@ public static class EventManager
     {
         GetCompletion?.Invoke();
         return completed;
+    }
+
+    public static void OnStartTutorial()
+    {
+        StartTutorial?.Invoke();
+    }
+
+    public static void OnEndTutorial()
+    {
+        EndTutorial?.Invoke();
     }
 }

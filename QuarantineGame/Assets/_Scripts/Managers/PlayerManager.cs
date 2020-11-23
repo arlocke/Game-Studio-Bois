@@ -27,8 +27,11 @@ public class PlayerManager : MonoBehaviour
     protected float zAxis = 0.0f;
     protected float yVeloctiy = 0.0f;
     protected float defHeight;
+    protected int tutorialStage = 0;
     public bool crouch = false;
     protected bool isGrounded = false;
+    protected bool isTutorial = false;
+    protected bool tutorialPickup = false;
 
     //Private Classes:
     protected Transform body;
@@ -40,6 +43,8 @@ public class PlayerManager : MonoBehaviour
         //Add Save to Events;
         EventManager.SaveInitiated += Save;
         EventManager.LoadInitiated += Load;
+        EventManager.StartTutorial += StartTutorial;
+        EventManager.AddQuest += PickedUp;
     }
 
     void Start()
@@ -66,33 +71,18 @@ public class PlayerManager : MonoBehaviour
             CheckCrouch();
         }
 
-        //HANDLING X/Z AXIS.
-        //Create move to consider X and Z axis.
-        Vector3 move = transform.right * xAxis + transform.forward * zAxis;
-
-        //Use Vector 3 to translate movement * speed multiplier. Seperated from Frame Rate.
-        controller.Move(move * walkSpeed * Time.deltaTime);
-
-        //HANDLING Y AXIS.
-        //Add Gravity Acceleration:
-        yVeloctiy += gravity * Time.deltaTime;
-
-        //isGrounded Check. Checks a sphere at feet.
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        //Debug.Log(isGrounded);
-
-        //if grounded, set y velocity to a more reasonable rate.
-        if (isGrounded && yVeloctiy < 0)
+        if(isTutorial)
         {
-            yVeloctiy = -2f;
+            if(tutorialStage > 0)
+            {
+                Move();
+            }
+            Tutorial();
         }
-        //Debug.Log(yVeloctiy);
-
-        //Change move to consider only the Y axis.
-        move = transform.up * yVeloctiy;
-
-        //Move on the Y Axis.
-        controller.Move(move * Time.deltaTime);
+        else
+        {
+            Move();
+        }
     }
 
     private void CheckCrouch()
@@ -165,5 +155,72 @@ public class PlayerManager : MonoBehaviour
     {
         EventManager.SaveInitiated -= Save;
         EventManager.LoadInitiated -= Load;
+        EventManager.StartTutorial -= StartTutorial;
+        EventManager.AddQuest -= PickedUp;
+    }
+
+    private void StartTutorial()
+    {
+        isTutorial = true;
+        tutorialStage = 0;
+        CheckCrouch();
+        EventManager.OnInnerThoughtInitiated("Ugh I'm so tired... I gotta get outta bed... (Use [LeftCtrl] to get up)", 7.0f);
+    }
+
+    private void PickedUp(string filler)
+    {
+        tutorialPickup = true;
+        EventManager.AddQuest -= PickedUp;
+    }
+
+    private void Tutorial()
+    {
+        if(tutorialStage == 2 && tutorialPickup)
+        {
+            isTutorial = false;
+            EventManager.OnInnerThoughtInitiated("Looks like I'm all set for the day. (Tutorial Done)", 10.0f);
+            EventManager.OnEndTutorial();
+        }
+        if(tutorialStage == 1 && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W)))
+        {
+            tutorialStage += 1;
+            EventManager.OnInnerThoughtInitiated("I better check my bulletin board for my daily tasks... (Click on Sticky Notes to receive quests)", 10.0f);
+        }
+        if(tutorialStage == 0 && Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            tutorialStage += 1;
+            EventManager.OnInnerThoughtInitiated("Time to get a move on... (Use WASD to walk around)", 7.0f);
+        }
+    }
+
+    private void Move()
+    {
+        //HANDLING X/Z AXIS.
+        //Create move to consider X and Z axis.
+        Vector3 move = transform.right * xAxis + transform.forward * zAxis;
+
+        //Use Vector 3 to translate movement * speed multiplier. Seperated from Frame Rate.
+        controller.Move(move * walkSpeed * Time.deltaTime);
+
+        //HANDLING Y AXIS.
+        //Add Gravity Acceleration:
+        yVeloctiy += gravity * Time.deltaTime;
+
+        //isGrounded Check. Checks a sphere at feet.
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //Debug.Log(isGrounded);
+
+        //if grounded, set y velocity to a more reasonable rate.
+        if (isGrounded && yVeloctiy < 0)
+        {
+            yVeloctiy = -2f;
+        }
+        //Debug.Log(yVeloctiy);
+
+        //Change move to consider only the Y axis.
+        move = transform.up * yVeloctiy;
+
+        //Move on the Y Axis.
+        controller.Move(move * Time.deltaTime);
     }
 }

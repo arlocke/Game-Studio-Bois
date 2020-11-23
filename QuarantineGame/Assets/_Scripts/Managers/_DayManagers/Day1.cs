@@ -25,30 +25,37 @@ public class Day1 : MonoBehaviour
     bool Email2 = false;
     bool Email3 = false;
 
+    private void Start()
+    {
+        if(PlayerPrefs.GetInt("Load", 0) == 0)
+        {
+            EventManager.OnStartTutorial();
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         time = clock.timeRounded;
-        if (time == 455 && !Thought1)
-        {
-            Debug.Log("Doing 1st thought");
-            EventManager.OnInnerThoughtInitiated("Ugh I'm so tired... I gotta get outta bed... (Use [LeftCtrl] to get up)", 7.0f);
-            Thought1 = true;
-        }
+        //if (time == 455 && !Thought1)
+        //{
+        //    Debug.Log("Doing 1st thought");
+        //    EventManager.OnInnerThoughtInitiated("Ugh I'm so tired... I gotta get outta bed... (Use [LeftCtrl] to get up)", 7.0f);
+        //    Thought1 = true;
+        //}
 
-        if (time == 465 && !Thought2)
-        {
-            Debug.Log("Doing 1st thought");
-            EventManager.OnInnerThoughtInitiated("Time to get a move on... (Use WASD to walk around)", 7.0f);
-            Thought2 = true;
-        }
+        //if (time == 465 && !Thought2)
+        //{
+        //    Debug.Log("Doing 1st thought");
+        //    EventManager.OnInnerThoughtInitiated("Time to get a move on... (Use WASD to walk around)", 7.0f);
+        //    Thought2 = true;
+        //}
 
-        if (time == 480 && !Thought3)
-        {
-            EventManager.OnInnerThoughtInitiated("I better check my bulletin board for my daily tasks... (Click on Sticky Notes to receive quests)", 10.0f);
-            Thought3 = true;
-        }
+        //if (time == 480 && !Thought3)
+        //{
+        //    EventManager.OnInnerThoughtInitiated("I better check my bulletin board for my daily tasks... (Click on Sticky Notes to receive quests)", 10.0f);
+        //    Thought3 = true;
+        //}
 
         if (time == 500 && !Thought4)
         {
