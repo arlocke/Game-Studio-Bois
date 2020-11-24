@@ -14,6 +14,9 @@ public class ComputerCanvas : MonoBehaviour
 
     public List<string> emailsInInbox = new List<string>();
 
+    public GameObject workPrompt;
+    public Text questLogUI;
+
     private Vector3 originalPos;
     private Quaternion originalRot;
     private Vector3 originalScale;
@@ -26,6 +29,7 @@ public class ComputerCanvas : MonoBehaviour
     {
         computerScreen = GetComponent<Canvas>();
         EventManager.AddEmail += StartAddEmail;
+        EventManager.ActivateWorkPrompt += StartActivateWorkPrompt;
 
         self = transform.GetComponent<RectTransform>();
         originalPos = transform.position;
@@ -40,6 +44,37 @@ public class ComputerCanvas : MonoBehaviour
         emailsInInbox.Add(Email);
         emailText.text = Email;
         currentEmail = emailsInInbox.Count - 1;
+    }
+
+    public void StartActivateWorkPrompt()
+    {
+        workPrompt.SetActive(true);
+    }
+
+    public void Work()
+    {
+        //need help
+        //complete quest key 2
+        if (questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
+        {
+            questLogUI.text = questLogUI.text.Replace("Work", "Work - Completed");
+        }
+        workPrompt.SetActive(false);
+        startSkipTimeAnim();
+        
+    }
+    public void startSkipTimeAnim()
+    {
+        StartCoroutine(SkipTimeAnim());
+    }
+
+    public IEnumerator SkipTimeAnim()
+    {
+        EventManager.Blackout();
+        yield return new WaitForSecondsRealtime(1.5f);
+        EventManager.OnFastForward(240);
+        EventManager.BlackoutReverse();
+        
     }
 
     public void ChangeEmail()
@@ -61,6 +96,7 @@ public class ComputerCanvas : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.AddEmail -= StartAddEmail;
+        EventManager.ActivateWorkPrompt -= StartActivateWorkPrompt;
     }
 
     public void SitAtComputer()

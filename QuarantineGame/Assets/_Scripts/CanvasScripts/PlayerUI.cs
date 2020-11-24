@@ -10,8 +10,10 @@ public class PlayerUI : MonoBehaviour
     //public variables
     public Text innerThoughtsUI;
     public Text questLogUI;
+    public GameObject blackout;
 
     public Animator fadeInInnerThoughts;
+    public Animator blackoutAnim;
 
     public void Start()
     {
@@ -21,10 +23,17 @@ public class PlayerUI : MonoBehaviour
         EventManager.QuestCheck += IsQuestCompleted;
         EventManager.InnerThought += startInner;
         EventManager.GetCompletion += CheckCompletion;
+        EventManager.Blackout += PlayBlackout;
+        EventManager.BlackoutReverse += PlayBlackoutReverse;
+
 
         if (innerThoughtsUI != null)
         {
             fadeInInnerThoughts = innerThoughtsUI.GetComponent<Animator>();
+        }
+        if(blackout != null)
+        {
+            blackoutAnim = blackout.GetComponent<Animator>();
         }
     }
 
@@ -60,10 +69,10 @@ public class PlayerUI : MonoBehaviour
     {
         //Debug.Log("Creating text SIR");
         questLogUI.text += QuestText + "\n";
-        if(questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
+        /*if(questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
         {
             questLogUI.text = questLogUI.text.Replace("Work", "Work - Completed");
-        }
+        }*/
     }
 
     public void CompleteQuestUI(string QuestText)
@@ -97,6 +106,19 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    public void PlayBlackout()
+    {
+        Debug.Log("Trying to play");
+        blackoutAnim.SetBool("Activated", true);
+
+    }
+
+    public void PlayBlackoutReverse()
+    {
+        Debug.Log("Trying to play");
+        blackoutAnim.SetBool("Activated", false);
+    }
+
     private void OnDestroy()
     {
         EventManager.AddQuest -= ActivateQuestUI;
@@ -104,5 +126,7 @@ public class PlayerUI : MonoBehaviour
         EventManager.QuestCheck -= IsQuestCompleted;
         EventManager.InnerThought -= startInner;
         EventManager.GetCompletion -= CheckCompletion;
+        EventManager.Blackout -= PlayBlackout;
+        EventManager.BlackoutReverse -= PlayBlackoutReverse;
     }
 }

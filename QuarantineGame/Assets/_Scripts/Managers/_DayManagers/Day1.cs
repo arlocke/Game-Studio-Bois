@@ -25,6 +25,9 @@ public class Day1 : MonoBehaviour
     bool Email2 = false;
     bool Email3 = false;
 
+    bool timeToWork = false; //activate time
+    bool hasWorked = false; //bool for if you have worked
+
     private void Start()
     {
         if(PlayerPrefs.GetInt("Load", 0) == 0)
@@ -44,16 +47,23 @@ public class Day1 : MonoBehaviour
             Thought4 = true;
         }
 
+        if (time == 500 && !timeToWork)
+        {
+            EventManager.OnInnerThoughtInitiated("I guess I can work now", 5.0f);
+            EventManager.OnActivateWorkPromptInitiated();
+            timeToWork = true;
+        }
+
         if (time >= 500 && !Email1)
         {
-            EventManager.OnAddEmailInitiated("Sender: The Boss \n \n Hey Gahara! \n Make sure you attend the remote work meeting today." +
+            EventManager.OnAddEmailInitiated("Sender: The Boss \n Sent: 8:00 \n Hey Gahara! \n Make sure you attend the remote work meeting today." +
                 " I'm counting on you to be the star employee to show the other guys we can transition to remote working smoothly. Don't let me down! \n -The Boss");
             Email1 = true;
         }
 
         if (time >= 530 && !Email2)
         {
-            EventManager.OnAddEmailInitiated("Sender: The Boss \n \n Hey Gahara! \n Also FYI... Don't mention anything that about the virus in the meeting... We have to keep morale up and I know you're someone who easily goes off the rails. Don't let me down! \n -The Boss");
+            EventManager.OnAddEmailInitiated("Sender: The Boss \n \n Sent: 8:30 \n Hey Gahara! \n Also FYI... Don't mention anything that about the virus in the meeting... We have to keep morale up and I know you're someone who easily goes off the rails. Don't let me down! \n -The Boss");
             Email2 = true;
         }
 

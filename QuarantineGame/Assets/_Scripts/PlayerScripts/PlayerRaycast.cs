@@ -129,6 +129,7 @@ public class PlayerRaycast : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         gameManager.CompleteDay();
+                        EventManager.Blackout();
                     }
 
                 }
