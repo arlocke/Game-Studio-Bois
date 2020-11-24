@@ -71,6 +71,11 @@ public class PlayerManager : MonoBehaviour
             CheckCrouch();
         }
 
+        //if(Input.GetKeyDown(KeyCode.M))
+        //{
+        //    EventManager.FastForward(250);
+        //}
+
         if(isTutorial)
         {
             if(tutorialStage > 0)

@@ -37,25 +37,6 @@ public class Day1 : MonoBehaviour
     void FixedUpdate()
     {
         time = clock.timeRounded;
-        //if (time == 455 && !Thought1)
-        //{
-        //    Debug.Log("Doing 1st thought");
-        //    EventManager.OnInnerThoughtInitiated("Ugh I'm so tired... I gotta get outta bed... (Use [LeftCtrl] to get up)", 7.0f);
-        //    Thought1 = true;
-        //}
-
-        //if (time == 465 && !Thought2)
-        //{
-        //    Debug.Log("Doing 1st thought");
-        //    EventManager.OnInnerThoughtInitiated("Time to get a move on... (Use WASD to walk around)", 7.0f);
-        //    Thought2 = true;
-        //}
-
-        //if (time == 480 && !Thought3)
-        //{
-        //    EventManager.OnInnerThoughtInitiated("I better check my bulletin board for my daily tasks... (Click on Sticky Notes to receive quests)", 10.0f);
-        //    Thought3 = true;
-        //}
 
         if (time == 500 && !Thought4)
         {
@@ -63,14 +44,14 @@ public class Day1 : MonoBehaviour
             Thought4 = true;
         }
 
-        if (time == 500 && !Email1)
+        if (time >= 500 && !Email1)
         {
             EventManager.OnAddEmailInitiated("Sender: The Boss \n \n Hey Gahara! \n Make sure you attend the remote work meeting today." +
                 " I'm counting on you to be the star employee to show the other guys we can transition to remote working smoothly. Don't let me down! \n -The Boss");
             Email1 = true;
         }
 
-        if (time == 530 && !Email2)
+        if (time >= 530 && !Email2)
         {
             EventManager.OnAddEmailInitiated("Sender: The Boss \n \n Hey Gahara! \n Also FYI... Don't mention anything that about the virus in the meeting... We have to keep morale up and I know you're someone who easily goes off the rails. Don't let me down! \n -The Boss");
             Email2 = true;
@@ -88,7 +69,7 @@ public class Day1 : MonoBehaviour
             Thought6 = true;
         }
 
-        if (time == 650 && !Email3)
+        if (time >= 650 && !Email3)
         {
             EventManager.OnAddEmailInitiated("Sender: Doc \n \n Hello Mr. Gahara! \n Thanks for participating in our clinical vaccine trial. Your help will go a long way towards beating this pandemic together. We're counting on you! \n -Your friendly neighborhood doctor");
             Email3 = true;
@@ -100,11 +81,10 @@ public class Day1 : MonoBehaviour
             Thought7 = true;
         }
 
-        if (time == 700 && !Thought8)
+        if (time >= 700 && !Thought8)
         {
             EventManager.OnInnerThoughtInitiated("Wow I'm still so tired... I could hit the hay right now!", 10.0f);
             Thought8 = true;
         }
-
     }
 }
