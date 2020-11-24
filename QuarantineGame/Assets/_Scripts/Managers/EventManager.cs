@@ -25,6 +25,7 @@ public static class EventManager
     public static System.Action StartTutorial;
     public static System.Action EndTutorial;
     public static System.Action<float> FastForward;
+    public static System.Action<bool> Seize;
 
     public static void OnSaveInitiated()
     {
@@ -96,5 +97,10 @@ public static class EventManager
     public static void OnFastForward(float value)
     {
         FastForward?.Invoke(value);
+    }
+
+    public static void OnSeize(bool facts)
+    {
+        Seize?.Invoke(facts);
     }
 }

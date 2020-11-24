@@ -32,6 +32,7 @@ public class PlayerManager : MonoBehaviour
     protected bool isGrounded = false;
     protected bool isTutorial = false;
     protected bool tutorialPickup = false;
+    protected bool seized = false;
 
     //Private Classes:
     protected Transform body;
@@ -45,6 +46,7 @@ public class PlayerManager : MonoBehaviour
         EventManager.LoadInitiated += Load;
         EventManager.StartTutorial += StartTutorial;
         EventManager.AddQuest += PickedUp;
+        EventManager.Seize += seizing;
     }
 
     void Start()
@@ -80,13 +82,19 @@ public class PlayerManager : MonoBehaviour
         {
             if(tutorialStage > 0)
             {
-                Move();
+                if (!seized)
+                {
+                    Move();
+                }
             }
             Tutorial();
         }
         else
         {
-            Move();
+            if(!seized)
+            {
+                Move();
+            }
         }
     }
 
@@ -162,6 +170,7 @@ public class PlayerManager : MonoBehaviour
         EventManager.LoadInitiated -= Load;
         EventManager.StartTutorial -= StartTutorial;
         EventManager.AddQuest -= PickedUp;
+        EventManager.Seize -= seizing;
     }
 
     private void StartTutorial()
@@ -230,5 +239,10 @@ public class PlayerManager : MonoBehaviour
 
         //Move on the Y Axis.
         controller.Move(move * Time.deltaTime);
+    }
+
+    private void seizing(bool facts)
+    {
+        seized = facts;
     }
 }
