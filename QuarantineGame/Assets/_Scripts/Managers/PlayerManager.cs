@@ -82,19 +82,13 @@ public class PlayerManager : MonoBehaviour
         {
             if(tutorialStage > 0)
             {
-                if (!seized)
-                {
-                    Move();
-                }
+                Move();
             }
             Tutorial();
         }
         else
         {
-            if(!seized)
-            {
-                Move();
-            }
+            Move();
         }
     }
 
@@ -212,33 +206,36 @@ public class PlayerManager : MonoBehaviour
 
     private void Move()
     {
-        //HANDLING X/Z AXIS.
-        //Create move to consider X and Z axis.
-        Vector3 move = transform.right * xAxis + transform.forward * zAxis;
-
-        //Use Vector 3 to translate movement * speed multiplier. Seperated from Frame Rate.
-        controller.Move(move * walkSpeed * Time.deltaTime);
-
-        //HANDLING Y AXIS.
-        //Add Gravity Acceleration:
-        yVeloctiy += gravity * Time.deltaTime;
-
-        //isGrounded Check. Checks a sphere at feet.
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        //Debug.Log(isGrounded);
-
-        //if grounded, set y velocity to a more reasonable rate.
-        if (isGrounded && yVeloctiy < 0)
+        if(!seized)
         {
-            yVeloctiy = -2f;
+            //HANDLING X/Z AXIS.
+            //Create move to consider X and Z axis.
+            Vector3 move = transform.right * xAxis + transform.forward * zAxis;
+
+            //Use Vector 3 to translate movement * speed multiplier. Seperated from Frame Rate.
+            controller.Move(move * walkSpeed * Time.deltaTime);
+
+            //HANDLING Y AXIS.
+            //Add Gravity Acceleration:
+            yVeloctiy += gravity * Time.deltaTime;
+
+            //isGrounded Check. Checks a sphere at feet.
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            //Debug.Log(isGrounded);
+
+            //if grounded, set y velocity to a more reasonable rate.
+            if (isGrounded && yVeloctiy < 0)
+            {
+                yVeloctiy = -2f;
+            }
+            //Debug.Log(yVeloctiy);
+
+            //Change move to consider only the Y axis.
+            move = transform.up * yVeloctiy;
+
+            //Move on the Y Axis.
+            controller.Move(move * Time.deltaTime);
         }
-        //Debug.Log(yVeloctiy);
-
-        //Change move to consider only the Y axis.
-        move = transform.up * yVeloctiy;
-
-        //Move on the Y Axis.
-        controller.Move(move * Time.deltaTime);
     }
 
     private void seizing(bool facts)
