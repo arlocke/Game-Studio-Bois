@@ -168,7 +168,10 @@ public class PlayerManager : MonoBehaviour
     {
         isTutorial = true;
         tutorialStage = 0;
-        CheckCrouch();
+        if(!crouch)
+        {
+            CheckCrouch();
+        }
         EventManager.OnInnerThoughtInitiated("Ugh I'm so tired... I gotta get outta bed... (Use [LeftCtrl] to get up)", 7.0f);
     }
 
