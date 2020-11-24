@@ -101,6 +101,7 @@ public class ComputerCanvas : MonoBehaviour
 
     public void SitAtComputer()
     {
+        EventManager.OnSeize(true);
         if(computerScreen.renderMode != RenderMode.ScreenSpaceOverlay)
         {
             computerScreen.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -112,6 +113,7 @@ public class ComputerCanvas : MonoBehaviour
 
     public void LeaveComputer()
     {
+        EventManager.OnSeize(false);
         if (computerScreen.renderMode != RenderMode.WorldSpace)
         {
             computerScreen.renderMode = RenderMode.WorldSpace;

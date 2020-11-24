@@ -64,13 +64,13 @@ public class KeyBindManager : MonoBehaviour
 
         currentDictionary[key] = keyBind;
         MenuManager.MyInstance.UpdateKeyText(key, keyBind);
-        MenuManager.MyInstance.seize = false;
+        MenuManager.MyInstance.selectLock = false;
         bindName = string.Empty;
     }
 
     public void KeyBindOnClick(string bindName)
     {
-        MenuManager.MyInstance.seize = true;
+        MenuManager.MyInstance.selectLock = true;
         this.bindName = bindName;
     }
 

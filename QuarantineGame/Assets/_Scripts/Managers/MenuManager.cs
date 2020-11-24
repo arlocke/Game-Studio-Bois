@@ -23,7 +23,8 @@ public class MenuManager : MonoBehaviour
     }
 
     public bool isInGame = false;
-    public bool seize = false;
+    public bool selectLock = false;
+    protected bool seize = false;
 
     [SerializeField]
     private CanvasGroup KeyBindMenu;
@@ -35,6 +36,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+        EventManager.Seize += Seize;
         keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
     }
 
@@ -54,19 +56,13 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L) && isInGame && !seize)
+        if(Input.GetKeyDown(KeyCode.L) && isInGame && !selectLock)
         {
             if(KeyBindMenu != null && PauseMenu != null)
             {
                 if(PauseMenu.alpha == 1)
                 {
-                    KeyBindMenu.alpha = 0;
-                    KeyBindMenu.blocksRaycasts = false;
-                    PauseMenu.alpha = 0;
-                    PauseMenu.blocksRaycasts = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
-                    Time.timeScale = 1;
+                    Resume();
                 }
                 else
                 {
@@ -94,7 +90,7 @@ public class MenuManager : MonoBehaviour
 
     public void ShowHideOptions()
     {
-        if(KeyBindMenu != null && !seize)
+        if(KeyBindMenu != null && !selectLock)
         {
             KeyBindMenu.alpha = KeyBindMenu.alpha > 0 ? 0 : 1;
             KeyBindMenu.blocksRaycasts = KeyBindMenu.blocksRaycasts == true ? false : true;
@@ -113,8 +109,11 @@ public class MenuManager : MonoBehaviour
         KeyBindMenu.blocksRaycasts = false;
         PauseMenu.alpha = 0;
         PauseMenu.blocksRaycasts = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if(!seize)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         Time.timeScale = 1;
     }
 
@@ -134,5 +133,10 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1;
         PlayerPrefs.SetInt("Load", 1);
         SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene", 1), LoadSceneMode.Single);
+    }
+
+    private void Seize(bool facts)
+    {
+        seize = facts;
     }
 }
