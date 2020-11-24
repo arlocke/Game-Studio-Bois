@@ -24,6 +24,7 @@ public static class EventManager
     public static System.Action GetCompletion;
     public static System.Action StartTutorial;
     public static System.Action EndTutorial;
+    public static System.Action<float> FastForward;
 
     public static void OnSaveInitiated()
     {
@@ -90,5 +91,10 @@ public static class EventManager
     public static void OnEndTutorial()
     {
         EndTutorial?.Invoke();
+    }
+
+    public static void OnFastForward(float value)
+    {
+        FastForward?.Invoke(value);
     }
 }

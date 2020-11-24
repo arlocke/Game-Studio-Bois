@@ -27,6 +27,7 @@ public class Clock : MonoBehaviour
     {
         EventManager.StartTutorial += StartTutorial;
         EventManager.EndTutorial += EndTutorial;
+        EventManager.FastForward += SkipTime;
     }
 
     // Start is called before the first frame update
@@ -86,5 +87,15 @@ public class Clock : MonoBehaviour
     {
         EventManager.StartTutorial -= StartTutorial;
         EventManager.EndTutorial -= EndTutorial;
+        EventManager.FastForward -= SkipTime;
+    }
+
+    private void SkipTime(float flatValue)
+    {
+        time += flatValue;
+        if(time >= 1200)
+        {
+            time = 1140;
+        }
     }
 }
