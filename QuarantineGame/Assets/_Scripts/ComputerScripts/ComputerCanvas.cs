@@ -78,7 +78,7 @@ public class ComputerCanvas : MonoBehaviour
     {
         EventManager.Blackout();
         yield return new WaitForSecondsRealtime(1.5f);
-        EventManager.OnFastForward(240);
+        EventManager.OnFastForward(180);
         EventManager.BlackoutReverse();
         
     }

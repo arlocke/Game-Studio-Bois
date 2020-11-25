@@ -20,7 +20,9 @@ public class Day1 : MonoBehaviour
     bool Thought10 = false;
     bool Thought11 = false;
     //bool Thought12 = false;
-   // bool Thought13 = false;
+    // bool Thought13 = false;
+
+    bool bedThought = false;
 
     bool Email1 = false;
     bool Email2 = false;
@@ -78,7 +80,7 @@ public class Day1 : MonoBehaviour
             EventManager.OnAddEmailInitiated("Sender: The Boss" +
                 "\n Sent: 8:50 am " +
                 "\n Subject: SERIOUS REMINDER!" +
-                "\n \n Also FYI... Don't mention anything that about the virus in the meeting... We have to keep morale up and I " +
+                "\n \n Also FYI... Don't mention anything about the virus in the meeting... We have to keep morale up and I " +
                 "know you're someone who easily goes off the rails. Don't let me down! " +
                 "\n \n -The Boss");
             Email2 = true;
@@ -137,13 +139,14 @@ public class Day1 : MonoBehaviour
             Email3 = true;
         }
 
-        if (time == 810 && !Thought7) // 1:30
+        /*
+        if (time == 750 && !Thought7) // 1:30
         {
-            EventManager.OnInnerThoughtInitiated("Well this isn't so bad!", 10.0f);
+            EventManager.OnInnerThoughtInitiated("Well... I guess it isn't so bad.", 5.0f);
             Thought7 = true;
-        }
+        }*/
 
-        if (time >= 800 && !Email4 && EventManager.OnQuestCheck("Work")) //1:30
+        if (time >= 745 && !Email4 && EventManager.OnQuestCheck("Work")) //1:30
         {
             EventManager.OnAddEmailInitiated("Sender: The Boss" +
                 "\n Sent: 1:30 pm " +
@@ -160,6 +163,12 @@ public class Day1 : MonoBehaviour
         {
             EventManager.OnInnerThoughtInitiated("Dang, where did I put my pills?", 5.0f);
             Thought10 = true;
+        }
+
+        if(!bedThought && EventManager.OnQuestCheck("Pills") && EventManager.OnQuestCheck("Work") && EventManager.OnQuestCheck("Food"))
+        {
+            EventManager.OnInnerThoughtInitiated("Now that I've done all my tasks I can go back to sleep! [Left Click on bed to advance]", 10.0f);
+            bedThought = true;
         }
 
         if (time == 990 && !Thought11) // 1:30
