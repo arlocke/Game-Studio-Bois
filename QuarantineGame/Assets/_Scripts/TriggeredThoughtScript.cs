@@ -13,7 +13,10 @@ public class TriggeredThoughtScript : MonoBehaviour
         if(other.tag == "Player" && !triggered)
         {
             triggered = true;
+            Debug.Log("Im trying to show a thought");
             EventManager.OnInnerThoughtInitiated(context, time);
         }
     }
+
+
 }

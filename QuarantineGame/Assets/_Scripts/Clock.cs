@@ -64,11 +64,11 @@ public class Clock : MonoBehaviour
             EventManager.ending = true;
             if(EventManager.EndingType())
             {
-                EventManager.OnInnerThoughtInitiated("I found my pills and did my work!", 10.0f);
+                EventManager.OnInnerThoughtInitiated("I've done all my tasks for the day!", 10.0f);
             }
             else
             {
-                EventManager.OnInnerThoughtInitiated("I have not found my pills or done my work!", 10.0f);
+                EventManager.OnInnerThoughtInitiated("I still have things to do today!", 10.0f);
             }
         }
     }

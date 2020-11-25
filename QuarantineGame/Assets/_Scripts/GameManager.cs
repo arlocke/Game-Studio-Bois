@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         {
             if(EventManager.EndingType())
             {
+                EventManager.Blackout();
                 var index = SceneManager.GetActiveScene().buildIndex;
                 if (index + 1 < SceneManager.sceneCountInBuildSettings)
                 {

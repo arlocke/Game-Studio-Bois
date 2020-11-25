@@ -30,6 +30,7 @@ public class ComputerCanvas : MonoBehaviour
         computerScreen = GetComponent<Canvas>();
         EventManager.AddEmail += StartAddEmail;
         EventManager.ActivateWorkPrompt += StartActivateWorkPrompt;
+        EventManager.RemoveWorkPrompt += StartRemoveWorkPrompt;
 
         self = transform.GetComponent<RectTransform>();
         originalPos = transform.position;
@@ -51,6 +52,11 @@ public class ComputerCanvas : MonoBehaviour
         workPrompt.SetActive(true);
     }
 
+    public void StartRemoveWorkPrompt()
+    {
+        workPrompt.SetActive(false);
+    }
+
     public void Work()
     {
         //need help
@@ -61,6 +67,7 @@ public class ComputerCanvas : MonoBehaviour
         }
         workPrompt.SetActive(false);
         startSkipTimeAnim();
+        EventManager.OnInnerThoughtInitiated("Well I did my work for the day!", 5.0f);
         
     }
     public void startSkipTimeAnim()
@@ -97,6 +104,7 @@ public class ComputerCanvas : MonoBehaviour
     {
         EventManager.AddEmail -= StartAddEmail;
         EventManager.ActivateWorkPrompt -= StartActivateWorkPrompt;
+        EventManager.RemoveWorkPrompt -= StartRemoveWorkPrompt;
     }
 
     public void SitAtComputer()

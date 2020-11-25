@@ -4316,7 +4316,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: Quit
+        m_MethodName: GameQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4766,7 +4766,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   innerThoughtsUI: {fileID: 279956767}
   questLogUI: {fileID: 1005742493}
+  blackout: {fileID: 512934506}
   fadeInInnerThoughts: {fileID: 0}
+  blackoutAnim: {fileID: 0}
 --- !u!1 &1424067703
 GameObject:
   m_ObjectHideFlags: 0
@@ -6578,7 +6580,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 925091721}
   m_HandleRect: {fileID: 925091720}
   m_Direction: 2
-  m_Value: 0.99997276
+  m_Value: 0.99997264
   m_Size: 0.53439426
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8145,7 +8147,7 @@ MonoBehaviour:
   subpixelMorphologicalAntialiasing:
     quality: 2
   fastApproximateAntialiasing:
-    fastMode: 1
+    fastMode: 0
     keepAlpha: 0
   fog:
     enabled: 1

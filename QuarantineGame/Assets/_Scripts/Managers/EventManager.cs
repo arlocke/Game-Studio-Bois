@@ -27,6 +27,7 @@ public static class EventManager
     public static System.Action<float> FastForward;
     public static System.Action<bool> Seize;
     public static System.Action ActivateWorkPrompt;
+    public static System.Action RemoveWorkPrompt;
     public static System.Action Blackout;
     public static System.Action BlackoutReverse;
 
@@ -110,6 +111,11 @@ public static class EventManager
     public static void OnActivateWorkPromptInitiated()
     {
         ActivateWorkPrompt?.Invoke();
+    }
+
+    public static void OnRemoveWorkPromptInitiated()
+    {
+        RemoveWorkPrompt?.Invoke();
     }
 
     public static void OnBlackoutInitiated()

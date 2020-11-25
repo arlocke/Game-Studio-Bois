@@ -41,39 +41,54 @@ public class Day1 : MonoBehaviour
     {
         time = clock.timeRounded;
 
-        if (time == 500 && !Thought4)
+        Debug.Log(time);
+
+        if(time == 451 && !Thought1) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Oh jeez... My boss must've emailed me about my morning meeting...", 10.0f);
-            Thought4 = true;
+            EventManager.OnInnerThoughtInitiated("Looks like I'm all set for the day. (Tutorial Done)", 7.0f);
+            Thought1 = true;
         }
 
-        if (time == 500 && !timeToWork)
+        if (time == 480 && !Thought2) //8:00
         {
-            EventManager.OnInnerThoughtInitiated("I guess I can work now", 5.0f);
+            EventManager.OnInnerThoughtInitiated("Oh jeez... My boss must've emailed me about my morning meeting...", 7.0f);
+            Thought2 = true;
+        }
+
+        if (time >= 480 && !Email1) //8:00
+        {
+            EventManager.OnAddEmailInitiated("Sender: The Boss " +
+                "\n Sent: 8:00am " +
+                "\n Subject: Hey Gahara! " +
+                "\n Make sure you attend the remote work meeting today at 9:00am!!! I'm counting on you to be the star " +
+                "employee to show the other guys we can make a smooth transition during this pandemic. Don't let me down! " +
+                "\n -The Boss");
+            Email1 = true;
+        }
+
+        if (time >= 530 && !Email2) //8:50
+        {
+            EventManager.OnAddEmailInitiated("Sender: The Boss" +
+                "\n Sent: 8:50 " +
+                "\n Subject SERIOUS REMINDER!" +
+                "\n Also FYI... Don't mention anything that about the virus in the meeting... We have to keep morale up and I know you're someone who easily goes off the rails. Don't let me down! \n -The Boss");
+            Email2 = true;
+        }
+
+        if (time == 530 && !Thought2)
+        {
+            EventManager.OnInnerThoughtInitiated("Did I just get another email...?", 10.0f);
+            Thought5 = true;
+        }
+
+        if (time == 540 && !timeToWork) //9:00
+        {
+            EventManager.OnInnerThoughtInitiated("I guess I can attend the work meeting now...", 5.0f);
             EventManager.OnActivateWorkPromptInitiated();
             timeToWork = true;
         }
 
-        if (time >= 500 && !Email1)
-        {
-            EventManager.OnAddEmailInitiated("Sender: The Boss \n Sent: 8:00 \n Hey Gahara! \n Make sure you attend the remote work meeting today." +
-                " I'm counting on you to be the star employee to show the other guys we can transition to remote working smoothly. Don't let me down! \n -The Boss");
-            Email1 = true;
-        }
-
-        if (time >= 530 && !Email2)
-        {
-            EventManager.OnAddEmailInitiated("Sender: The Boss \n \n Sent: 8:30 \n Hey Gahara! \n Also FYI... Don't mention anything that about the virus in the meeting... We have to keep morale up and I know you're someone who easily goes off the rails. Don't let me down! \n -The Boss");
-            Email2 = true;
-        }
-
-        if (time == 530 && !Thought5)
-        {
-            EventManager.OnInnerThoughtInitiated("This guy emailed me again!? What a psycho...", 10.0f);
-            Thought5 = true;
-        }
-
-        if (time == 600 && !Thought6)
+        if (time == 600 && !Thought3)
         {
             EventManager.OnInnerThoughtInitiated("I've done my work for the day! I just need to remember to take my pills before I turn in.", 10.0f);
             Thought6 = true;
@@ -85,13 +100,13 @@ public class Day1 : MonoBehaviour
             Email3 = true;
         }
 
-        if (time == 650 && !Thought7)
+        if (time == 650 && !Thought4)
         {
             EventManager.OnInnerThoughtInitiated("Looks like I got an email from my doctor. Wonder what he wanted to say...", 10.0f);
             Thought7 = true;
         }
 
-        if (time >= 700 && !Thought8)
+        if (time >= 700 && !Thought5)
         {
             EventManager.OnInnerThoughtInitiated("Wow I'm still so tired... I could hit the hay right now!", 10.0f);
             Thought8 = true;

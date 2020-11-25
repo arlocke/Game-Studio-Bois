@@ -189,13 +189,13 @@ public class PlayerManager : MonoBehaviour
         if(tutorialStage == 2 && tutorialPickup)
         {
             isTutorial = false;
-            EventManager.OnInnerThoughtInitiated("Looks like I'm all set for the day. (Tutorial Done)", 10.0f);
+            
             EventManager.OnEndTutorial();
         }
         if(tutorialStage == 1 && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W)))
         {
             tutorialStage += 1;
-            EventManager.OnInnerThoughtInitiated("I better check my bulletin board for my daily tasks... (Click on Sticky Notes to receive quests)", 10.0f);
+            EventManager.OnInnerThoughtInitiated("I better check my bulletin board for my daily tasks... (Click on Sticky Notes to receive quests)", 7.0f);
         }
         if(tutorialStage == 0 && Input.GetKeyDown(KeyCode.LeftControl))
         {
