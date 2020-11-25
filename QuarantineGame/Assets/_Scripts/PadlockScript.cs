@@ -7,8 +7,7 @@ public class PadlockScript : MonoBehaviour
 {
     public string Key;
     public Text Display;
-    public Transform Top;
-    public Rigidbody TopsBody;
+    public Rigidbody DoorsBody;
     private bool safeToUse = false;
     private bool locked = true;
     private bool checking = false;
@@ -19,7 +18,7 @@ public class PadlockScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(Key != null && Top != null)
+        if(Key != null && DoorsBody != null)
         {
             safeToUse = true;
         }
@@ -70,9 +69,7 @@ public class PadlockScript : MonoBehaviour
         if (condition)
         {
             Display.text = "Unlocked";
-            Top.parent = null;
-            TopsBody.isKinematic = false;
-            TopsBody.useGravity = true;
+            DoorsBody.isKinematic = false;
             yield return new WaitForSecondsRealtime(2.5f);
             Close();
         }
