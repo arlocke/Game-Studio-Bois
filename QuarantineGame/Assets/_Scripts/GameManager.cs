@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
                 if (index + 1 < SceneManager.sceneCountInBuildSettings)
                 {
                     PlayerPrefs.SetInt("Load", 0);
-                    SceneManager.LoadScene(index);
+                    SceneManager.LoadScene(index + 1);
                 }
                 else
                 {
