@@ -108,14 +108,14 @@ public class PlayerUI : MonoBehaviour
 
     public void PlayBlackout()
     {
-        Debug.Log("Trying to play");
+        //Debug.Log("Trying to play");
         blackoutAnim.SetBool("Activated", true);
 
     }
 
     public void PlayBlackoutReverse()
     {
-        Debug.Log("Trying to play");
+        //Debug.Log("Trying to play");
         blackoutAnim.SetBool("Activated", false);
     }
 

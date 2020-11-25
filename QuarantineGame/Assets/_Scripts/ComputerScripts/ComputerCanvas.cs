@@ -12,6 +12,8 @@ public class ComputerCanvas : MonoBehaviour
     public Text emailText;
     public int currentEmail = 0;
 
+    public bool hasWorked = false;
+
     public List<string> emailsInInbox = new List<string>();
 
     public GameObject workPrompt;
@@ -59,8 +61,6 @@ public class ComputerCanvas : MonoBehaviour
 
     public void Work()
     {
-        //need help
-        //complete quest key 2
         if (questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
         {
             questLogUI.text = questLogUI.text.Replace("Work", "Work - Completed");
@@ -89,7 +89,7 @@ public class ComputerCanvas : MonoBehaviour
         if(emailsInInbox.Count > 0)
         {
             currentEmail += 1;
-            Debug.Log("trying to change email");
+            //Debug.Log("trying to change email");
 
             if (currentEmail >= emailsInInbox.Count)
             {
