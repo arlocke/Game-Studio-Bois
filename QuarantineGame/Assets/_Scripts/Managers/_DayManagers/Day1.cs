@@ -25,6 +25,7 @@ public class Day1 : MonoBehaviour
     bool Email1 = false;
     bool Email2 = false;
     bool Email3 = false;
+    bool Email4 = false;
 
     bool timeToWork = false; //activate time
 
@@ -47,13 +48,20 @@ public class Day1 : MonoBehaviour
 
         if(time == 451 && !Thought1) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Looks like I'm all set for the day. (Tutorial Done)", 7.0f);
+            EventManager.OnInnerThoughtInitiated("Looks like I'm all set... Just gotta get through these tasks and then I can go back to bed!", 7.0f);
             Thought1 = true;
+        }
+
+        if (time == 460 && !Thought8) //7:31
+        {
+            EventManager.OnInnerThoughtInitiated("Man, I am not excited to work from home for the next week... " +
+                "but I guess everyone is doing it so I shouldn't complain...", 7.0f);
+            Thought8 = true;
         }
 
         if (time == 480 && !Thought2) //8:00
         {
-            EventManager.OnInnerThoughtInitiated("Oh jeez... My boss must've emailed me about my morning meeting...", 7.0f);
+            EventManager.OnInnerThoughtInitiated("I should check me emails before my work meeting. [Left Click on the Bedroom PC]", 7.0f);
             Thought2 = true;
         }
 
@@ -66,6 +74,12 @@ public class Day1 : MonoBehaviour
                 "employee to show the other guys we can make a smooth transition during this pandemic. Don't let me down! " +
                 "\n \n -The Boss");
             Email1 = true;
+        }
+
+        if (time == 495 && !Thought9) //8:15
+        {
+            EventManager.OnInnerThoughtInitiated("God my head is pounding....", 2.0f);
+            Thought9 = true;
         }
 
         if (time >= 530 && !Email2) //8:50
@@ -99,6 +113,28 @@ public class Day1 : MonoBehaviour
             Thought4 = true;
         }
 
+        if (time == 700 && !Thought5)
+        {
+            EventManager.OnInnerThoughtInitiated("THIS IS MY LAST CHANCE TO ATTEND MY WORK MEETING!!", 10.0f);
+            Thought5 = true;
+        }
+
+        if (time == 720 && !Thought6 && !EventManager.OnQuestCheck("Work")) //12
+        {
+            EventManager.OnInnerThoughtInitiated("Oh my God!! How did I miss my work meeting?!? WTF is wrong with me?!", 10.0f);
+            if(questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
+            {
+            questLogUI.text = questLogUI.text.Replace("Work", "<color=red>Work - Completed...?</color>");
+            }
+            EventManager.OnRemoveWorkPromptInitiated();
+            EventManager.OnAddEmailInitiated("Sender: The Boss" +
+                "\n Sent: 12:00 pm " +
+                "\n Subject: WHAT THE ABSOLUTE FUCK GAHARA " +
+                "\n \n IS THIS A JOKE?????? ARE YOU TRYING TO LOSE YOUR JOB??? IT WAS THE LITERAL FIRST MEETING OF THE QUARTER!!!! YOU ARE THE " +
+                "LITERAL SENIOR DATA ANALYST!!! THIS IS WHY WE PAY YOU 7 FIGURES!!! YOU'RE ON THIN ICE JACKASS!!!");
+            Thought6 = true;
+        }
+
         if (time >= 780 && !Email3) //1:00 pm
         {
             EventManager.OnAddEmailInitiated("Sender: Doc " +
@@ -110,29 +146,28 @@ public class Day1 : MonoBehaviour
             Email3 = true;
         }
 
-        if (time == 700 && !Thought6)
+        if (time == 810 && !Thought7) // 1:30
         {
-            EventManager.OnInnerThoughtInitiated("THIS IS MY LAST CHANCE TO ATTEND MY WORK MEETING!!", 10.0f);
-            Thought6 = true;
+            EventManager.OnInnerThoughtInitiated("Ugh I feel like total shit... I could literally go back to bed!", 10.0f);
+            Thought7 = true;
         }
 
-        if (time == 720 && !Thought5 && !EventManager.OnQuestCheck("Work")) //12
+        if (time >= 810 && !Email4 && EventManager.OnQuestCheck("Work")) //1:30
         {
-            EventManager.OnInnerThoughtInitiated("Oh my God!! How did I miss my work meeting?!? WTF is wrong with me?!", 10.0f);
-            if(questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
-            {
-            questLogUI.text = questLogUI.text.Replace("Work", "<color=red>Work - Completed...?</color>");
-            }
-            EventManager.OnRemoveWorkPromptInitiated();
-            Thought5 = true;
-
             EventManager.OnAddEmailInitiated("Sender: The Boss" +
-                "\n Sent: 12:00 pm " +
-                "\n Subject: WHAT THE ABSOLUTE FUCK GAHARA " +
-                "\n \n IS THIS A JOKE?????? ARE YOU TRYING TO LOSE YOUR JOB??? IT WAS THE LITERAL FIRST MEETING OF THE QUARTER!!!! YOU ARE THE " +
-                "LITERAL SENIOR DATA ANALYST!!! THIS IS WHY WE PAY YOU 7 FIGURES!!! YOU'RE ON THIN ICE JACKASS!!!");
+                "\n Sent: 1:30 pm " +
+                "\n Subject: Nice Work Gahara " +
+                "\n \n Thanks for attending the meeting today and being a good sport about it. I made a good decision hiring you 5 years ago." +
+                "I know it's stressful since we're all in Quarantine and you're cooped up in that penthouse apartment of yours alone. We're gonna get through this together!" +
+                "\n \n -The Boss");
+            Email4 = true;
         }
 
-       
+        if (time == 810 && !Thought11) // 1:30
+        {
+            EventManager.OnInnerThoughtInitiated("I'm so bored.. I'd probably have a better time in my dreams...", 10.0f);
+            Thought11 = true;
+        }
+
     }
 }

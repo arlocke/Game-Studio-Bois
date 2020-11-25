@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -462.5, y: 214.99985}
-  m_SizeDelta: {x: 65, y: 50}
+  m_AnchoredPosition: {x: -462.5, y: 214}
+  m_SizeDelta: {x: 90, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &285055573
 CanvasRenderer:
@@ -155,7 +155,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 67e782bebbf7485468b35cddc7dcd278, type: 3}
+    m_Font: {fileID: 12800000, guid: 8a0a533852964984fb61e9bf1ae5a69b, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -249,7 +249,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650742762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 285055570}
@@ -257,8 +257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.8, y: 0.00022888184}
-  m_SizeDelta: {x: 60, y: 50}
+  m_AnchoredPosition: {x: 7.7, y: -4.2}
+  m_SizeDelta: {x: 80, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &650742766
 CanvasRenderer:
@@ -287,7 +287,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 67e782bebbf7485468b35cddc7dcd278, type: 3}
+    m_Font: {fileID: 12800000, guid: 8a0a533852964984fb61e9bf1ae5a69b, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -389,8 +389,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 49.7}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 4, y: 49.7}
+  m_SizeDelta: {x: 220, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &970267601
 CanvasRenderer:
@@ -419,7 +419,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 67e782bebbf7485468b35cddc7dcd278, type: 3}
+    m_Font: {fileID: 12800000, guid: 8a0a533852964984fb61e9bf1ae5a69b, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -465,7 +465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2095589893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -474,7 +474,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095589892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 970267598}
@@ -484,8 +484,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 454, y: 58}
-  m_SizeDelta: {x: 200, y: 150}
+  m_AnchoredPosition: {x: 442, y: 58}
+  m_SizeDelta: {x: 220, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2095589896
 CanvasRenderer:
@@ -790,6 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emailText: {fileID: 3232822059025475728}
   currentEmail: 0
+  hasWorked: 0
   emailsInInbox: []
   workPrompt: {fileID: 2095589892}
   questLogUI: {fileID: 0}
@@ -827,8 +828,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: -38}
-  m_SizeDelta: {x: 900, y: 450}
+  m_AnchoredPosition: {x: -69, y: -38}
+  m_SizeDelta: {x: 900, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3232822059025475731
 CanvasRenderer:
@@ -857,8 +858,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 67e782bebbf7485468b35cddc7dcd278, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 8a0a533852964984fb61e9bf1ae5a69b, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -869,7 +870,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '*NO Emails*'
+  m_Text: '*No Emails*'
 --- !u!1 &3232822059317756730
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +935,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 67e782bebbf7485468b35cddc7dcd278, type: 3}
+    m_Font: {fileID: 12800000, guid: 8a0a533852964984fb61e9bf1ae5a69b, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -983,7 +984,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 10.2, y: -3.9998627}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 240, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3232822059615286277
 CanvasRenderer:
@@ -1012,7 +1013,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 67e782bebbf7485468b35cddc7dcd278, type: 3}
+    m_Font: {fileID: 12800000, guid: 8a0a533852964984fb61e9bf1ae5a69b, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -1115,8 +1116,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 374, y: 214.99985}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: 374, y: 214}
+  m_SizeDelta: {x: 240, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5330449754558205048
 CanvasRenderer:
