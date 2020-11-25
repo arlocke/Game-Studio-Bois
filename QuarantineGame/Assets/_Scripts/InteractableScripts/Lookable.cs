@@ -115,15 +115,15 @@ public class Lookable : MonoBehaviour
         if(beingCarried && !snapped)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, carrier.rotation, rSpeed * Time.deltaTime);
-            if(transform.rotation == carrier.rotation)
+            if(Quaternion.Angle(transform.rotation, carrier.rotation) < 0.5)
             {
                 snapped = true;
             }
         }
-        else if(!beingCarried)
+        else if(!beingCarried && snapped)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(lastRotation), rSpeed * Time.deltaTime);
-            if(transform.rotation == Quaternion.Euler(lastRotation))
+            if(Quaternion.Angle(transform.rotation, Quaternion.Euler(lastRotation)) < 0.5)
             {
                 snapped = false;
             }
