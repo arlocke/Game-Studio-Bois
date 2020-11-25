@@ -19,8 +19,8 @@ public class Day1 : MonoBehaviour
     bool Thought9 = false;
     bool Thought10 = false;
     bool Thought11 = false;
-    bool Thought12 = false;
-    bool Thought13 = false;
+    //bool Thought12 = false;
+   // bool Thought13 = false;
 
     bool Email1 = false;
     bool Email2 = false;
@@ -44,8 +44,6 @@ public class Day1 : MonoBehaviour
     {
         time = clock.timeRounded;
 
-        Debug.Log(time);
-
         if(time == 451 && !Thought1) //7:31
         {
             EventManager.OnInnerThoughtInitiated("Looks like I'm all set... Just gotta get through these tasks and then I can go back to bed!", 7.0f);
@@ -54,15 +52,8 @@ public class Day1 : MonoBehaviour
 
         if (time == 460 && !Thought8) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Man, I am not excited to work from home for the next week... " +
-                "but I guess everyone is doing it so I shouldn't complain...", 7.0f);
+            EventManager.OnInnerThoughtInitiated("Man, I am not excited to work from home for the next week...", 7.0f);
             Thought8 = true;
-        }
-
-        if (time == 480 && !Thought2) //8:00
-        {
-            EventManager.OnInnerThoughtInitiated("I should check me emails before my work meeting. [Left Click on the Bedroom PC]", 7.0f);
-            Thought2 = true;
         }
 
         if (time >= 480 && !Email1) //8:00
@@ -76,10 +67,10 @@ public class Day1 : MonoBehaviour
             Email1 = true;
         }
 
-        if (time == 495 && !Thought9) //8:15
+        if (time == 490 && !Thought2) //8:00
         {
-            EventManager.OnInnerThoughtInitiated("God my head is pounding....", 2.0f);
-            Thought9 = true;
+            EventManager.OnInnerThoughtInitiated("I should check me emails before my work meeting. [Left Click on the Bedroom PC]", 7.0f);
+            Thought2 = true;
         }
 
         if (time >= 530 && !Email2) //8:50
@@ -129,9 +120,9 @@ public class Day1 : MonoBehaviour
             EventManager.OnRemoveWorkPromptInitiated();
             EventManager.OnAddEmailInitiated("Sender: The Boss" +
                 "\n Sent: 12:00 pm " +
-                "\n Subject: WHAT THE ABSOLUTE FUCK GAHARA " +
-                "\n \n IS THIS A JOKE?????? ARE YOU TRYING TO LOSE YOUR JOB??? IT WAS THE LITERAL FIRST MEETING OF THE QUARTER!!!! YOU ARE THE " +
-                "LITERAL SENIOR DATA ANALYST!!! THIS IS WHY WE PAY YOU 7 FIGURES!!! YOU'RE ON THIN ICE JACKASS!!!");
+                "\n Subject: WHAT THE ABSOLUTE F**K GAHARA " +
+                "\n \n IS THIS A JOKE?????? ARE YOU TRYING TO LOSE YOUR JOB??? IT WAS LITERALLY THE FIRST MEETING OF THE QUARTER!!!! YOU ARE THE " +
+                "SENIOR DATA ANALYST!!! THIS IS WHY WE PAY YOU 7 FIGURES!!! YOU'RE ON THIN ICE JACKASS!!!");
             Thought6 = true;
         }
 
@@ -148,11 +139,11 @@ public class Day1 : MonoBehaviour
 
         if (time == 810 && !Thought7) // 1:30
         {
-            EventManager.OnInnerThoughtInitiated("Ugh I feel like total shit... I could literally go back to bed!", 10.0f);
+            EventManager.OnInnerThoughtInitiated("Well this isn't so bad!", 10.0f);
             Thought7 = true;
         }
 
-        if (time >= 810 && !Email4 && EventManager.OnQuestCheck("Work")) //1:30
+        if (time >= 800 && !Email4 && EventManager.OnQuestCheck("Work")) //1:30
         {
             EventManager.OnAddEmailInitiated("Sender: The Boss" +
                 "\n Sent: 1:30 pm " +
@@ -163,11 +154,18 @@ public class Day1 : MonoBehaviour
             Email4 = true;
         }
 
-        if (time == 810 && !Thought11) // 1:30
+    
+
+        if (time == 900 && !Thought10 && !EventManager.OnQuestCheck("Pills")) //12
+        {
+            EventManager.OnInnerThoughtInitiated("Dang, where did I put my pills?", 5.0f);
+            Thought10 = true;
+        }
+
+        if (time == 990 && !Thought11) // 1:30
         {
             EventManager.OnInnerThoughtInitiated("I'm so bored.. I'd probably have a better time in my dreams...", 10.0f);
             Thought11 = true;
         }
-
     }
 }
