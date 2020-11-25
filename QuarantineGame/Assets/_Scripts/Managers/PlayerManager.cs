@@ -59,9 +59,16 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Control Input For Movement.
-        xAxis = Input.GetAxis("Horizontal");
-        zAxis = Input.GetAxis("Vertical");
+        if (KeyBindManager.MyInstance == null)
+        {
+            //Control Input For Movement.
+            xAxis = Input.GetAxis("Horizontal");
+            zAxis = Input.GetAxis("Vertical");
+        }
+        else
+        {
+            keybindAxis();
+        }
 
         //Control Input For Crouching.
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -240,5 +247,66 @@ public class PlayerManager : MonoBehaviour
     private void seizing(bool facts)
     {
         seized = facts;
+    }
+
+    private void keybindAxis()
+    {
+        if (Input.GetKey(KeyBindManager.MyInstance.KeyBinds["UP"]) && Input.GetKey(KeyBindManager.MyInstance.KeyBinds["DOWN"]))
+        {
+            zAxis = 0;
+        }
+        else if (Input.GetKey(KeyBindManager.MyInstance.KeyBinds["UP"]))
+        {
+            zAxis = 1;
+        }
+        else if (Input.GetKey(KeyBindManager.MyInstance.KeyBinds["DOWN"]))
+        {
+            zAxis = -1;
+        }
+        else
+        {
+            zAxis = 0;
+        }
+
+        if (Input.GetKey(KeyBindManager.MyInstance.KeyBinds["LEFT"]) && Input.GetKey(KeyBindManager.MyInstance.KeyBinds["RIGHT"]))
+        {
+            xAxis = 0;
+        }
+        else if (Input.GetKey(KeyBindManager.MyInstance.KeyBinds["LEFT"]))
+        {
+            xAxis = -1;
+        }
+        else if (Input.GetKey(KeyBindManager.MyInstance.KeyBinds["RIGHT"]))
+        {
+            xAxis = 1;
+        }
+        else
+        {
+            xAxis = 0;
+        }
+
+        Vector2 dud = new Vector2(xAxis, zAxis);
+        dud = dud.normalized;
+
+        xAxis = dud.x;
+        zAxis = dud.y;
+
+        if (zAxis > 1)
+        {
+            zAxis = 1;
+        }
+        else if (zAxis < -1)
+        {
+            zAxis = -1;
+        }
+
+        if (xAxis > 1)
+        {
+            xAxis = 1;
+        }
+        else if (xAxis < -1)
+        {
+            xAxis = 1;
+        }
     }
 }

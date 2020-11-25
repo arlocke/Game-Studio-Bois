@@ -2968,7 +2968,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0
-  m_Text: Action 1
+  m_Text: Pause
 --- !u!114 &900520011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6581,7 +6581,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 925091720}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.43228105
+  m_Size: 0.53439426
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

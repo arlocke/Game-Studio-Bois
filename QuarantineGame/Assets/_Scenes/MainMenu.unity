@@ -4372,7 +4372,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 819412353}
   m_HandleRect: {fileID: 819412352}
   m_Direction: 2
-  m_Value: 0.99997264
+  m_Value: 0.99997276
   m_Size: 0.53439426
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4917,7 +4917,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0
-  m_Text: Action 1
+  m_Text: Pause
 --- !u!222 &1788384617
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -56,21 +56,45 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L) && isInGame && !selectLock)
+        if(KeyBindManager.MyInstance == null)
         {
-            if(KeyBindMenu != null && PauseMenu != null)
+            if (Input.GetKeyDown(KeyCode.P) && isInGame && !selectLock)
             {
-                if(PauseMenu.alpha == 1)
+                if (KeyBindMenu != null && PauseMenu != null)
                 {
-                    Resume();
+                    if (PauseMenu.alpha == 1)
+                    {
+                        Resume();
+                    }
+                    else
+                    {
+                        PauseMenu.alpha = 1;
+                        PauseMenu.blocksRaycasts = true;
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                        Time.timeScale = 0;
+                    }
                 }
-                else
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyBindManager.MyInstance.ActionBinds["ACT1"]) && isInGame && !selectLock)
+            {
+                if (KeyBindMenu != null && PauseMenu != null)
                 {
-                    PauseMenu.alpha = 1;
-                    PauseMenu.blocksRaycasts = true;
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                    Time.timeScale = 0;
+                    if (PauseMenu.alpha == 1)
+                    {
+                        Resume();
+                    }
+                    else
+                    {
+                        PauseMenu.alpha = 1;
+                        PauseMenu.blocksRaycasts = true;
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+                        Time.timeScale = 0;
+                    }
                 }
             }
         }
