@@ -13,6 +13,10 @@ public class QuestObjective : MonoBehaviour
         if(!dud.Equals("") && dud != null)
         {
             EventManager.OnCompleteQuestInitiated(dud);
+            if(EventManager.OnQuestCheck(dud))
+            {
+                transform.gameObject.SetActive(false);
+            }
         }
     }
 }

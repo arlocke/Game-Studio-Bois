@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class PadlockScript : MonoBehaviour
 {
     public string Key;
+    public string QuestKey;
     public Text Display;
     public Rigidbody DoorsBody;
     private bool safeToUse = false;
     private bool locked = true;
     private bool checking = false;
+    private string QuestName = "";
 
     [SerializeField]
     private CanvasGroup Padlock;
@@ -18,7 +20,7 @@ public class PadlockScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(Key != null && DoorsBody != null)
+        if (Key != null && DoorsBody != null)
         {
             safeToUse = true;
         }
@@ -71,6 +73,12 @@ public class PadlockScript : MonoBehaviour
             Display.text = "Unlocked";
             DoorsBody.isKinematic = false;
             yield return new WaitForSecondsRealtime(2.5f);
+            QuestName = EventManager.NameFromLoader(QuestKey);
+            if(QuestName != "")
+            {
+                EventManager.OnAddQuestInitiated(QuestName);
+                EventManager.OnCompleteQuestInitiated(QuestName);
+            }
             Close();
         }
         else

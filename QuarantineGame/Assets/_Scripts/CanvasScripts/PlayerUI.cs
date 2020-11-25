@@ -68,7 +68,10 @@ public class PlayerUI : MonoBehaviour
     public void ActivateQuestUI(string QuestText)
     {
         //Debug.Log("Creating text SIR");
-        questLogUI.text += QuestText + "\n";
+        if(!questLogUI.text.Contains(QuestText))
+        {
+            questLogUI.text += QuestText + "\n";
+        }
         /*if(questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
         {
             questLogUI.text = questLogUI.text.Replace("Work", "Work - Completed");

@@ -42021,6 +42021,8 @@ MonoBehaviour:
   - key: 2
     questName: Work
   - key: 3
+    questName: Food
+  - key: 4
     questName: Unlock Fridge
 --- !u!4 &885856057
 Transform:
@@ -63825,7 +63827,7 @@ PrefabInstance:
     - target: {fileID: 1844629964850527321, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
         type: 3}
       propertyPath: m_Text
-      value: 'Unlock Fridge
+      value: 'Eat Food
 
 '
       objectReference: {fileID: 0}
@@ -70443,6 +70445,10 @@ PrefabInstance:
       propertyPath: DoorsBody
       value: 
       objectReference: {fileID: 1172883209}
+    - target: {fileID: 321663260, guid: 8ac4bd21ab23de24f8b120d51ab821d6, type: 3}
+      propertyPath: QuestKey
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1905542655603999146, guid: 8ac4bd21ab23de24f8b120d51ab821d6,
         type: 3}
       propertyPath: m_Name
@@ -86468,6 +86474,100 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c81f23d52bb70a84bafad8feaf8cd7a3, type: 3}
+--- !u!1001 &1854779215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 565544639}
+    m_Modifications:
+    - target: {fileID: 1844629964850527321, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_Text
+      value: Unlock Fridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768909397512236692, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_Name
+      value: StickyNote wText (Unlock)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864138803915022979, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: key
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 39.921566
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.144905
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.84519553
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.039168093
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.066768885
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.009646539
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9969528
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -4.405
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 97.717
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.406
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9841849
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8738279
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391833436203768967, guid: c8d7f2e8dc9530d418a2eeee71b0c990,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9835959
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c8d7f2e8dc9530d418a2eeee71b0c990, type: 3}
 --- !u!4 &1855794858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6350280941036659574, guid: 292d5dfd2db958a499f054eec0432564,
