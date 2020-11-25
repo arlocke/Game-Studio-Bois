@@ -67,7 +67,6 @@ public class ComputerCanvas : MonoBehaviour
         }
         workPrompt.SetActive(false);
         startSkipTimeAnim();
-        EventManager.OnInnerThoughtInitiated("Well I did my work for the day!", 5.0f);
         
     }
     public void startSkipTimeAnim()
