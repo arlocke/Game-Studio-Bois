@@ -6,6 +6,10 @@ public class TriggeredBox : MonoBehaviour
 {
     public bool unlocking = false;
     public bool spawning = false;
+    public bool questCompleting = false;
+    public bool questSetting = false;
+    public bool keyBasedCompletion = false;
+    public string nonKeyQuestName = "";
     public string[] keys;
     public Rigidbody[] unlockables;
 
@@ -14,6 +18,7 @@ public class TriggeredBox : MonoBehaviour
     public Vector3 spawnRotation;
 
     private bool safeToUse = true;
+    private string keyName = "";
 
     private void Awake()
     {
@@ -51,13 +56,42 @@ public class TriggeredBox : MonoBehaviour
                 {
                     if (dud.key == key)
                     {
-                        if (unlocking)
+                        if (questSetting)
                         {
-                            Unlock();
+                            SetQuest(key);
+                            if (questCompleting)
+                            {
+                                CompleteQuest(key);
+                            }
+                            else
+                            {
+                                if(unlocking)
+                                {
+                                    Unlock();
+                                }
+                                if(spawning)
+                                {
+                                    Spawn();
+                                }
+                            }
                         }
-                        if (spawning)
+                        else
                         {
-                            Spawn();
+                            if(questCompleting)
+                            {
+                                CompleteQuest(key);
+                            }
+                            else
+                            {
+                                if (unlocking)
+                                {
+                                    Unlock();
+                                }
+                                if (spawning)
+                                {
+                                    Spawn();
+                                }
+                            }
                         }
                         break;
                     }
@@ -77,5 +111,78 @@ public class TriggeredBox : MonoBehaviour
     private void Spawn()
     {
         Instantiate(spawnable, spawnLocation, Quaternion.Euler(spawnRotation));
+    }
+
+    private void CompleteQuest(string key)
+    {
+        if(keyBasedCompletion)
+        {
+            keyName = EventManager.NameFromLoader(key);
+            if(keyName != "")
+            {
+                EventManager.OnCompleteQuestInitiated(keyName);
+                if (unlocking)
+                {
+                    Unlock();
+                }
+                if (spawning)
+                {
+                    Spawn();
+                }
+                keyName = "";
+            }
+        }
+        else
+        {
+            if(nonKeyQuestName != "")
+            {
+                EventManager.OnCompleteQuestInitiated(nonKeyQuestName);
+                if (unlocking)
+                {
+                    Unlock();
+                }
+                if (spawning)
+                {
+                    Spawn();
+                }
+            }
+        }
+    }
+
+    private void SetQuest(string key)
+    {
+        if (keyBasedCompletion)
+        {
+            keyName = EventManager.NameFromLoader(key);
+            if (keyName != "")
+            {
+                EventManager.OnAddQuestInitiated(keyName);
+                if (unlocking)
+                {
+                    Unlock();
+                }
+                if (spawning)
+                {
+                    Spawn();
+                }
+                keyName = "";
+            }
+
+        }
+        else
+        {
+            if (nonKeyQuestName != "")
+            {
+                EventManager.OnAddQuestInitiated(nonKeyQuestName);
+                if (unlocking)
+                {
+                    Unlock();
+                }
+                if (spawning)
+                {
+                    Spawn();
+                }
+            }
+        }
     }
 }
