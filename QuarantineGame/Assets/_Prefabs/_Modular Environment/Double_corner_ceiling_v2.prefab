@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6812801573771915376}
   - component: {fileID: 988372463306820745}
   - component: {fileID: 3677680114714380011}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Double_corner_ceiling_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

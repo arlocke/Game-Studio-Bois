@@ -71,7 +71,7 @@ public class Day1 : MonoBehaviour
 
         if (time == 490 && !Thought2) //8:00
         {
-            EventManager.OnInnerThoughtInitiated("I should check me emails before my work meeting. [Left Click on the Bedroom PC]", 7.0f);
+            EventManager.OnInnerThoughtInitiated("I should check my emails before my work meeting. [Left Click on the Bedroom PC]", 7.0f);
             Thought2 = true;
         }
 

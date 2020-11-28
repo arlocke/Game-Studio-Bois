@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5624533449045439635}
   - component: {fileID: 2103975098819807338}
   - component: {fileID: 1324773256060790707}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Double_edge_ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -41,7 +41,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 21.452, z: -0.4845257}
+  m_ConnectedAnchor: {x: 0, y: 21.452003, z: -0.48449755}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -101,7 +101,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2979476591310597983
 Transform:
@@ -254,6 +254,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocking: 1
   spawning: 0
+  questCompleting: 0
+  questSetting: 0
+  keyBasedCompletion: 0
+  nonKeyQuestName: 
   keys:
   - 100
   unlockables:
