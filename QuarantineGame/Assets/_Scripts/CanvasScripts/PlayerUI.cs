@@ -25,6 +25,7 @@ public class PlayerUI : MonoBehaviour
         EventManager.GetCompletion += CheckCompletion;
         EventManager.Blackout += PlayBlackout;
         EventManager.BlackoutReverse += PlayBlackoutReverse;
+        EventManager.ContainedCheck += CheckQuestContained;
 
 
         if (innerThoughtsUI != null)
@@ -87,6 +88,18 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    public void CheckQuestContained(string QuestText)
+    {
+        if(questLogUI.text.Contains(QuestText))
+        {
+            EventManager.isQuestContained = true;
+        }
+        else
+        {
+            EventManager.isQuestContained = false;
+        }
+    }
+
     public void IsQuestCompleted(string QuestText)
     {
         if(questLogUI.text.Contains(QuestText + " - Completed"))
@@ -131,5 +144,6 @@ public class PlayerUI : MonoBehaviour
         EventManager.GetCompletion -= CheckCompletion;
         EventManager.Blackout -= PlayBlackout;
         EventManager.BlackoutReverse -= PlayBlackoutReverse;
+        EventManager.ContainedCheck -= CheckQuestContained;
     }
 }

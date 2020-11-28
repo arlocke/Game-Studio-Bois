@@ -120,14 +120,17 @@ public class TriggeredBox : MonoBehaviour
             keyName = EventManager.NameFromLoader(key);
             if(keyName != "")
             {
-                EventManager.OnCompleteQuestInitiated(keyName);
-                if (unlocking)
+                if(EventManager.OnContainedCheck(keyName))
                 {
-                    Unlock();
-                }
-                if (spawning)
-                {
-                    Spawn();
+                    EventManager.OnCompleteQuestInitiated(keyName);
+                    if (unlocking)
+                    {
+                        Unlock();
+                    }
+                    if (spawning)
+                    {
+                        Spawn();
+                    }
                 }
                 keyName = "";
             }
@@ -136,14 +139,17 @@ public class TriggeredBox : MonoBehaviour
         {
             if(nonKeyQuestName != "")
             {
-                EventManager.OnCompleteQuestInitiated(nonKeyQuestName);
-                if (unlocking)
+                if(EventManager.OnContainedCheck(nonKeyQuestName))
                 {
-                    Unlock();
-                }
-                if (spawning)
-                {
-                    Spawn();
+                    EventManager.OnCompleteQuestInitiated(nonKeyQuestName);
+                    if (unlocking)
+                    {
+                        Unlock();
+                    }
+                    if (spawning)
+                    {
+                        Spawn();
+                    }
                 }
             }
         }
@@ -157,14 +163,6 @@ public class TriggeredBox : MonoBehaviour
             if (keyName != "")
             {
                 EventManager.OnAddQuestInitiated(keyName);
-                if (unlocking)
-                {
-                    Unlock();
-                }
-                if (spawning)
-                {
-                    Spawn();
-                }
                 keyName = "";
             }
 
@@ -174,14 +172,6 @@ public class TriggeredBox : MonoBehaviour
             if (nonKeyQuestName != "")
             {
                 EventManager.OnAddQuestInitiated(nonKeyQuestName);
-                if (unlocking)
-                {
-                    Unlock();
-                }
-                if (spawning)
-                {
-                    Spawn();
-                }
             }
         }
     }

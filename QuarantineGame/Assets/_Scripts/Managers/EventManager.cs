@@ -7,6 +7,7 @@ public static class EventManager
 {
     public static string name = "";
     public static bool isQuestCompleted = false;
+    public static bool isQuestContained = false;
     public static bool completed = false;
     public static bool ending = false;
     public static int questSize = 0;
@@ -20,6 +21,7 @@ public static class EventManager
     public static System.Action<string> AddQuest;
     public static System.Action<string> CompleteQuest;
     public static System.Action<string> QuestCheck;
+    public static System.Action<string> ContainedCheck;
     public static System.Action<string> GetName;
     public static System.Action GetCompletion;
     public static System.Action StartTutorial;
@@ -73,6 +75,12 @@ public static class EventManager
     {
         QuestCheck?.Invoke(name);
         return isQuestCompleted;
+    }
+
+    public static bool OnContainedCheck(string name)
+    {
+        ContainedCheck?.Invoke(name);
+        return isQuestContained;
     }
 
     public static string NameFromLoader(string key)
