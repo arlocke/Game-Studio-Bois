@@ -39,13 +39,13 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                EventManager.OnInnerThoughtInitiated("I've taken my medicine, but I still have stuff to do...", 10.0f);
+                EventManager.OnInnerThoughtInitiated("I've taken my medicine, but I still have stuff to do...", 10.0f, 97, false);
             }
 
         }
         else
         {
-            EventManager.OnInnerThoughtInitiated("I need to take my pills first...", 10.0f);
+            EventManager.OnInnerThoughtInitiated("I need to take my pills first...", 10.0f, 97, false);
         } 
     }
 

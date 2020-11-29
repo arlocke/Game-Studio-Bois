@@ -178,6 +178,7 @@ public class PlayerManager : MonoBehaviour
         {
             CheckCrouch();
         }
+        EventManager.OnInnerThoughtInitiated("Ugh I'm so tired... I gotta get outta bed... (Use [LeftCtrl] to get up)", 8000.0f, 0, true);
     }
 
     private void PickedUp(string filler)
@@ -197,16 +198,12 @@ public class PlayerManager : MonoBehaviour
         if(tutorialStage == 1 && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W)))
         {
             tutorialStage += 1;
-            EventManager.OnInnerThoughtInitiated("I better check my bulletin board for my daily tasks... (Click on Sticky Notes to receive quests)", 20.0f);
+            EventManager.OnInnerThoughtInitiated("I better check my bulletin board for my daily tasks... (Click on Sticky Notes to receive quests)", 8000.0f, 0, true);
         }
         if(tutorialStage == 0 && Input.GetKeyDown(KeyCode.LeftControl))
         {
             tutorialStage += 1;
-            EventManager.OnInnerThoughtInitiated("Time to get a move on... (Use WASD to walk around)", 20.0f);
-        }
-        if(tutorialStage == 0 && !Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            EventManager.OnInnerThoughtInitiated("Ugh I'm so tired... I gotta get outta bed... (Use [LeftCtrl] to get up)", 20.0f);
+            EventManager.OnInnerThoughtInitiated("Time to get a move on... (Use WASD to walk around)", 8000.0f, 0, true);
         }
     }
 

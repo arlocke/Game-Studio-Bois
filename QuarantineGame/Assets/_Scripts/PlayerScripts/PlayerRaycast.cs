@@ -115,7 +115,7 @@ public class PlayerRaycast : MonoBehaviour
                             dud.SetComplete();
                             if(dud.key == "1")
                             {
-                                EventManager.OnInnerThoughtInitiated("Here are my pills", 4.0f);
+                                EventManager.OnInnerThoughtInitiated("Here are my pills", 4.0f, 96, true);
                             }
                         }
                     }

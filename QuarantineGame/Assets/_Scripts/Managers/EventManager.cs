@@ -16,7 +16,7 @@ public static class EventManager
     public static System.Action SaveInitiated;
     public static System.Action LoadInitiated;
     public static System.Action FirstCall;
-    public static System.Action<string, float> InnerThought;
+    public static System.Action<string, float, int, bool> InnerThought;
     public static System.Action<string> AddEmail;
     public static System.Action<string> AddQuest;
     public static System.Action<string> CompleteQuest;
@@ -50,9 +50,9 @@ public static class EventManager
         FirstCall?.Invoke();
     }
 
-    public static void OnInnerThoughtInitiated(string thought, float time)
+    public static void OnInnerThoughtInitiated(string thought, float time, int priority, bool overWritable)
     {
-        InnerThought?.Invoke(thought, time);
+        InnerThought?.Invoke(thought, time, priority, overWritable);
     }
 
     public static void OnAddEmailInitiated(string email)

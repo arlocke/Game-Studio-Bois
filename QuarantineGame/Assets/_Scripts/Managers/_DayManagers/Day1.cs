@@ -48,13 +48,13 @@ public class Day1 : MonoBehaviour
 
         if(time == 451 && !Thought1) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Looks like I'm all set... Just gotta get through these tasks and then I can go back to bed!", 7.0f);
+            EventManager.OnInnerThoughtInitiated("Looks like I'm all set... Just gotta get through these tasks and then I can go back to bed!", 7.0f, 5, false);
             Thought1 = true;
         }
 
         if (time == 460 && !Thought8) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Man, I am not excited to work from home for the next week...", 7.0f);
+            EventManager.OnInnerThoughtInitiated("Man, I am not excited to work from home for the next week...", 7.0f, 5, false);
             Thought8 = true;
         }
 
@@ -71,7 +71,7 @@ public class Day1 : MonoBehaviour
 
         if (time == 490 && !Thought2) //8:00
         {
-            EventManager.OnInnerThoughtInitiated("I should check my emails before my work meeting. [Left Click on the Bedroom PC]", 7.0f);
+            EventManager.OnInnerThoughtInitiated("I should check my emails before my work meeting. [Left Click on the Bedroom PC]", 7.0f, 5, false);
             Thought2 = true;
         }
 
@@ -88,13 +88,13 @@ public class Day1 : MonoBehaviour
 
         if (time == 530 && !Thought3)
         {
-            EventManager.OnInnerThoughtInitiated("Did I just get another email...?", 10.0f);
+            EventManager.OnInnerThoughtInitiated("Did I just get another email...?", 10.0f, 5, false);
             Thought3 = true;
         }
 
         if (time == 540 && !timeToWork) //9:00
         {
-            EventManager.OnInnerThoughtInitiated("I guess I can attend the work meeting now...", 5.0f);
+            EventManager.OnInnerThoughtInitiated("I guess I can attend the work meeting now...", 5.0f, 5, false);
             EventManager.OnActivateWorkPromptInitiated();
             timeToWork = true;
         }
@@ -102,19 +102,19 @@ public class Day1 : MonoBehaviour
         if (time == 600 && !Thought4) //10;00
         {
             EventManager.OnInnerThoughtInitiated("I should really attend that work meeting... why am I doing this to myself?! Is " +
-                "someone controlling me?", 10.0f);
+                "someone controlling me?", 10.0f, 5, false);
             Thought4 = true;
         }
 
         if (time == 700 && !Thought5)
         {
-            EventManager.OnInnerThoughtInitiated("THIS IS MY LAST CHANCE TO ATTEND MY WORK MEETING!!", 10.0f);
+            EventManager.OnInnerThoughtInitiated("THIS IS MY LAST CHANCE TO ATTEND MY WORK MEETING!!", 10.0f, 5, false);
             Thought5 = true;
         }
 
         if (time == 720 && !Thought6 && !EventManager.OnQuestCheck("Work")) //12
         {
-            EventManager.OnInnerThoughtInitiated("Oh my God!! How did I miss my work meeting?!? WTF is wrong with me?!", 10.0f);
+            EventManager.OnInnerThoughtInitiated("Oh my God!! How did I miss my work meeting?!? WTF is wrong with me?!", 10.0f, 5, false);
             if(questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
             {
             questLogUI.text = questLogUI.text.Replace("Work", "<color=red>Work - Completed...?</color>");
@@ -161,19 +161,19 @@ public class Day1 : MonoBehaviour
 
         if (time == 900 && !Thought10 && !EventManager.OnQuestCheck("Pills")) //12
         {
-            EventManager.OnInnerThoughtInitiated("Dang, where did I put my pills?", 5.0f);
+            EventManager.OnInnerThoughtInitiated("Dang, where did I put my pills?", 5.0f, 5, false);
             Thought10 = true;
         }
 
         if(!bedThought && EventManager.OnQuestCheck("Pills") && EventManager.OnQuestCheck("Work") && EventManager.OnQuestCheck("Food"))
         {
-            EventManager.OnInnerThoughtInitiated("Now that I've done all my tasks I can go back to sleep! [Left Click on bed to advance]", 10.0f);
+            EventManager.OnInnerThoughtInitiated("Now that I've done all my tasks I can go back to sleep! [Left Click on bed to advance]", 10.0f, 5, false);
             bedThought = true;
         }
 
         if (time == 990 && !Thought11) // 1:30
         {
-            EventManager.OnInnerThoughtInitiated("I'm so bored.. I'd probably have a better time in my dreams...", 10.0f);
+            EventManager.OnInnerThoughtInitiated("I'm so bored.. I'd probably have a better time in my dreams...", 10.0f, 5, false);
             Thought11 = true;
         }
     }

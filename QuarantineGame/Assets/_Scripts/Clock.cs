@@ -40,7 +40,7 @@ public class Clock : MonoBehaviour
     {
         if(!tutorial)
         {
-            time += Time.deltaTime; // use this when calling events
+            time += Time.fixedDeltaTime; // use this when calling events
         }
         timeRounded = Mathf.Ceil(time);
         //Debug.Log(timeRounded);
@@ -64,11 +64,11 @@ public class Clock : MonoBehaviour
             EventManager.ending = true;
             if(EventManager.EndingType())
             {
-                EventManager.OnInnerThoughtInitiated("I've done all my tasks for the day!", 10.0f);
+                EventManager.OnInnerThoughtInitiated("I've done all my tasks for the day!", 10.0f, 100, false);
             }
             else
             {
-                EventManager.OnInnerThoughtInitiated("I still have things to do today!", 10.0f);
+                EventManager.OnInnerThoughtInitiated("I still have things to do today!", 10.0f, 100, false);
             }
         }
     }

@@ -6,6 +6,7 @@ public class TriggeredThoughtScript : MonoBehaviour
 {
     public string context = "";
     public float time = 5.0f;
+    public bool overWritable = true;
 
     private bool triggered = false;
     private void OnTriggerEnter(Collider other)
@@ -14,7 +15,7 @@ public class TriggeredThoughtScript : MonoBehaviour
         {
             triggered = true;
             Debug.Log("Im trying to show a thought");
-            EventManager.OnInnerThoughtInitiated(context, time);
+            EventManager.OnInnerThoughtInitiated(context, time, 95, overWritable);
         }
     }
 

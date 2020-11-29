@@ -43,7 +43,7 @@ public class Day2 : MonoBehaviour
 
         if (time == 451 && !Thought1) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Oh man I have a headache.. I hope my girlfriend finally got back to her parents...", 10.0f);
+            EventManager.OnInnerThoughtInitiated("Oh man I have a headache.. I hope my girlfriend finally got back to her parents...", 10.0f, 5, false);
             Thought1 = true;
         }
 
@@ -73,7 +73,7 @@ public class Day2 : MonoBehaviour
 
         if (time == 540 && !timeToWork) //9:00
         {
-            EventManager.OnInnerThoughtInitiated("I guess I can attend the work meeting now...", 5.0f);
+            EventManager.OnInnerThoughtInitiated("I guess I can attend the work meeting now...", 5.0f, 5, false);
             EventManager.OnActivateWorkPromptInitiated();
             timeToWork = true;
         }
@@ -81,19 +81,19 @@ public class Day2 : MonoBehaviour
         if (time == 600 && !Thought4) //10;00
         {
             EventManager.OnInnerThoughtInitiated("I should really attend that work meeting... why am I doing this to myself?! Is " +
-                "someone controlling me????", 10.0f);
+                "someone controlling me????", 10.0f, 5, false);
             Thought4 = true;
         }
 
         if (time == 700 && !Thought5)
         {
-            EventManager.OnInnerThoughtInitiated("IF I DON'T ATTEND TODAY'S MEETING I AM GOING TO BE FIRED!!!", 10.0f);
+            EventManager.OnInnerThoughtInitiated("IF I DON'T ATTEND TODAY'S MEETING I AM GOING TO BE FIRED!!!", 10.0f, 5, false);
             Thought5 = true;
         }
 
         if (time == 720 && !Thought6 && !EventManager.OnQuestCheck("Work")) //12
         {
-            EventManager.OnInnerThoughtInitiated("I missed the meeting.... How could this happen?! What is wrong with my brain??!!", 10.0f);
+            EventManager.OnInnerThoughtInitiated("I missed the meeting.... How could this happen?! What is wrong with my brain??!!", 10.0f, 5, false);
             if (questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
             {
                 questLogUI.text = questLogUI.text.Replace("Work", "<color=red>Work - Completed...?</color>");
