@@ -25,9 +25,10 @@ public class PlayerRaycast : MonoBehaviour
     private string seenTag = "";
     private string seenName = "";
 
-    private void Start()
+    private void Awake()
     {
         EventManager.LoadInitiated += DropAll;
+        EventManager.Seize += turnOffCrosshair;
     }
 
     // Update is called once per frame
@@ -262,6 +263,12 @@ public class PlayerRaycast : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.LoadInitiated -= DropAll;
+        EventManager.Seize -= turnOffCrosshair;
+    }
+
+    public void turnOffCrosshair(bool facts)
+    {
+        uiCrosshair.enabled = !facts;
     }
 }
     
