@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - Keybind
   - QuestGiver
+  - LightSwitch
   layers:
   - Default
   - TransparentFX

@@ -184,6 +184,24 @@ public class PlayerRaycast : MonoBehaviour
                         dud.Open();
                     }
                 }
+                else if (seenTag == "LightSwitch")
+                {
+                    hitLookable = null;
+                    hitThrowable = null;
+
+                    var dud = raycastedObject.GetComponent<LightSwitch>();
+
+                    if (Input.GetMouseButtonDown(0) && !dud.on)
+                    {
+                        Debug.Log("trying to lightswitchOn");
+                        dud.SwitchOn();
+                    }
+                    /*if (Input.GetMouseButtonDown(0) && dud.on)
+                    {
+                        Debug.Log("trying to lightswitchOff");
+                        dud.SwitchOff();
+                    }*/
+                }
             }
             else
             {
