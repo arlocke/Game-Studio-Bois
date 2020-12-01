@@ -15,7 +15,7 @@ public class PlayerRaycast : MonoBehaviour
     public QuestGiver hitQuestGiver;
     public GameObject raycastedObject;
     public Text innerThoughtsUI;
-    public PlayerUI playerUI;
+    public Text LookedAtThing;
    
 
     //Private Serialized Fields
@@ -52,6 +52,7 @@ public class PlayerRaycast : MonoBehaviour
                 if (seenTag == "Throwable")
                 {
                     hitLookable = null;
+                    LookedAtThing.text = "< Grab " + seenName + " >"; 
                     
                     //Grab throwable script.
                     var dud = raycastedObject.GetComponent<ThrowableObject>();
@@ -75,6 +76,8 @@ public class PlayerRaycast : MonoBehaviour
                         //Pick up object.
                         if (Input.GetMouseButtonDown(0))
                         {
+                            LookedAtThing.text = "< LeftClick to throw \n" +
+                                                     "RightClick to release >";
                             isCarrying = hitThrowable.PickUp(transform);
                         }
                     }
@@ -82,6 +85,7 @@ public class PlayerRaycast : MonoBehaviour
                 else if (seenTag == "Lookable")
                 {
                     hitThrowable = null;
+                    LookedAtThing.text = "< Look at" + seenName + " >";
 
                     var dud = raycastedObject.GetComponent<Lookable>();
 
@@ -98,6 +102,7 @@ public class PlayerRaycast : MonoBehaviour
                     {
                         if (Input.GetMouseButton(0) && !hitLookable.arrived && !hitLookable.snapped)
                         {
+                            LookedAtThing.text = "< Use mouse to rotate \n Rightclick to drop >";
                             isCarrying = hitLookable.PickUp(transform);
                         }
                     }
@@ -106,6 +111,8 @@ public class PlayerRaycast : MonoBehaviour
                 {
                     hitLookable = null;
                     hitThrowable = null;
+
+                    LookedAtThing.text = "< " + seenName + " >";
 
                     CrosshairActive();
                     if (Input.GetMouseButtonDown(0))
@@ -126,6 +133,8 @@ public class PlayerRaycast : MonoBehaviour
                     hitLookable = null;
                     hitThrowable = null;
 
+                    LookedAtThing.text = "< Go to bed? >";
+
                     CrosshairActive();
                     if (Input.GetMouseButtonDown(0))
                     {
@@ -137,6 +146,8 @@ public class PlayerRaycast : MonoBehaviour
                 {
                     hitLookable = null;
                     hitThrowable = null;
+
+                    LookedAtThing.text = "< " + seenName + " >";
 
                     var dud = raycastedObject.GetComponent<QuestGiver>();
 
@@ -163,6 +174,8 @@ public class PlayerRaycast : MonoBehaviour
                     hitLookable = null;
                     hitThrowable = null;
 
+                    LookedAtThing.text = "< Sit at computer? >";
+
                     var dud = raycastedObject.GetComponentInChildren<ComputerCanvas>();
 
                     CrosshairActive();
@@ -170,12 +183,15 @@ public class PlayerRaycast : MonoBehaviour
                     {
                         Debug.Log("Trying to use computer");
                         dud.SitAtComputer();
+                        LookedAtThing.text = "";
                     }
                 }
                 else if (seenName == "Lock")
                 {
                     hitLookable = null;
                     hitThrowable = null;
+
+                    LookedAtThing.text = "< Padlock >";
 
                     var dud = raycastedObject.GetComponent<PadlockScript>();
 
@@ -188,6 +204,8 @@ public class PlayerRaycast : MonoBehaviour
                 {
                     hitLookable = null;
                     hitThrowable = null;
+
+                    LookedAtThing.text = "< Toggle Lightswitch >";
 
                     var dud = raycastedObject.GetComponent<LightSwitch>();
 
@@ -205,6 +223,8 @@ public class PlayerRaycast : MonoBehaviour
             }
             else
             {
+                LookedAtThing.text = "";
+
                 if (hitThrowable != null)
                 {
                     hitThrowable.isHit = false;
