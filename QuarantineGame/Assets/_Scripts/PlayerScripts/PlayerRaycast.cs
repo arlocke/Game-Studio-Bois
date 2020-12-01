@@ -214,11 +214,11 @@ public class PlayerRaycast : MonoBehaviour
                         Debug.Log("trying to lightswitchOn");
                         dud.SwitchOn();
                     }
-                    /*if (Input.GetMouseButtonDown(0) && dud.on)
+                    else if (Input.GetMouseButtonDown(0) && dud.on)
                     {
                         Debug.Log("trying to lightswitchOff");
                         dud.SwitchOff();
-                    }*/
+                    }
                 }
             }
             else

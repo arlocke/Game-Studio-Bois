@@ -12,12 +12,10 @@ public class LightSwitch : MonoBehaviour
             Debug.Log("trying to lightswitch");
             connectedLight.SetActive(true);
             on = true;
-    
     }
 
     public void SwitchOff()
     {
-   
             Debug.Log("trying to lightswitch");
             connectedLight.SetActive(false);
             on = false;
