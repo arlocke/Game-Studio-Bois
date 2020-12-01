@@ -306,7 +306,7 @@ public class PlayerRaycast : MonoBehaviour
 
     public void turnOffCrosshair(bool facts)
     {
-        uiCrosshair.enabled = !facts;
+        uiCrosshair.gameObject.SetActive(!facts);
     }
 }
     
