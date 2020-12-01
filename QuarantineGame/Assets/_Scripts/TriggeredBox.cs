@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class TriggeredBox : MonoBehaviour
 {
+    //Dynamic Changes
     public bool unlocking = false;
     public bool spawning = false;
-    public bool questCompleting = false;
-    public bool questSetting = false;
-    public bool keyBasedCompletion = false;
+    public bool enabling = false;
+    public bool questCompleting = false; //Completes Quest on Trigger.
+    public bool questSetting = false; //Sets Quest on Trigger.
+    public bool keyBasedCompletion = false; //Uses list of keys to complete. If false, uses internal quest name.
+    public bool playerTriggered = false; //Player can trigger this.
+
+    //Settings
     public string nonKeyQuestName = "";
     public string[] keys;
     public Rigidbody[] unlockables;
-
     public Transform spawnable;
+    public Transform[] enablable;
     public Vector3 spawnLocation;
     public Vector3 spawnRotation;
 
+    //Internal Settings
     private bool safeToUse = true;
     private string keyName = "";
 
@@ -43,60 +49,59 @@ public class TriggeredBox : MonoBehaviour
                 Debug.Log("This spawning trigger volume has no spawnable or set location: " + transform.name);
             }
         }
+        if(enabling)
+        {
+            if(enablable.Length <= 0)
+            {
+                safeToUse = false;
+                Debug.Log("This enabling trigger volume has no object to enable: " + transform.name);
+            }
+        }
+        if(!keyBasedCompletion)
+        {
+            if(nonKeyQuestName == "")
+            {
+                safeToUse = false;
+                Debug.Log("This quest completing trigger volume has no internal name when it is not using keys: " + transform.name);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(safeToUse)
         {
-            var dud = other.GetComponent<QuestObjective>();
-            if (dud != null)
+            if(other.tag != "Player")
             {
-                foreach (string key in keys)
+                var dud = other.GetComponent<QuestObjective>();
+                if (dud != null)
                 {
-                    if (dud.key == key)
+                    foreach (string key in keys)
                     {
-                        if (questSetting)
+                        if (dud.key == key)
                         {
-                            SetQuest(key);
-                            if (questCompleting)
-                            {
-                                CompleteQuest(key);
-                            }
-                            else
-                            {
-                                if(unlocking)
-                                {
-                                    Unlock();
-                                }
-                                if(spawning)
-                                {
-                                    Spawn();
-                                }
-                            }
+                            Switch(key);
+                            break;
                         }
-                        else
-                        {
-                            if(questCompleting)
-                            {
-                                CompleteQuest(key);
-                            }
-                            else
-                            {
-                                if (unlocking)
-                                {
-                                    Unlock();
-                                }
-                                if (spawning)
-                                {
-                                    Spawn();
-                                }
-                            }
-                        }
-                        break;
                     }
                 }
             }
+            else if(playerTriggered)
+            {
+                if (unlocking)
+                {
+                    Unlock();
+                }
+                if (spawning)
+                {
+                    Spawn();
+                }
+                if (enabling)
+                {
+                    Enable();
+                }
+            }
+            
         }
     }
 
@@ -111,6 +116,14 @@ public class TriggeredBox : MonoBehaviour
     private void Spawn()
     {
         Instantiate(spawnable, spawnLocation, Quaternion.Euler(spawnRotation));
+    }
+
+    private void Enable()
+    {
+        foreach(var obj in enablable)
+        {
+            obj.gameObject.SetActive(true);
+        }
     }
 
     private void CompleteQuest(string key)
@@ -131,6 +144,10 @@ public class TriggeredBox : MonoBehaviour
                     {
                         Spawn();
                     }
+                    if(enabling)
+                    {
+                        Enable();
+                    }
                 }
                 keyName = "";
             }
@@ -149,6 +166,10 @@ public class TriggeredBox : MonoBehaviour
                     if (spawning)
                     {
                         Spawn();
+                    }
+                    if (enabling)
+                    {
+                        Enable();
                     }
                 }
             }
@@ -172,6 +193,33 @@ public class TriggeredBox : MonoBehaviour
             if (nonKeyQuestName != "")
             {
                 EventManager.OnAddQuestInitiated(nonKeyQuestName);
+            }
+        }
+    }
+
+    private void Switch(string key)
+    {
+        if (questSetting)
+        {
+            SetQuest(key);
+        }
+        if (questCompleting)
+        {
+            CompleteQuest(key);
+        }
+        else
+        {
+            if (unlocking)
+            {
+                Unlock();
+            }
+            if (spawning)
+            {
+                Spawn();
+            }
+            if (enabling)
+            {
+                Enable();
             }
         }
     }
