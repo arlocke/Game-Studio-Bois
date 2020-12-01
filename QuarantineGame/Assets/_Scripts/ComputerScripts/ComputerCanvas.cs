@@ -64,10 +64,13 @@ public class ComputerCanvas : MonoBehaviour
         if (questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
         {
             questLogUI.text = questLogUI.text.Replace("Work", "Work - Completed");
+            workPrompt.SetActive(false);
+            startSkipTimeAnim();
         }
-        workPrompt.SetActive(false);
-        startSkipTimeAnim();
-        
+        else
+        {
+            EventManager.OnInnerThoughtInitiated("I need to take down my sticky note first...", 3.0f, 100, false);
+        }
     }
     public void startSkipTimeAnim()
     {
