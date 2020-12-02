@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerRaycast : MonoBehaviour
@@ -77,7 +80,7 @@ public class PlayerRaycast : MonoBehaviour
                         if (Input.GetMouseButtonDown(0))
                         {
                             LookedAtThing.text = "< LeftClick to throw \n" +
-                                                     "RightClick to release >";
+                                                     " RightClick to release >";
                             isCarrying = hitThrowable.PickUp(transform);
                         }
                     }
@@ -147,7 +150,8 @@ public class PlayerRaycast : MonoBehaviour
                     hitLookable = null;
                     hitThrowable = null;
 
-                    LookedAtThing.text = "< " + seenName + " >";
+                    //Fix this
+                    LookedAtThing.text = " DAILY TASK ";
 
                     var dud = raycastedObject.GetComponent<QuestGiver>();
 
@@ -181,7 +185,7 @@ public class PlayerRaycast : MonoBehaviour
                     CrosshairActive();
                     if (Input.GetMouseButtonDown(0))
                     {
-                        Debug.Log("Trying to use computer");
+                      
                         dud.SitAtComputer();
                         LookedAtThing.text = "";
                     }
@@ -191,7 +195,7 @@ public class PlayerRaycast : MonoBehaviour
                     hitLookable = null;
                     hitThrowable = null;
 
-                    LookedAtThing.text = "< Padlock >";
+                    LookedAtThing.text = "< Use Padlock >";
 
                     var dud = raycastedObject.GetComponent<PadlockScript>();
 

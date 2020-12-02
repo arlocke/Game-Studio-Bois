@@ -5013,7 +5013,7 @@ GameObject:
   - component: {fileID: 1492170243}
   - component: {fileID: 1492170242}
   m_Layer: 5
-  m_Name: LookedAtThing
+  m_Name: LookedAtThingUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5026,16 +5026,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492170240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000061035156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2097703435}
-  m_RootOrder: 3
+  m_Father: {fileID: 1702932403}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 156.7, y: -19}
+  m_AnchoredPosition: {x: 156.70006, y: -19}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1492170244
@@ -5958,7 +5958,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1492170241}
   m_Father: {fileID: 1406964260}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7667,7 +7668,6 @@ RectTransform:
   - {fileID: 279956766}
   - {fileID: 424065003}
   - {fileID: 1005742492}
-  - {fileID: 1492170241}
   m_Father: {fileID: 1406964260}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8073,7 +8073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7620b02e6a949bd48aa6a11cf7748733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 6
+  walkSpeed: 7
   gravity: -9.81
   groundDistance: 0.4
   crouchHeight: 1

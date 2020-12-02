@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5836812472792967888}
   - component: {fileID: 5836812472792967889}
   m_Layer: 9
-  m_Name: cereal_box
+  m_Name: Cereal Box
   m_TagString: Throwable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

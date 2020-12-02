@@ -424,7 +424,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 556ea390c07fdee4e8913013c967f144,
         type: 3}
       propertyPath: m_Name
-      value: FridgeDrawer1 (1)
+      value: Fridge Drawer
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 556ea390c07fdee4e8913013c967f144,
         type: 3}
@@ -535,7 +535,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 556ea390c07fdee4e8913013c967f144,
         type: 3}
       propertyPath: m_Name
-      value: FridgeDrawer1
+      value: Fridge Drawer
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 556ea390c07fdee4e8913013c967f144,
         type: 3}
@@ -646,7 +646,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: fa126af7baa950b4d93b9bcdfc7e401f,
         type: 3}
       propertyPath: m_Name
-      value: FridgeDoor
+      value: Fridge Door
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: fa126af7baa950b4d93b9bcdfc7e401f,
         type: 3}
@@ -757,7 +757,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 53dd2e1d513281a40b0fd3026cb8bb33,
         type: 3}
       propertyPath: m_Name
-      value: FreezerDoor
+      value: Freezer Door
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 53dd2e1d513281a40b0fd3026cb8bb33,
         type: 3}

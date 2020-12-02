@@ -363,7 +363,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: b7f4341099ad6b046a7b5779ab4a5292,
         type: 3}
       propertyPath: m_Name
-      value: WardrobeRightDoor
+      value: Wardrobe Right Door
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: b7f4341099ad6b046a7b5779ab4a5292,
         type: 3}
@@ -474,7 +474,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: c2ac11caf2f1de5438c070ece7130c67,
         type: 3}
       propertyPath: m_Name
-      value: WardrobeLeftDoor
+      value: Wardrobe Left Door
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: c2ac11caf2f1de5438c070ece7130c67,
         type: 3}

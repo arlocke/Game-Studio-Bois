@@ -254,15 +254,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocking: 1
   spawning: 0
+  enabling: 0
   questCompleting: 0
   questSetting: 0
   keyBasedCompletion: 0
+  playerTriggered: 0
   nonKeyQuestName: 
   keys:
   - 100
   unlockables:
   - {fileID: 5923935864661325363}
   spawnable: {fileID: 0}
+  enablable: []
   spawnLocation: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
 --- !u!1001 &7792228882953918634
@@ -350,7 +353,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 7a4effd260546d34abffe7f671e4a2a8,
         type: 3}
       propertyPath: m_Name
-      value: Cabinet1Door
+      value: Cabinet Door
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 7a4effd260546d34abffe7f671e4a2a8,
         type: 3}

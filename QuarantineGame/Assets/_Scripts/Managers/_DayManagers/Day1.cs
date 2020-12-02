@@ -10,13 +10,9 @@ public class Day1 : MonoBehaviour
     private float time;
     bool Thought1 = false;
     bool Thought2 = false;
-    bool Thought3 = false;
     bool Thought4 = false;
     bool Thought5 = false;
     bool Thought6 = false;
-    bool Thought7 = false;
-    bool Thought8 = false;
-    bool Thought9 = false;
     bool Thought10 = false;
     bool Thought11 = false;
     //bool Thought12 = false;
@@ -48,14 +44,8 @@ public class Day1 : MonoBehaviour
 
         if(time == 451 && !Thought1) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Looks like I'm all set... Just gotta get through these tasks and then I can go back to bed!", 7.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("Looks like I'm all set... Just gotta get through today's tasks and then I can go back to bed!", 7.0f, 5, false);
             Thought1 = true;
-        }
-
-        if (time == 460 && !Thought8) //7:31
-        {
-            EventManager.OnInnerThoughtInitiated("Man, I am not excited to work from home for the next week...", 7.0f, 5, false);
-            Thought8 = true;
         }
 
         if (time >= 480 && !Email1) //8:00
@@ -86,15 +76,9 @@ public class Day1 : MonoBehaviour
             Email2 = true;
         }
 
-        if (time == 530 && !Thought3)
-        {
-            EventManager.OnInnerThoughtInitiated("Did I just get another email...?", 10.0f, 5, false);
-            Thought3 = true;
-        }
-
         if (time == 540 && !timeToWork) //9:00
         {
-            EventManager.OnInnerThoughtInitiated("I guess I can attend the work meeting now...", 5.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("I guess I can go to work now...", 5.0f, 5, false);
             EventManager.OnActivateWorkPromptInitiated();
             timeToWork = true;
         }
@@ -102,13 +86,13 @@ public class Day1 : MonoBehaviour
         if (time == 600 && !Thought4) //10;00
         {
             EventManager.OnInnerThoughtInitiated("I should really attend that work meeting... why am I doing this to myself?! Is " +
-                "someone controlling me?", 10.0f, 5, false);
+                "something wrong with me?", 10.0f, 5, false);
             Thought4 = true;
         }
 
         if (time == 700 && !Thought5)
         {
-            EventManager.OnInnerThoughtInitiated("THIS IS MY LAST CHANCE TO ATTEND MY WORK MEETING!!", 10.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("This is my last chance to attend the work meeting!!", 10.0f, 5, false);
             Thought5 = true;
         }
 
@@ -130,21 +114,14 @@ public class Day1 : MonoBehaviour
 
         if (time >= 780 && !Email3) //1:00 pm
         {
-            EventManager.OnAddEmailInitiated("Sender: Doc " +
+            EventManager.OnAddEmailInitiated("Sender: Dr. Malkino PhD. " +
                 "\n Sent: 1:00 pm" +
-                "\n Subject: Hello Mr. Gahara! " +
-                "\n \n Thanks for participating in our clinical vaccine trial. Your help will go a long way towards beating this " +
+                "\n Subject: Good afternoon Mr. Gahara, " +
+                "\n \n Thanks for participating in our clinical vaccine trial. Your help will go a long way towards overcoming this " +
                 "pandemic together. We're counting on you! " +
                 "\n \n -Your friendly neighborhood doctor");
             Email3 = true;
         }
-
-        /*
-        if (time == 750 && !Thought7) // 1:30
-        {
-            EventManager.OnInnerThoughtInitiated("Well... I guess it isn't so bad.", 5.0f);
-            Thought7 = true;
-        }*/
 
         if (time >= 745 && !Email4 && EventManager.OnQuestCheck("Work")) //1:30
         {
@@ -153,11 +130,9 @@ public class Day1 : MonoBehaviour
                 "\n Subject: Nice Work Gahara " +
                 "\n \n Thanks for attending the meeting today and being a good sport about it. I made a good decision hiring you 5 years ago." +
                 "I know it's stressful since we're all in Quarantine and you're cooped up in that penthouse apartment of yours alone. We're gonna get through this together!" +
-                "\n \n -The Boss");
+                "\n \n - Mr White");
             Email4 = true;
         }
-
-    
 
         if (time == 900 && !Thought10 && !EventManager.OnQuestCheck("Pills")) //12
         {
@@ -173,7 +148,7 @@ public class Day1 : MonoBehaviour
 
         if (time == 990 && !Thought11) // 1:30
         {
-            EventManager.OnInnerThoughtInitiated("I'm so bored.. I'd probably have a better time in my dreams...", 10.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("I'm so bored, I could just go back to sleep now...", 10.0f, 5, false);
             Thought11 = true;
         }
     }
