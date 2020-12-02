@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3619304456710800126}
   - component: {fileID: 3619304456710800127}
   - component: {fileID: 1079397054}
+  - component: {fileID: 4459279308550118344}
   m_Layer: 9
   m_Name: BottleNoCap 1
   m_TagString: Objective
@@ -130,6 +131,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 1
+--- !u!114 &4459279308550118344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352059929962703135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284ac597ab8edcc48892180c710b31c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 1
 --- !u!1 &3119806715339356096
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +155,7 @@ GameObject:
   - component: {fileID: 1845495772455345088}
   - component: {fileID: 8806056744805609281}
   m_Layer: 9
-  m_Name: collider
+  m_Name: Pills
   m_TagString: Objective
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

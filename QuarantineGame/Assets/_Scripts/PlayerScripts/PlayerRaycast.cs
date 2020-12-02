@@ -88,7 +88,7 @@ public class PlayerRaycast : MonoBehaviour
                 else if (seenTag == "Lookable")
                 {
                     hitThrowable = null;
-                    LookedAtThing.text = "< Look at" + seenName + " >";
+                    LookedAtThing.text = "< Look at " + seenName + " >";
 
                     var dud = raycastedObject.GetComponent<Lookable>();
 
