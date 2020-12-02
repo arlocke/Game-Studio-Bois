@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1590031732342909963}
   - component: {fileID: 7731532467071014461}
   - component: {fileID: 4068829347709004484}
+  - component: {fileID: 7366540126397497121}
   m_Layer: 0
   m_Name: Voicebox
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2327152331687403032}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.665, y: 2.0353, z: -14.44}
   m_LocalScale: {x: 5.08, y: 5.08, z: 5.08}
   m_Children: []
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7366540126397497121
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2327152331687403032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -7871367091729893972, guid: 437ef2c0be64ed147b03fef83bcf4874, type: 3}
