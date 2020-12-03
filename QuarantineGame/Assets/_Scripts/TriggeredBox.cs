@@ -12,6 +12,7 @@ public class TriggeredBox : MonoBehaviour
     public bool questSetting = false; //Sets Quest on Trigger.
     public bool keyBasedCompletion = false; //Uses list of keys to complete. If false, uses internal quest name.
     public bool playerTriggered = false; //Player can trigger this.
+    public bool oneTimeUse = true; //Makes the trigger a one time use.
 
     //Settings
     public string nonKeyQuestName = "";
@@ -25,6 +26,7 @@ public class TriggeredBox : MonoBehaviour
     //Internal Settings
     private bool safeToUse = true;
     private string keyName = "";
+    private bool used = false; //Compliments oneTimeUse. It's the brain.
 
     private void Awake()
     {
@@ -69,7 +71,7 @@ public class TriggeredBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(safeToUse)
+        if(safeToUse && !used)
         {
             if(other.tag != "Player")
             {
@@ -81,6 +83,10 @@ public class TriggeredBox : MonoBehaviour
                         if (dud.key == key)
                         {
                             Switch(key);
+                            if(oneTimeUse)
+                            {
+                                used = true;
+                            }
                             break;
                         }
                     }
@@ -88,6 +94,10 @@ public class TriggeredBox : MonoBehaviour
             }
             else if(playerTriggered)
             {
+                if (oneTimeUse)
+                {
+                    used = true;
+                }
                 if (unlocking)
                 {
                     Unlock();
