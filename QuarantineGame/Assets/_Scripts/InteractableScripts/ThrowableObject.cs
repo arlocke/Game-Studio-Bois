@@ -12,6 +12,7 @@ public class ThrowableObject : MonoBehaviour
     public float minSpeed = 0.0f;
     public float rotationSpeed = 100.0f;
     public bool isHit = false;
+    public bool returnGravity = true;
 
     protected float disToCarrier = 0.0f;
     protected float currentDistance = 0.0f;
@@ -101,7 +102,10 @@ public class ThrowableObject : MonoBehaviour
         Debug.Log("Dropping");
         //transform.parent = null;
         beingCarried = false;
-        self.useGravity = true;
+        if(returnGravity)
+        {
+            self.useGravity = true;
+        }
         carrier = null;
     }
 

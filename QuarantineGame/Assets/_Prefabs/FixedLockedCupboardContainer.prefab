@@ -257,7 +257,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.078739144, y: 21.397636, z: -0.7381077}
+  m_ConnectedAnchor: {x: -0.078739144, y: 21.39764, z: -0.7381077}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -299,6 +299,7 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 0
 --- !u!1001 &1006392788647821057
 PrefabInstance:
   m_ObjectHideFlags: 0
