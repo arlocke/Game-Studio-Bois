@@ -57,7 +57,7 @@ public class TriggeredBox : MonoBehaviour
                 Debug.Log("This enabling trigger volume has no object to enable: " + transform.name);
             }
         }
-        if(!keyBasedCompletion)
+        if(!keyBasedCompletion && questCompleting)
         {
             if(nonKeyQuestName == "")
             {
