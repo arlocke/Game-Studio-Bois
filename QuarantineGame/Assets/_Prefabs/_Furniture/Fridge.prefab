@@ -82,6 +82,7 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 0
 --- !u!1 &139234523742297904
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +278,7 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 0
 --- !u!65 &1942362417939365445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -308,6 +310,7 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 1
 --- !u!65 &3908476857401902625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -339,6 +342,7 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 1
 --- !u!1001 &4361675425917106262
 PrefabInstance:
   m_ObjectHideFlags: 0

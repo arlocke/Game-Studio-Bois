@@ -193,6 +193,7 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 0
 --- !u!1001 &7242813834512750860
 PrefabInstance:
   m_ObjectHideFlags: 0

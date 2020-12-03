@@ -446,6 +446,7 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 0
 --- !u!54 &1074754864
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -588,6 +589,7 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 0
 --- !u!1001 &2885560792044607356
 PrefabInstance:
   m_ObjectHideFlags: 0
