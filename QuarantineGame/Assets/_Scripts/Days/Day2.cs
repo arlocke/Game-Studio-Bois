@@ -10,26 +10,14 @@ public class Day2 : MonoBehaviour
     private float time;
     bool Thought1 = false;
     bool Thought2 = false;
-    bool Thought3 = false;
     bool Thought4 = false;
     bool Thought5 = false;
     bool Thought6 = false;
-    bool Thought7 = false;
-    bool Thought8 = false;
-    bool Thought9 = false;
     bool Thought10 = false;
-    bool Thought11 = false;
-    //bool Thought12 = false;
-    // bool Thought13 = false;
-
-    bool didntWork = false; // Check for completing quest if didn't pick up sticky note
-
-    bool bedThought = false;
 
     bool Email1 = false;
     bool Email2 = false;
     bool Email3 = false;
-    bool Email4 = false;
 
     bool timeToWork = false; //activate time
 
@@ -43,7 +31,7 @@ public class Day2 : MonoBehaviour
 
         if (time == 451 && !Thought1) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Oh man I have a headache.. I hope my girlfriend finally got back to her parents...", 10.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("Another day.. Wonder how my girlfriend is doing?", 10.0f, 5, false);
             Thought1 = true;
         }
 
@@ -87,7 +75,7 @@ public class Day2 : MonoBehaviour
 
         if (time == 700 && !Thought5)
         {
-            EventManager.OnInnerThoughtInitiated("IF I DON'T ATTEND TODAY'S MEETING I AM GOING TO BE FIRED!!!", 10.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("If I don't attend the meeting I am going to be fired!", 10.0f, 5, false);
             Thought5 = true;
         }
 
@@ -104,9 +92,36 @@ public class Day2 : MonoBehaviour
                 "\n Subject: THIS IS THE FINAL STRAW " +
                 "\n \n yOU MUST BE A REAL COMEDIAN GAHARA!! YOU MUST THINK THIS IS REAL FUNNY! AFTER I STUCK UP FOR YOU THIS ENTIRE TIME?" +
                 "I HAVE HAD ENOUGH WITH YOUR SHENANIGANS... \n \n" +
-                "I bet the rumors about you have been true.. you really are losing your mind. \n" +
-                "don't prove me right Gahara. Show up tomorrow... -the boss ");
+                "I bet the rumors are true.. you really are losing your mind. \n" +
+                "don't prove me right Gahara. Show up tomorrow... -Mr. White ");
             Thought6 = true;
+        }
+
+        if (time == 900 && !Thought10 && !EventManager.OnQuestCheck("Pills")) //12
+        {
+            EventManager.OnInnerThoughtInitiated("Seriously where are my pills?", 5.0f, 5, false);
+            Thought10 = true;
+        }
+
+        if (time == 800 && !Thought2 && !EventManager.OnQuestCheck("Food")) //12
+        {
+            EventManager.OnInnerThoughtInitiated("I'm so hungry... I gotta eat something.", 5.0f, 5, false);
+            Thought2 = true;
+        }
+
+        if (time >= 900 && !Email3) //3:00
+        {
+            EventManager.OnAddEmailInitiated("Sender:  Mr. Humphree " +
+                "\n Sent: 8:00 am " +
+                "\n Subject: To all tenants" +
+                "\n \n Just a friendly reminder that all penthouse tenants, while you are isolated from B block tenants," +
+                " are not allowed outside during the allotted quarantine period. Since there are only a handful of" +
+                " you, I also hope you will be able to resolve disputes among yourselves. There have been reports of strange " +
+                "noises in the middle of the night. I would like to remind everyone also that there are absolutely" +
+                " no pets allowed in the EmailCenter apartment building." +
+                "\n " +
+                "\n Thank you, \n -Mr Humphree (Chief landlord of the EmailCenter)");
+            Email3 = true;
         }
     }
 }

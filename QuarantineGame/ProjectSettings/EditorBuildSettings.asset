@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/_Scenes/Day1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/_Scenes/Day2_Not real.unity
-    guid: 3b191d74f18fb9140b045a0e4a2d9848
+    path: Assets/_Scenes/Day2.unity
+    guid: 298e9ccbe43fd9e44ac121f04c8984be
   - enabled: 1
     path: Assets/_Scenes/Day3.unity
     guid: 77b58de5201bc8c44ae8c8c66503e242

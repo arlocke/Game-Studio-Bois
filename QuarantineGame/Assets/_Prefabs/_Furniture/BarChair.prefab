@@ -11,12 +11,14 @@ GameObject:
   - component: {fileID: 5401158624139630959}
   - component: {fileID: 4012640859096769369}
   - component: {fileID: 7247218631655137184}
+  - component: {fileID: 3083156785366324800}
+  - component: {fileID: 2690394167664891755}
   m_Layer: 0
   m_Name: BarChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5401158624139630959
 Transform:
@@ -78,3 +80,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3083156785366324800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8984572396379286396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20165098, y: 0.33750778, z: 0.21248598}
+  m_Center: {x: 0.0914165, y: 0.16875389, z: -0.086237}
+--- !u!65 &2690394167664891755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8984572396379286396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20165098, y: 0.532973, z: 0.016576517}
+  m_Center: {x: 0.0914165, y: 0.2664865, z: 0.011717732}

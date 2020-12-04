@@ -15,7 +15,7 @@ public class Day1 : MonoBehaviour
     bool Thought6 = false;
     bool Thought10 = false;
     bool Thought11 = false;
-    //bool Thought12 = false;
+    bool Thought12 = false;
     // bool Thought13 = false;
 
     bool bedThought = false;
@@ -140,7 +140,13 @@ public class Day1 : MonoBehaviour
             Thought10 = true;
         }
 
-        if(!bedThought && EventManager.OnQuestCheck("Pills") && EventManager.OnQuestCheck("Work") && EventManager.OnQuestCheck("Food"))
+        if (time == 900 && !Thought12 && !EventManager.OnQuestCheck("Food")) //12
+        {
+            EventManager.OnInnerThoughtInitiated("I'm so hungry I have to eat something..", 5.0f, 5, false);
+            Thought12 = true;
+        }
+
+        if (!bedThought && EventManager.OnQuestCheck("Pills") && EventManager.OnQuestCheck("Work") && EventManager.OnQuestCheck("Food"))
         {
             EventManager.OnInnerThoughtInitiated("Now that I've done all my tasks I can go back to sleep! [Left Click on bed to advance]", 10.0f, 5, false);
             bedThought = true;
