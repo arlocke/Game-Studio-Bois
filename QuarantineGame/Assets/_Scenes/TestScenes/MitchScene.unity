@@ -1812,21 +1812,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2792505803591889345, guid: 904bb76f8b2645c4fb6c2ddb4b0d4eef,
+    - target: {fileID: 623597846348396302, guid: 904bb76f8b2645c4fb6c2ddb4b0d4eef,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f31d53dec8e2f334cb847ddb51626adc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623597846348396302, guid: 904bb76f8b2645c4fb6c2ddb4b0d4eef,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 623597846348396302, guid: 904bb76f8b2645c4fb6c2ddb4b0d4eef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623597846348396302, guid: 904bb76f8b2645c4fb6c2ddb4b0d4eef,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 623597846348396302, guid: 904bb76f8b2645c4fb6c2ddb4b0d4eef,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5194129351743752417, guid: 904bb76f8b2645c4fb6c2ddb4b0d4eef,
         type: 3}
       propertyPath: m_Name
       value: Microwave
       objectReference: {fileID: 0}
-    - target: {fileID: 5776314214554532925, guid: 904bb76f8b2645c4fb6c2ddb4b0d4eef,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b69245f1274965c4b8a1da6185cf2b7c, type: 2}
     - target: {fileID: 9101239354143750898, guid: 904bb76f8b2645c4fb6c2ddb4b0d4eef,
         type: 3}
       propertyPath: m_LocalPosition.x
