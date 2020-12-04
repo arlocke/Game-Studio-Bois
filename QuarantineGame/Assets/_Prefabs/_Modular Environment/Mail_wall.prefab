@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1016585762154034905}
   - component: {fileID: 4234288386832146228}
   - component: {fileID: 9047234513201799504}
+  - component: {fileID: 6740021760414105119}
   m_Layer: 0
   m_Name: polySurface29
   m_TagString: Untagged
@@ -127,6 +128,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -7321516171901871987, guid: 0dcb5d12aa8cf884194cb23a4bd63e5c, type: 3}
+--- !u!54 &6740021760414105119
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480247385918252515}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4580481717226395924
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +155,7 @@ GameObject:
   - component: {fileID: 2305924727784432597}
   - component: {fileID: 3845088639194476322}
   - component: {fileID: 1550969539697083605}
-  - component: {fileID: 1585892972046304921}
+  - component: {fileID: 4581636072394627208}
   m_Layer: 0
   m_Name: polySurface28
   m_TagString: Untagged
@@ -206,8 +223,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1585892972046304921
-MeshCollider:
+--- !u!65 &4581636072394627208
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -216,10 +233,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 5537914760762738905, guid: 0dcb5d12aa8cf884194cb23a4bd63e5c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 80.47079, y: 63.41681, z: 10.92529}
+  m_Center: {x: 0.00012207031, y: 0.0000076293945, z: 0}
 --- !u!1 &6312153662807328221
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,10 +247,14 @@ GameObject:
   - component: {fileID: 1605527398820341550}
   - component: {fileID: 2432377285806562627}
   - component: {fileID: 4740351312187996224}
-  - component: {fileID: 8702018538174445902}
-  m_Layer: 0
+  - component: {fileID: 1384001266237790553}
+  - component: {fileID: 7724921304631833870}
+  - component: {fileID: 1578009421047149039}
+  - component: {fileID: 332165805776177321}
+  - component: {fileID: 8961332997828927855}
+  m_Layer: 9
   m_Name: polySurface30
-  m_TagString: Untagged
+  m_TagString: Throwable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,8 +319,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8702018538174445902
-MeshCollider:
+--- !u!65 &1384001266237790553
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -309,7 +329,89 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -485743578430441126, guid: 0dcb5d12aa8cf884194cb23a4bd63e5c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 80.47079, y: 60.17447, z: 3.0724437}
+  m_Center: {x: 0.00012218952, y: 0, z: 3.8835723}
+--- !u!65 &7724921304631833870
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312153662807328221}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 35.93025, y: 8.157323, z: 7.7734375}
+  m_Center: {x: 0.24163574, y: -24.451477, z: -1.533075}
+--- !u!54 &1578009421047149039
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312153662807328221}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &332165805776177321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312153662807328221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97968f89c42660a40a49bdb30b6baa6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwForce: 10
+  maxDistance: 1
+  maxSpeed: 500
+  minSpeed: 0
+  rotationSpeed: 100
+  isHit: 0
+  returnGravity: 0
+--- !u!59 &8961332997828927855
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312153662807328221}
+  m_ConnectedBody: {fileID: 6740021760414105119}
+  m_Anchor: {x: 0, y: 30.087234, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: -76.73996, y: 110.53836, z: -55.419815}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 1
+  m_Limits:
+    min: 0
+    max: 90
+    bounciness: 0
+    bounceMinVelocity: 0
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
