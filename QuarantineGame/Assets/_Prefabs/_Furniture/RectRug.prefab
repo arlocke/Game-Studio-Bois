@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 852849001514586750}
   - component: {fileID: 8543024043838531656}
   - component: {fileID: 2716341765619979441}
+  - component: {fileID: 1311951691}
   m_Layer: 0
   m_Name: RectRug
   m_TagString: Untagged
@@ -25,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4435681132402712685}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.632, y: 0.05, z: -6.006}
-  m_LocalScale: {x: 4.1228, y: 4.1228, z: 4.1228}
+  m_LocalScale: {x: 7.94664, y: 2.64888, z: 7.94664}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1311951691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4435681132402712685}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.492031, y: 0.06871699, z: 1.870298}
+  m_Center: {x: -0.007014677, y: 0.034358494, z: 0.317488}

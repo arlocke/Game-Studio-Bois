@@ -71,6 +71,7 @@ public class TriggeredBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(used);
         if(safeToUse && !used)
         {
             if(other.tag != "Player")
@@ -83,10 +84,6 @@ public class TriggeredBox : MonoBehaviour
                         if (dud.key == key)
                         {
                             Switch(key);
-                            if(oneTimeUse)
-                            {
-                                used = true;
-                            }
                             break;
                         }
                     }
@@ -117,7 +114,11 @@ public class TriggeredBox : MonoBehaviour
 
     private void Unlock()
     {
-        foreach(var component in unlockables)
+        if (oneTimeUse)
+        {
+            used = true;
+        }
+        foreach (var component in unlockables)
         {
             component.isKinematic = false;
         }
@@ -125,12 +126,20 @@ public class TriggeredBox : MonoBehaviour
 
     private void Spawn()
     {
+        if (oneTimeUse)
+        {
+            used = true;
+        }
         Instantiate(spawnable, spawnLocation, Quaternion.Euler(spawnRotation));
     }
 
     private void Enable()
     {
-        foreach(var obj in enablable)
+        if (oneTimeUse)
+        {
+            used = true;
+        }
+        foreach (var obj in enablable)
         {
             obj.gameObject.SetActive(true);
         }
@@ -145,6 +154,10 @@ public class TriggeredBox : MonoBehaviour
             {
                 if(EventManager.OnContainedCheck(keyName))
                 {
+                    if (oneTimeUse)
+                    {
+                        used = true;
+                    }
                     EventManager.OnCompleteQuestInitiated(keyName);
                     if (unlocking)
                     {
@@ -168,6 +181,10 @@ public class TriggeredBox : MonoBehaviour
             {
                 if(EventManager.OnContainedCheck(nonKeyQuestName))
                 {
+                    if (oneTimeUse)
+                    {
+                        used = true;
+                    }
                     EventManager.OnCompleteQuestInitiated(nonKeyQuestName);
                     if (unlocking)
                     {
@@ -188,6 +205,10 @@ public class TriggeredBox : MonoBehaviour
 
     private void SetQuest(string key)
     {
+        if (oneTimeUse)
+        {
+            used = true;
+        }
         if (keyBasedCompletion)
         {
             keyName = EventManager.NameFromLoader(key);
