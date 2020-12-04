@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DNABottle
+  m_Name: Voicebox
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 1
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: a1b2d06e92f6cd14daeb64552844ed65, type: 3}
+        m_Texture: {fileID: 2800000, guid: bb3269f2ce5617548913572d23a9e12c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,15 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: b57512992dd3e064cb2dda38e83e4ae3, type: 3}
+        m_Texture: {fileID: 2800000, guid: d4ce935252078be469a5577a96201763, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9d7408e4083c69c4ab9c9ac6b686611b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3bd0c76907ffff24b99af6238c1fb913, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: a836ac55d9dad8e4189f53939b122c65, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7b0aa902385d5674886f2c44420775c4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
