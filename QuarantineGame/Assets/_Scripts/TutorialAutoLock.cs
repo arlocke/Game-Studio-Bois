@@ -11,13 +11,8 @@ public class TutorialAutoLock : MonoBehaviour
     {
         EventManager.EndTutorial += Unlock;
         EventManager.LoadInitiated += Unlock;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         target = transform.GetComponent<DoorScript>();
-        if(target == null)
+        if (target == null)
         {
             safeToUse = false;
             Debug.Log("Missing DoorScript On Object: " + transform.name);
