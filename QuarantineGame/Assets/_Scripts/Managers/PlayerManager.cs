@@ -123,7 +123,20 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not enough space to stand up!");
+                if(hit.collider.isTrigger)
+                {
+                    crouch = false;
+                    controller.height = defHeight;
+                    controller.enabled = false;
+                    body.transform.position += (Vector3.up * ((defHeight - crouchHeight) / 2));
+                    controller.enabled = true;
+                    playerCam.transform.localPosition = CameraOrigin;
+                }
+                else
+                {
+                    Debug.Log("Hitting: " + hit.transform.name);
+                    Debug.Log("Not enough space to stand up!");
+                }
             }
         }
     }
