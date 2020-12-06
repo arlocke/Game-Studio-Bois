@@ -130,8 +130,9 @@ public class PlayerUI : MonoBehaviour
     public void CheckCompletion()
     {
         int dud = Regex.Matches(questLogUI.text, "Completed").Count;
+        int sud = Regex.Matches(questLogUI.text, "Missed").Count;
         Debug.Log(dud);
-        if (dud == EventManager.questSize)
+        if ((dud + sud) == EventManager.questSize)
         {
             EventManager.completed = true;
         }
