@@ -14,6 +14,7 @@ public class PadlockScript : MonoBehaviour
     private bool safeToUse = false;
     private bool locked = true;
     private bool checking = false;
+    private bool open = false;
     private string QuestName = "";
 
     [SerializeField]
@@ -22,7 +23,7 @@ public class PadlockScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Key != null && DoorsBody != null)
+        if ((Key != null && DoorsBody != null) || (DoorScript != null && scriptUnlock))
         {
             safeToUse = true;
         }
@@ -34,7 +35,7 @@ public class PadlockScript : MonoBehaviour
 
     public void buttonPressed(int num)
     {
-        if(safeToUse && locked && !checking)
+        if(safeToUse && locked && !checking && open)
         {
             if (Display.text != "####")
             {
@@ -112,6 +113,7 @@ public class PadlockScript : MonoBehaviour
             Padlock.blocksRaycasts = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            open = true;
         }
     }
 
@@ -124,6 +126,7 @@ public class PadlockScript : MonoBehaviour
             Padlock.blocksRaycasts = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            open = false;
         }
     }
 }
