@@ -10,6 +10,7 @@ public class TutorialAutoLock : MonoBehaviour
     private void Awake()
     {
         EventManager.EndTutorial += Unlock;
+        EventManager.LoadInitiated += Unlock;
     }
 
     // Start is called before the first frame update
@@ -38,5 +39,6 @@ public class TutorialAutoLock : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.EndTutorial -= Unlock;
+        EventManager.LoadInitiated -= Unlock;
     }
 }
