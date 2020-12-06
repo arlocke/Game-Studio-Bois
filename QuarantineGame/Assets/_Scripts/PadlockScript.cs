@@ -9,6 +9,8 @@ public class PadlockScript : MonoBehaviour
     public string QuestKey;
     public Text Display;
     public Rigidbody DoorsBody;
+    public DoorScript DoorScript;
+    public bool scriptUnlock = false;
     private bool safeToUse = false;
     private bool locked = true;
     private bool checking = false;
@@ -61,19 +63,30 @@ public class PadlockScript : MonoBehaviour
 
     private IEnumerator winlose(bool condition)
     {
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 4; i++)
         {
             Display.text = "####";
-            yield return new WaitForSecondsRealtime(0.5f);
+            yield return new WaitForSecondsRealtime(0.25f);
             Display.text = "";
-            yield return new WaitForSecondsRealtime(0.5f);
+            yield return new WaitForSecondsRealtime(0.25f);
         }
         if (condition)
         {
             Display.text = "Unlocked";
-            DoorsBody.isKinematic = false;
-            yield return new WaitForSecondsRealtime(2.5f);
-            QuestName = EventManager.NameFromLoader(QuestKey);
+            if(!scriptUnlock)
+            {
+                DoorsBody.isKinematic = false;
+            }
+            else
+            {
+                DoorScript.isLocked = false;
+            }
+            
+            yield return new WaitForSecondsRealtime(1.5f);
+            if(QuestKey != "")
+            {
+                QuestName = EventManager.NameFromLoader(QuestKey);
+            }
             if(QuestName != "")
             {
                 EventManager.OnAddQuestInitiated(QuestName);
