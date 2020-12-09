@@ -34,6 +34,7 @@ public class Clock : MonoBehaviour
     void Start()
     {
         time += 450; //has the player start at 7:30am (60 * 7.5 = 450)
+        //time = 1200;
     }
 
     void FixedUpdate()
@@ -59,18 +60,18 @@ public class Clock : MonoBehaviour
              clocksToDisplay[i].text = hoursString + ":" + minutesString; // is this bad?
         }
 
-        if (timeRounded > 1260 & !EventManager.ending)
-        {
-            EventManager.ending = true;
-            if(EventManager.EndingType())
-            {
-                EventManager.OnInnerThoughtInitiated("I've done all my tasks for the day!", 10.0f, 100, false);
-            }
-            else
-            {
-                EventManager.OnInnerThoughtInitiated("I still have things to do today!", 10.0f, 100, false);
-            }
-        }
+        //if (timeRounded > 1260 & !EventManager.ending)
+        //{
+        //    EventManager.ending = true;
+        //    if(EventManager.EndingType())
+        //    {
+        //        EventManager.OnInnerThoughtInitiated("I've done all my tasks for the day!", 10.0f, 100, false);
+        //    }
+        //    else
+        //    {
+        //        EventManager.OnInnerThoughtInitiated("I still have things to do today!", 10.0f, 100, false);
+        //    }
+        //}
     }
 
     private void StartTutorial()

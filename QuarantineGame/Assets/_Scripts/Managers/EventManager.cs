@@ -32,6 +32,7 @@ public static class EventManager
     public static System.Action RemoveWorkPrompt;
     public static System.Action Blackout;
     public static System.Action BlackoutReverse;
+    public static System.Action End;
 
     public static void OnSaveInitiated()
     {
@@ -94,6 +95,11 @@ public static class EventManager
     {
         GetCompletion?.Invoke();
         return completed;
+    }
+
+    public static void OnEnd()
+    {
+        End?.Invoke();
     }
 
     public static void OnStartTutorial()
