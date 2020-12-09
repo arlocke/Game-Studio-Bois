@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public GameObject playerCam;
 
+    private void Awake()
+    {
+        EventManager.End += EndDay;
+    }
 
     void Start()
     {
@@ -47,6 +51,24 @@ public class GameManager : MonoBehaviour
         {
             EventManager.OnInnerThoughtInitiated("I need to take my pills first...", 10.0f, 97, false);
         } 
+    }
+
+    public void EndDay()
+    {
+        EventManager.Blackout();
+        if (EventManager.EndingType())
+        {
+            EventManager.OnInnerThoughtInitiated("I'm exhausted, at least I've done everything I can.", 10.0f, 150, false);
+        }
+        else
+        {
+            EventManager.OnInnerThoughtInitiated("I'm too tired to finish today!", 10.0f, 150, false);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.End -= EndDay;
     }
 
 }

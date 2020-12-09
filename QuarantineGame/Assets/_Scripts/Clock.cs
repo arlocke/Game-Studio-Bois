@@ -34,7 +34,6 @@ public class Clock : MonoBehaviour
     void Start()
     {
         time += 450; //has the player start at 7:30am (60 * 7.5 = 450)
-        //time = 1200;
     }
 
     void FixedUpdate()

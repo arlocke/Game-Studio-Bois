@@ -161,5 +161,11 @@ public class Day1 : MonoBehaviour
             EventManager.OnInnerThoughtInitiated("I'm so bored, I could just go back to sleep now...", 10.0f, 5, false);
             Thought11 = true;
         }
+
+        if (time > 1260 & !EventManager.ending)
+        {
+            EventManager.ending = true;
+            EventManager.OnEnd();
+        }
     }
 }

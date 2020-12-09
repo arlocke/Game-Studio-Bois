@@ -72,6 +72,28 @@ public class PlayerUI : MonoBehaviour
             if(currentThought.time < 0)
             {
                 Thoughts.RemoveAt(0);
+                if (currentThought.priority == 150 && EventManager.ending)
+                {
+                    var index = SceneManager.GetActiveScene().buildIndex;
+                    if (EventManager.EndingType())
+                    {
+                        if (index + 1 < SceneManager.sceneCountInBuildSettings)
+                        {
+                            PlayerPrefs.SetInt("Load", 0);
+                            SceneManager.LoadScene(index + 1);
+                        }
+                        else
+                        {
+                            Debug.Log("Last Scene, nothing past here");
+                            SceneManager.LoadScene(0);
+                        }
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(index);
+                        Debug.Log("Reloading self");
+                    }
+                }
                 if (Thoughts.Count < 1)
                 {
                     currentThought = dudThought;
