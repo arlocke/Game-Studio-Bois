@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Diagnostics;
 
 public class MenuManager : MonoBehaviour
 {
@@ -114,6 +115,8 @@ public class MenuManager : MonoBehaviour
 
     public void ShowHideOptions()
     {
+        StackTrace stackTrace = new StackTrace();
+        UnityEngine.Debug.Log(stackTrace.GetFrame(1).GetMethod().Name);
         if(KeyBindMenu != null && !selectLock)
         {
             KeyBindMenu.alpha = KeyBindMenu.alpha > 0 ? 0 : 1;

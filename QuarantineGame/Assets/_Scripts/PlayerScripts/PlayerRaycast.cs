@@ -19,6 +19,7 @@ public class PlayerRaycast : MonoBehaviour
     public GameObject raycastedObject;
     public Text innerThoughtsUI;
     public Text LookedAtThing;
+    public SleepPrompt sPrompt;
    
 
     //Private Serialized Fields
@@ -37,244 +38,247 @@ public class PlayerRaycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //If not carrying, then run raycast.
-        if(!isCarrying)
+        if(Time.timeScale != 0)
         {
-            RaycastHit hit; //Create Temporary raycast variable
-            Vector3 fwd = transform.TransformDirection(Vector3.forward); //Take Forward Vector 3
-
-            //Run Raycast
-            if (Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMaskInteract.value))
+            //If not carrying, then run raycast.
+            if (!isCarrying)
             {
-                raycastedObject = hit.collider.gameObject; //Store hit object.
-                CrosshairActive(); //Active if hit object within layer mask.
-                seenTag = hit.collider.tag;
-                seenName = hit.collider.name;
+                RaycastHit hit; //Create Temporary raycast variable
+                Vector3 fwd = transform.TransformDirection(Vector3.forward); //Take Forward Vector 3
 
-                //If Throwable
-                if (seenTag == "Throwable")
+                //Run Raycast
+                if (Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMaskInteract.value))
                 {
-                    hitLookable = null;
-                    LookedAtThing.text = "< Grab " + seenName + " >"; 
-                    
-                    //Grab throwable script.
-                    var dud = raycastedObject.GetComponent<ThrowableObject>();
+                    raycastedObject = hit.collider.gameObject; //Store hit object.
+                    CrosshairActive(); //Active if hit object within layer mask.
+                    seenTag = hit.collider.tag;
+                    seenName = hit.collider.name;
 
-                    //If you already have hit a throwable, and you are looking at a different throwable, the last throwable seen is no longer hit.
-                    if (hitThrowable != null && hitThrowable != dud)
+                    //If Throwable
+                    if (seenTag == "Throwable")
                     {
-                        hitThrowable.isHit = false;
-                        //isCarrying = hitObject.DropDown();
-                    }
+                        hitLookable = null;
+                        LookedAtThing.text = "< Grab " + seenName + " >";
 
-                    //Save the hit throwable.
-                    hitThrowable = dud;
+                        //Grab throwable script.
+                        var dud = raycastedObject.GetComponent<ThrowableObject>();
 
-                    //Tell throwable it is hit.
-                    hitThrowable.isHit = true;
-
-                    //If you have hit a throwable (Preventing bugs) and uiCActive is true (Which it always is...)
-                    if (hitThrowable != null && uiCActive)
-                    {
-                        //Pick up object.
-                        if (Input.GetMouseButtonDown(0))
+                        //If you already have hit a throwable, and you are looking at a different throwable, the last throwable seen is no longer hit.
+                        if (hitThrowable != null && hitThrowable != dud)
                         {
-                            LookedAtThing.text = "< LeftClick to throw \n" +
-                                                     " RightClick to release >";
-                            isCarrying = hitThrowable.PickUp(transform);
+                            hitThrowable.isHit = false;
+                            //isCarrying = hitObject.DropDown();
                         }
-                    }
-                }
-                else if (seenTag == "Lookable")
-                {
-                    hitThrowable = null;
-                    LookedAtThing.text = "< Look at " + seenName + " >";
 
-                    var dud = raycastedObject.GetComponent<Lookable>();
+                        //Save the hit throwable.
+                        hitThrowable = dud;
 
-                    if (hitLookable != null && hitLookable != dud)
-                    {
-                        hitLookable.isHit = false;
-                    }
+                        //Tell throwable it is hit.
+                        hitThrowable.isHit = true;
 
-                    hitLookable = dud;
-
-                    hitLookable.isHit = true;
-
-                    if (hitLookable != null && uiCActive)
-                    {
-                        if (Input.GetMouseButton(0) && !hitLookable.arrived && !hitLookable.snapped)
+                        //If you have hit a throwable (Preventing bugs) and uiCActive is true (Which it always is...)
+                        if (hitThrowable != null && uiCActive)
                         {
-                            LookedAtThing.text = "< Use mouse to rotate \n Rightclick to drop >";
-                            isCarrying = hitLookable.PickUp(transform);
-                        }
-                    }
-                }
-                else if (seenTag == "Objective")
-                {
-                    hitLookable = null;
-                    hitThrowable = null;
-
-                    LookedAtThing.text = "< " + seenName + " >";
-
-                    CrosshairActive();
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        var dud = hit.transform.GetComponent<QuestObjective>();
-                        if(dud != null)
-                        {
-                            dud.SetComplete();
-                            if(dud.key == "1")
+                            //Pick up object.
+                            if (Input.GetMouseButtonDown(0))
                             {
-                                EventManager.OnInnerThoughtInitiated("Here are my pills", 4.0f, 96, true);
+                                LookedAtThing.text = "< LeftClick to throw \n" +
+                                                         " RightClick to release >";
+                                isCarrying = hitThrowable.PickUp(transform);
                             }
                         }
                     }
-                }
-                else if (seenTag == "Bed")
-                {
-                    hitLookable = null;
-                    hitThrowable = null;
-
-                    LookedAtThing.text = "< Go to bed? >";
-
-                    CrosshairActive();
-                    if (Input.GetMouseButtonDown(0))
+                    else if (seenTag == "Lookable")
                     {
-                        gameManager.CompleteDay();
-                    }
+                        hitThrowable = null;
+                        LookedAtThing.text = "< Look at " + seenName + " >";
 
-                }
-                else if (seenTag == "QuestGiver")
-                {
-                    hitLookable = null;
-                    hitThrowable = null;
+                        var dud = raycastedObject.GetComponent<Lookable>();
 
-                    //Fix this
-                    LookedAtThing.text = " DAILY TASK ";
-
-                    var dud = raycastedObject.GetComponent<QuestGiver>();
-
-                    if (hitQuestGiver != null && hitQuestGiver != dud)
-                    {
-                        hitQuestGiver.isHit = false;
-                    }
-
-                    hitQuestGiver = dud;
-
-                    hitQuestGiver.isHit = true;
-
-                    if (hitQuestGiver != null && uiCActive)
-                    {
-                        if (Input.GetMouseButton(0) && !hitQuestGiver.activated)
+                        if (hitLookable != null && hitLookable != dud)
                         {
-                            Debug.Log("Give a quest");
-                            hitQuestGiver.UpdateQuestLog();
+                            hitLookable.isHit = false;
+                        }
+
+                        hitLookable = dud;
+
+                        hitLookable.isHit = true;
+
+                        if (hitLookable != null && uiCActive)
+                        {
+                            if (Input.GetMouseButton(0) && !hitLookable.arrived && !hitLookable.snapped)
+                            {
+                                LookedAtThing.text = "< Use mouse to rotate \n Rightclick to drop >";
+                                isCarrying = hitLookable.PickUp(transform);
+                            }
+                        }
+                    }
+                    else if (seenTag == "Objective")
+                    {
+                        hitLookable = null;
+                        hitThrowable = null;
+
+                        LookedAtThing.text = "< " + seenName + " >";
+
+                        CrosshairActive();
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            var dud = hit.transform.GetComponent<QuestObjective>();
+                            if (dud != null)
+                            {
+                                dud.SetComplete();
+                                if (dud.key == "1")
+                                {
+                                    EventManager.OnInnerThoughtInitiated("Here are my pills", 4.0f, 96, true);
+                                }
+                            }
+                        }
+                    }
+                    else if (seenTag == "Bed")
+                    {
+                        hitLookable = null;
+                        hitThrowable = null;
+
+                        LookedAtThing.text = "< Go to bed? >";
+
+                        CrosshairActive();
+                        if (Input.GetMouseButtonDown(0) && sPrompt != null)
+                        {
+                            sPrompt.Open();
+                        }
+                    }
+                    else if (seenTag == "QuestGiver")
+                    {
+                        hitLookable = null;
+                        hitThrowable = null;
+
+                        //Fix this
+                        LookedAtThing.text = " DAILY TASK ";
+
+                        var dud = raycastedObject.GetComponent<QuestGiver>();
+
+                        if (hitQuestGiver != null && hitQuestGiver != dud)
+                        {
+                            hitQuestGiver.isHit = false;
+                        }
+
+                        hitQuestGiver = dud;
+
+                        hitQuestGiver.isHit = true;
+
+                        if (hitQuestGiver != null && uiCActive)
+                        {
+                            if (Input.GetMouseButton(0) && !hitQuestGiver.activated)
+                            {
+                                Debug.Log("Give a quest");
+                                hitQuestGiver.UpdateQuestLog();
+                            }
+                        }
+                    }
+                    else if (seenName == "MainComputer")
+                    {
+                        hitLookable = null;
+                        hitThrowable = null;
+
+                        LookedAtThing.text = "< Sit at computer? >";
+
+                        var dud = raycastedObject.GetComponentInChildren<ComputerCanvas>();
+
+                        CrosshairActive();
+                        if (Input.GetMouseButtonDown(0))
+                        {
+
+                            dud.SitAtComputer();
+                            LookedAtThing.text = "";
+                        }
+                    }
+                    else if (seenName == "Lock")
+                    {
+                        hitLookable = null;
+                        hitThrowable = null;
+
+                        LookedAtThing.text = "< Use Padlock >";
+
+                        var dud = raycastedObject.GetComponent<PadlockScript>();
+
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            dud.Open();
+                        }
+                    }
+                    else if (seenTag == "LightSwitch")
+                    {
+                        hitLookable = null;
+                        hitThrowable = null;
+
+                        LookedAtThing.text = "< Toggle Lightswitch >";
+
+                        var dud = raycastedObject.GetComponent<LightSwitch>();
+
+                        if (Input.GetMouseButtonDown(0) && !dud.on)
+                        {
+                            Debug.Log("trying to lightswitchOn");
+                            dud.SwitchOn();
+                        }
+                        else if (Input.GetMouseButtonDown(0) && dud.on)
+                        {
+                            Debug.Log("trying to lightswitchOff");
+                            dud.SwitchOff();
                         }
                     }
                 }
-                else if (seenName == "MainComputer")
+                else
                 {
-                    hitLookable = null;
-                    hitThrowable = null;
+                    LookedAtThing.text = "";
 
-                    LookedAtThing.text = "< Sit at computer? >";
-
-                    var dud = raycastedObject.GetComponentInChildren<ComputerCanvas>();
-
-                    CrosshairActive();
-                    if (Input.GetMouseButtonDown(0))
+                    if (hitThrowable != null)
                     {
-                      
-                        dud.SitAtComputer();
-                        LookedAtThing.text = "";
+                        hitThrowable.isHit = false;
+                        //isCarrying = hitObject.DropDown();
+                        hitThrowable = null;
                     }
-                }
-                else if (seenName == "Lock")
-                {
-                    hitLookable = null;
-                    hitThrowable = null;
-
-                    LookedAtThing.text = "< Use Padlock >";
-
-                    var dud = raycastedObject.GetComponent<PadlockScript>();
-
-                    if (Input.GetMouseButtonDown(0))
+                    if (hitLookable != null)
                     {
-                        dud.Open();
+                        hitLookable.isHit = false;
+                        hitLookable = null;
                     }
-                }
-                else if (seenTag == "LightSwitch")
-                {
-                    hitLookable = null;
-                    hitThrowable = null;
-
-                    LookedAtThing.text = "< Toggle Lightswitch >";
-
-                    var dud = raycastedObject.GetComponent<LightSwitch>();
-
-                    if (Input.GetMouseButtonDown(0) && !dud.on)
+                    if (hitQuestGiver != null)
                     {
-                        Debug.Log("trying to lightswitchOn");
-                        dud.SwitchOn();
+                        hitQuestGiver.isHit = false;
+                        hitQuestGiver = null;
                     }
-                    else if (Input.GetMouseButtonDown(0) && dud.on)
-                    {
-                        Debug.Log("trying to lightswitchOff");
-                        dud.SwitchOff();
-                    }
+                    CrosshairNormal();
                 }
             }
-            else
+            else //If carrying object, see if you want to drop it and disable raycast until dropped.
             {
-                LookedAtThing.text = "";
-
-                if (hitThrowable != null)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    hitThrowable.isHit = false;
-                    //isCarrying = hitObject.DropDown();
-                    hitThrowable = null;
-                }
-                if(hitLookable != null)
-                {
-                    hitLookable.isHit = false;
-                    hitLookable = null;
-                }
-                if (hitQuestGiver != null)
-                {
-                    hitQuestGiver.isHit = false;
-                    hitQuestGiver = null;
-                }
-                CrosshairNormal();
-            }
-        }
-        else //If carrying object, see if you want to drop it and disable raycast until dropped.
-        {
-            if(Input.GetMouseButtonDown(0))
-            {
-                if (hitThrowable != null)
-                {
-                    hitThrowable.ThrowDown();
-                    isCarrying = false;
-                }
-            }
-            if(Input.GetMouseButtonDown(1))
-            {
-                if(hitThrowable != null)
-                {
-                    hitThrowable.DropDown();
-                    isCarrying = false;
-                }
-                if(hitLookable != null)
-                {
-                    if(hitLookable.arrived && hitLookable.snapped)
+                    if (hitThrowable != null)
                     {
-                        hitLookable.DropDown();
+                        hitThrowable.ThrowDown();
                         isCarrying = false;
                     }
                 }
+                if (Input.GetMouseButtonDown(1))
+                {
+                    if (hitThrowable != null)
+                    {
+                        hitThrowable.DropDown();
+                        isCarrying = false;
+                    }
+                    if (hitLookable != null)
+                    {
+                        if (hitLookable.arrived && hitLookable.snapped)
+                        {
+                            hitLookable.DropDown();
+                            isCarrying = false;
+                        }
+                    }
+                }
             }
         }
+
     }
 
     void CrosshairActive()
