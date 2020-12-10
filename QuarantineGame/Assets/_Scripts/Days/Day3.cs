@@ -84,7 +84,11 @@ public class Day3 : MonoBehaviour
             EventManager.OnInnerThoughtInitiated("I missed the meeting.... I'll probably be fired tomorrow...", 10.0f, 5, false);
             if (questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
             {
-                questLogUI.text = questLogUI.text.Replace("Work", "<color=red>Work - Completed...?</color>");
+                questLogUI.text = questLogUI.text.Replace("Work", "<color=red>Work - Missed</color>");
+            }
+            else if (!questLogUI.text.Contains("Work"))
+            {
+                questLogUI.text += "<color=red>Work - Missed</color>\n";
             }
             EventManager.OnRemoveWorkPromptInitiated();
             EventManager.OnAddEmailInitiated("Sender: The Boss" +
