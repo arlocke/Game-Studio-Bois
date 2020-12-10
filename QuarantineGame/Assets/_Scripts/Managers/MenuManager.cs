@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Diagnostics;
 
 public class MenuManager : MonoBehaviour
 {
@@ -57,44 +56,47 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if(KeyBindManager.MyInstance == null)
+        if(!selectLock)
         {
-            if (Input.GetKeyDown(KeyCode.P) && isInGame && !selectLock)
+            if (KeyBindManager.MyInstance == null)
             {
-                if (KeyBindMenu != null && PauseMenu != null)
+                if (Input.GetKeyDown(KeyCode.P) && isInGame)
                 {
-                    if (PauseMenu.alpha == 1)
+                    if (KeyBindMenu != null && PauseMenu != null)
                     {
-                        Resume();
-                    }
-                    else
-                    {
-                        PauseMenu.alpha = 1;
-                        PauseMenu.blocksRaycasts = true;
-                        Cursor.lockState = CursorLockMode.None;
-                        Cursor.visible = true;
-                        Time.timeScale = 0;
+                        if (PauseMenu.alpha == 1)
+                        {
+                            Resume();
+                        }
+                        else
+                        {
+                            PauseMenu.alpha = 1;
+                            PauseMenu.blocksRaycasts = true;
+                            Cursor.lockState = CursorLockMode.None;
+                            Cursor.visible = true;
+                            Time.timeScale = 0;
+                        }
                     }
                 }
             }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyBindManager.MyInstance.ActionBinds["ACT1"]) && isInGame && !selectLock)
+            else
             {
-                if (KeyBindMenu != null && PauseMenu != null)
+                if (Input.GetKeyDown(KeyBindManager.MyInstance.ActionBinds["ACT1"]) && isInGame)
                 {
-                    if (PauseMenu.alpha == 1)
+                    if (KeyBindMenu != null && PauseMenu != null)
                     {
-                        Resume();
-                    }
-                    else
-                    {
-                        PauseMenu.alpha = 1;
-                        PauseMenu.blocksRaycasts = true;
-                        Cursor.lockState = CursorLockMode.None;
-                        Cursor.visible = true;
-                        Time.timeScale = 0;
+                        if (PauseMenu.alpha == 1 && !Input.GetKeyDown(KeyCode.Space))
+                        {
+                            Resume();
+                        }
+                        else
+                        {
+                            PauseMenu.alpha = 1;
+                            PauseMenu.blocksRaycasts = true;
+                            Cursor.lockState = CursorLockMode.None;
+                            Cursor.visible = true;
+                            Time.timeScale = 0;
+                        }
                     }
                 }
             }
@@ -103,20 +105,24 @@ public class MenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        Time.timeScale = 1;
-        PlayerPrefs.SetInt("Load", 0);
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        if(!Input.GetKeyDown(KeyCode.Space) && !selectLock)
+        {
+            Time.timeScale = 1;
+            PlayerPrefs.SetInt("Load", 0);
+            SceneManager.LoadScene(1, LoadSceneMode.Single);
+        }
     }
 
     public void Quit()
     {
-        Application.Quit();
+        if (!Input.GetKeyDown(KeyCode.Space) && !selectLock)
+        {
+            Application.Quit();
+        }
     }
 
     public void ShowHideOptions()
     {
-        StackTrace stackTrace = new StackTrace();
-        UnityEngine.Debug.Log(stackTrace.GetFrame(1).GetMethod().Name);
         if(KeyBindMenu != null && !selectLock)
         {
             KeyBindMenu.alpha = KeyBindMenu.alpha > 0 ? 0 : 1;
@@ -146,24 +152,40 @@ public class MenuManager : MonoBehaviour
 
     public void GameQuit()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        if(!Input.GetKeyDown(KeyCode.Space) && !selectLock)
+        {
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
+        
     }
 
     public void SaveGame()
     {
-        PlayerPrefs.SetInt("SavedScene", SceneManager.GetActiveScene().buildIndex);
-        EventManager.OnSaveInitiated();
+        if(!Input.GetKeyDown(KeyCode.Space) && !selectLock)
+        {
+            PlayerPrefs.SetInt("SavedScene", SceneManager.GetActiveScene().buildIndex);
+            EventManager.OnSaveInitiated();
+        }
     }
 
     public void LoadGame()
     {
-        Time.timeScale = 1;
-        PlayerPrefs.SetInt("Load", 1);
-        SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene", 1), LoadSceneMode.Single);
+        if(!Input.GetKeyDown(KeyCode.Space) && !selectLock)
+        {
+            Time.timeScale = 1;
+            PlayerPrefs.SetInt("Load", 1);
+            SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene", 1), LoadSceneMode.Single);
+        }
     }
 
     private void Seize(bool facts)
     {
         seize = facts;
+    }
+
+    public IEnumerator DelayedUnlock()
+    {
+        yield return new WaitForEndOfFrame();
+        selectLock = false;
     }
 }

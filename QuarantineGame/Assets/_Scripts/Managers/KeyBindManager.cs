@@ -64,7 +64,7 @@ public class KeyBindManager : MonoBehaviour
 
         currentDictionary[key] = keyBind;
         MenuManager.MyInstance.UpdateKeyText(key, keyBind);
-        MenuManager.MyInstance.selectLock = false;
+        StartCoroutine(MenuManager.MyInstance.DelayedUnlock());
         bindName = string.Empty;
     }
 
@@ -82,7 +82,15 @@ public class KeyBindManager : MonoBehaviour
 
             if(e.isKey)
             {
-                Bindkey(bindName, e.keyCode);
+                if(bindName == "ACT1" && e.keyCode != KeyCode.Space)
+                {
+                    Bindkey(bindName, e.keyCode);
+                }
+                else if(bindName != "ACT1")
+                {
+                    Bindkey(bindName, e.keyCode);
+                }
+                
             }
         }
     }

@@ -2837,6 +2837,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fridge_Locked
       objectReference: {fileID: 0}
+    - target: {fileID: 4263523926389929572, guid: 449cc3a0b1360da49b2ac2485313f957,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263523926389929572, guid: 449cc3a0b1360da49b2ac2485313f957,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4421546281931327356, guid: 449cc3a0b1360da49b2ac2485313f957,
         type: 3}
       propertyPath: m_LocalPosition.x
