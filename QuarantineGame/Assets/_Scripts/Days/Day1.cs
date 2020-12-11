@@ -50,7 +50,7 @@ public class Day1 : MonoBehaviour
 
         if (time >= 480 && !Email1) //8:00
         {
-            EventManager.OnAddEmailInitiated("Sender: The Boss " +
+            EventManager.OnAddEmailInitiated("\nSender: The Boss " +
                 "\n Sent: 8:00 am " +
                 "\n Subject: Hey Gahara!" +
                 "\n \n Make sure you attend the remote work meeting today from 9:00 - 12:00!!! I'm counting on you to be the star " +
@@ -67,7 +67,7 @@ public class Day1 : MonoBehaviour
 
         if (time >= 530 && !Email2) //8:50
         {
-            EventManager.OnAddEmailInitiated("Sender: The Boss" +
+            EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 8:50 am " +
                 "\n Subject: SERIOUS REMINDER!" +
                 "\n \n Also FYI... Don't mention anything about the virus in the meeting... We have to keep morale up and I " +
@@ -108,7 +108,7 @@ public class Day1 : MonoBehaviour
                 questLogUI.text += "<color=red>Work - Missed</color>\n";
             }
             EventManager.OnRemoveWorkPromptInitiated();
-            EventManager.OnAddEmailInitiated("Sender: The Boss" +
+            EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: WHAT THE ABSOLUTE F**K GAHARA " +
                 "\n \n IS THIS A JOKE?????? ARE YOU TRYING TO LOSE YOUR JOB??? IT WAS LITERALLY THE FIRST MEETING OF THE QUARTER!!!! YOU ARE THE " +
@@ -118,7 +118,7 @@ public class Day1 : MonoBehaviour
 
         if (time >= 780 && !Email3) //1:00 pm
         {
-            EventManager.OnAddEmailInitiated("Sender: Dr. Malkino PhD. " +
+            EventManager.OnAddEmailInitiated("\nSender: Dr. Malkino PhD. " +
                 "\n Sent: 1:00 pm" +
                 "\n Subject: Good afternoon Mr. Gahara, " +
                 "\n \n Thanks for participating in our clinical vaccine trial. Your help will go a long way towards overcoming this " +
@@ -129,7 +129,7 @@ public class Day1 : MonoBehaviour
 
         if (time >= 745 && !Email4 && EventManager.OnQuestCheck("Work")) //1:30
         {
-            EventManager.OnAddEmailInitiated("Sender: The Boss" +
+            EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 1:30 pm " +
                 "\n Subject: Nice Work Gahara " +
                 "\n \n Thanks for attending the meeting today and being a good sport about it. I made a good decision hiring you 5 years ago." +

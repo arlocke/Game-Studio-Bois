@@ -37,19 +37,19 @@ public class Day2 : MonoBehaviour
 
         if (time >= 451 && !Email1) //7:30
         {
-            EventManager.OnAddEmailInitiated("Sender: My Babe <3 " +
+            EventManager.OnAddEmailInitiated("\nSender: My Babe <3 " +
                 "\n Sent: 4:27 am" +
                 "\n Subject: Hello my love! " +
                 "\n \n Hope your first day of remote work went well! I miss you so much and I know you're gonna do great this week!" +
                 "I just landed in Tokyo and I know my parents are gonna lecture me the entire ride back to their apartment... I just wish they would've let me stay with you!   :(  " +
                 "But once this quarantine is over I can finally get my diploma and move right in with you! I love you so much <3 " +
-                "\n With love, \n -Maia");
+                "\n With love, \n -Maia ");
             Email1 = true;
         }
 
         if (time >= 480 && !Email2) //8:00
         {
-            EventManager.OnAddEmailInitiated("Sender: Carol from HR  " +
+            EventManager.OnAddEmailInitiated("\nSender: Carol from HR  " +
                 "\n Sent: 8:00 am " +
                 "\n Subject: Dear Mr. Gahara" +
                 "\n \n You are invited to an urgent meeting with the rest of the Data Entry Specialist team on:" +
@@ -91,7 +91,7 @@ public class Day2 : MonoBehaviour
                 questLogUI.text += "<color=red>Work - Missed</color>\n";
             }
             EventManager.OnRemoveWorkPromptInitiated();
-            EventManager.OnAddEmailInitiated("Sender: The Boss" +
+            EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: THIS IS THE FINAL STRAW " +
                 "\n \n yOU MUST BE A REAL COMEDIAN GAHARA!! YOU MUST THINK THIS IS REAL FUNNY! AFTER I STUCK UP FOR YOU THIS ENTIRE TIME?" +
@@ -115,7 +115,7 @@ public class Day2 : MonoBehaviour
 
         if (time >= 900 && !Email3) //3:00
         {
-            EventManager.OnAddEmailInitiated("Sender:  Mr. Humphree " +
+            EventManager.OnAddEmailInitiated("\nSender:  Mr. Humphree " +
                 "\n Sent: 8:00 am " +
                 "\n Subject: To all tenants" +
                 "\n \n Just a friendly reminder that all penthouse tenants, while you are isolated from B block tenants," +
@@ -126,6 +126,12 @@ public class Day2 : MonoBehaviour
                 "\n " +
                 "\n Thank you, \n -Mr Humphree (Chief landlord of the EmailCenter)");
             Email3 = true;
+        }
+
+        if (time > 1260 & !EventManager.ending)
+        {
+            EventManager.ending = true;
+            EventManager.OnEnd();
         }
     }
 }

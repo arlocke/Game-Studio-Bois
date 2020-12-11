@@ -42,7 +42,7 @@ public class Day4 : MonoBehaviour
 
         if (time >= 451 && !Email1) //7:30
         {
-            EventManager.OnAddEmailInitiated("Sender: <color=blue> HACKERZ FRUM HELL </color> " +
+            EventManager.OnAddEmailInitiated("\nSender: <color=blue> HACKERZ FRUM HELL </color> " +
                 "\n Sent: 6:66 am" +
                 "\n Subject:  <color=magenta> THE FATE OF THE WORLD </color>" +
                 "\n \n   <color=cyan> Thx for sending that <color=red>COMPACT DISC</color> bruh. I can't meet u irl as imma being watched... U get it right? Lolz XD anyways I've set up dis" +
@@ -54,7 +54,7 @@ public class Day4 : MonoBehaviour
 
         if (time >= 480 && !Email2) //8:00
         {
-            EventManager.OnAddEmailInitiated("Sender: Carol from HR  " +
+            EventManager.OnAddEmailInitiated("\nSender: Carol from HR  " +
                 "\n Sent: 8:00 am " +
                 "\n Subject: Dear Mr. Gahara" +
                 "\n \n You are invited to an urgent restructure meeting with the rest of the Data Entry Specialist team on:" +
@@ -95,7 +95,7 @@ public class Day4 : MonoBehaviour
                 questLogUI.text += "<color=red>Work - Missed</color>\n";
             }
             EventManager.OnRemoveWorkPromptInitiated();
-            EventManager.OnAddEmailInitiated("Sender: Carol from HR" +
+            EventManager.OnAddEmailInitiated("\nSender: Carol from HR" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: Notice of termination " +
                 "\n \n This curtousy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
@@ -136,7 +136,7 @@ public class Day4 : MonoBehaviour
 
         if (time >= 900 && !Email3) //3:00
         {
-            EventManager.OnAddEmailInitiated("Sender:  Mr. Humphree " +
+            EventManager.OnAddEmailInitiated("\nSender:  Mr. Humphree " +
                 "\n Sent: 3:00 pm " +
                 "\n Subject: Mr Gahara - Noise Complaint" +
                 "\n \n This is my final warning. We have numerous reports of violent noises coming from your penthouse apartment from the hours of midnight to 6 am. If there's an animal" +
@@ -148,7 +148,7 @@ public class Day4 : MonoBehaviour
 
         if (time >= 600 && !Email4) //10:00
         {
-            EventManager.OnAddEmailInitiated("Sender: My Love <3  " +
+            EventManager.OnAddEmailInitiated("\nSender: My Love <3  " +
                 "\n Sent: 10:00 am " +
                 "\n Subject: Babe?" +
                 "\n \n My father said you sent threatening messages last night.... What is happening babe? Why aren't you calling me back? And why do you keep leaving hour long" +
@@ -156,6 +156,12 @@ public class Day4 : MonoBehaviour
                 "\n " +
                 "\n -Maia");
             Email4 = true;
+        }
+
+        if (time > 1260 & !EventManager.ending)
+        {
+            EventManager.ending = true;
+            EventManager.OnEnd();
         }
     }
 }

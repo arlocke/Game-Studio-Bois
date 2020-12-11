@@ -39,7 +39,7 @@ public class Day3 : MonoBehaviour
 
         if (time >= 451 && !Email1) //7:30
         {
-            EventManager.OnAddEmailInitiated("Sender: ANON " +
+            EventManager.OnAddEmailInitiated("\nSender: ANON " +
                 "\n Sent: NULL" +
                 "\n Subject: NULL " +
                 "\n \n   <color=red>We cannot communicate anonymously over email. You must mail us the COMPACT DISC left in your apartment for us to establish a secure line over" +
@@ -50,7 +50,7 @@ public class Day3 : MonoBehaviour
 
         if (time >= 480 && !Email2) //8:00
         {
-            EventManager.OnAddEmailInitiated("Sender: Carol from HR  " +
+            EventManager.OnAddEmailInitiated("\nSender: Carol from HR  " +
                 "\n Sent: 8:00 am " +
                 "\n Subject: Dear Mr. Gahara" +
                 "\n \n You are invited to an urgent meeting with the rest of the Data Entry Specialist team on:" +
@@ -91,7 +91,7 @@ public class Day3 : MonoBehaviour
                 questLogUI.text += "<color=red>Work - Missed</color>\n";
             }
             EventManager.OnRemoveWorkPromptInitiated();
-            EventManager.OnAddEmailInitiated("Sender: The Boss" +
+            EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: THIS IS THE FINAL STRAW " +
                 "\n \n I take this as your unofficial notice of resignation. I hope you rot in an impoverished Z block community surrounded by Glorthank sex androids. And by " +
@@ -119,7 +119,7 @@ public class Day3 : MonoBehaviour
 
         if (time >= 900 && !Email3) //3:00
         {
-            EventManager.OnAddEmailInitiated("Sender:  Mr. Humphree " +
+            EventManager.OnAddEmailInitiated("\nSender:  Mr. Humphree " +
                 "\n Sent: 3:00 pm " +
                 "\n Subject: Mr Gahara - ID Card" +
                 "\n \n I am sorry to not have informed you earlier but the ID card necessary for using the mail box located in your apartments airlock has been sent via Email and is ready" +
@@ -132,7 +132,7 @@ public class Day3 : MonoBehaviour
 
         if (time >= 600 && !Email4) //10:00
         {
-            EventManager.OnAddEmailInitiated("Sender: My Love <3  " +
+            EventManager.OnAddEmailInitiated("\nSender: My Love <3  " +
                 "\n Sent: 10:00 am " +
                 "\n Subject: Hey Babe <3" +
                 "\n \n You missed my call again last night? I assumed you were sleeping but you sent me those weird emails with those bizarre URL links at 3:33 am last night. What's going on? " +
@@ -141,6 +141,12 @@ public class Day3 : MonoBehaviour
                 "\n " +
                 "With love, \n -Maia");
             Email4 = true;
+        }
+
+        if (time > 1260 & !EventManager.ending)
+        {
+            EventManager.ending = true;
+            EventManager.OnEnd();
         }
     }
 }

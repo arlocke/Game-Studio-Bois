@@ -42,19 +42,21 @@ public class Day5 : MonoBehaviour
 
         if (time >= 451 && !Email1) //7:30
         {
-            EventManager.OnAddEmailInitiated("Sender: <color=blue> UR HACKER FRIEND </color> " +
+            EventManager.OnAddEmailInitiated("\nSender: <color=blue> UR HACKER FRIEND </color> " +
                 "\n Sent: 6:66 am" +
                 "\n Subject:  <color=magenta> THE FATE OF THE WORLD Ver 2.0 </color>" +
-                "\n \n   <color=cyan> I'm sure you have questions and I'll answer them all in time. All you need to know now is I need a sample of your DNA." +
-                " I have sent you a collection vial that will auto-collect a skin sample on touch. Simply send that through the mail and I will answer more of your questions. Just know" +
-                " you are a special individual Gahara. The world is depending on you. Don't trust anyone, don't trust the government and whatever you do </color> <color=red>AVOID DRONES AT ALL COSTS!!!</color> " +
+                "\n \n   <color=cyan> I'm sure you have questions and I'll answer them all in due time. All you need to know now, is your DNA is special and I need a sample of it" +
+                "to save the human race. I have sent you a </color> <color=red>DNA VIAL</color> <color=cyan>that will extract a skin sample upon touch. Simply send that through the mail and I will answer more of your" +
+                " questions later. Just know you are a special individual Gahara. The world is depending on you. I must sign off now, someone seems to be busting down my door." +
+                "Just remember... Don't trust anyone, don't trust your girlfriend, don't trust the government and whatever " +
+                "you do </color> <color=red>AVOID DRONES AT ALL COSTS!!!</color> " +
                 "\n - ANON");
             Email1 = true;
         }
 
         if (time >= 480 && !Email2) //8:00
         {
-            EventManager.OnAddEmailInitiated("Sender: Carol from HR  " +
+            EventManager.OnAddEmailInitiated("\nSender: Carol from HR  " +
                 "\n Sent: 8:00 am " +
                 "\n Subject: Dear Mr. Gahara" +
                 "\n \n You are invited to an urgent restructure meeting with the rest of the Data Entry Specialist team on:" +
@@ -95,7 +97,7 @@ public class Day5 : MonoBehaviour
                 questLogUI.text += "<color=red>Work - Missed</color>\n";
             }
             EventManager.OnRemoveWorkPromptInitiated();
-            EventManager.OnAddEmailInitiated("Sender: Carol from HR" +
+            EventManager.OnAddEmailInitiated("\nSender: Carol from HR" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: Notice of termination " +
                 "\n \n This curtousy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
@@ -136,7 +138,7 @@ public class Day5 : MonoBehaviour
 
         if (time >= 900 && !Email3) //3:00
         {
-            EventManager.OnAddEmailInitiated("Sender:  Mr. Humphree " +
+            EventManager.OnAddEmailInitiated("\nSender:  Mr. Humphree " +
                 "\n Sent: 3:00 pm " +
                 "\n Subject: Mr Gahara - Noise Complaint" +
                 "\n \n This is my final warning. We have numerous reports of violent noises coming from your penthouse apartment from the hours of midnight to 6 am. If there's an animal" +
@@ -148,7 +150,7 @@ public class Day5 : MonoBehaviour
 
         if (time >= 600 && !Email4) //10:00
         {
-            EventManager.OnAddEmailInitiated("Sender: My Love <3  " +
+            EventManager.OnAddEmailInitiated("\nSender: My Love <3  " +
                 "\n Sent: 10:00 am " +
                 "\n Subject: Babe?" +
                 "\n \n My father said you sent threatening messages last night.... What is happening babe? Why aren't you calling me back? And why do you keep leaving hour long" +
@@ -156,6 +158,12 @@ public class Day5 : MonoBehaviour
                 "\n " +
                 "\n -Maia");
             Email4 = true;
+        }
+
+        if (time > 1260 & !EventManager.ending)
+        {
+            EventManager.ending = true;
+            EventManager.OnEnd();
         }
     }
 }

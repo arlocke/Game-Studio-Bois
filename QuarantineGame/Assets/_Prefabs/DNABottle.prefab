@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7401561874936570684}
   - component: {fileID: 7401561874936570685}
   - component: {fileID: 6092802351347870588}
-  - component: {fileID: 7597415972486937098}
   m_Layer: 9
   m_Name: DNABottle
   m_TagString: Objective
@@ -120,19 +119,6 @@ MonoBehaviour:
   isHit: 0
   returnGravity: 1
 --- !u!114 &6092802351347870588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5066127517021112541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 284ac597ab8edcc48892180c710b31c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: 1
---- !u!114 &7597415972486937098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
