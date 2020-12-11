@@ -7,6 +7,10 @@ public class DoorScript : MonoBehaviour
     public GameObject trigger;
     public GameObject door;
 
+    public AudioSource doorOpenSFX;
+    public AudioSource doorCloseSFX;
+
+
     Animator doorAnim;
 
     public bool isLocked = false;
@@ -23,11 +27,13 @@ public class DoorScript : MonoBehaviour
         if(other.gameObject.tag == "Player" && !isLocked)
         {
             SlideDoor(true);
-            // play open audio
         }
-        else
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && !isLocked)
         {
-            //play locked audio
+            doorOpenSFX.Play();
         }
     }
 
@@ -36,11 +42,7 @@ public class DoorScript : MonoBehaviour
         if (other.gameObject.tag == "Player" && !isLocked)
         {
             SlideDoor(false);
-            // play open audio
-        }
-        else
-        {
-            //play locked audio
+            doorCloseSFX.Play();
         }
     }
 
