@@ -64,12 +64,12 @@ public class PadlockScript : MonoBehaviour
 
     private IEnumerator winlose(bool condition)
     {
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < 3; i++)
         {
             Display.text = "####";
-            yield return new WaitForSecondsRealtime(0.25f);
+            yield return new WaitForSecondsRealtime(0.2f);
             Display.text = "";
-            yield return new WaitForSecondsRealtime(0.25f);
+            yield return new WaitForSecondsRealtime(0.2f);
         }
         if (condition)
         {
@@ -83,7 +83,7 @@ public class PadlockScript : MonoBehaviour
                 DoorScript.isLocked = false;
             }
             
-            yield return new WaitForSecondsRealtime(1.5f);
+            yield return new WaitForSecondsRealtime(1f);
             if(QuestKey != "")
             {
                 QuestName = EventManager.NameFromLoader(QuestKey);
@@ -98,7 +98,7 @@ public class PadlockScript : MonoBehaviour
         else
         {
             Display.text = "Incorrect";
-            yield return new WaitForSecondsRealtime(2.5f);
+            yield return new WaitForSecondsRealtime(1f);
             Display.text = "####";
             checking = false;
         }
