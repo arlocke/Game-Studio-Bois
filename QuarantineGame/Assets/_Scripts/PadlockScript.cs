@@ -16,6 +16,8 @@ public class PadlockScript : MonoBehaviour
     private bool checking = false;
     private bool open = false;
     private string QuestName = "";
+    public bool audioOnUnlock = false;
+    public AudioSource audioPlay;
 
     [SerializeField]
     private CanvasGroup Padlock;
@@ -30,6 +32,17 @@ public class PadlockScript : MonoBehaviour
         else
         {
             Debug.Log("Lock is missing important components to function");
+        }
+        if (audioOnUnlock)
+        {
+            if (audioPlay == null)
+            {
+                safeToUse = false;
+            }
+            else
+            {
+                Debug.Log("Lock is audio based and has required audio source");
+            }
         }
     }
 
@@ -83,6 +96,11 @@ public class PadlockScript : MonoBehaviour
                 DoorScript.isLocked = false;
             }
             
+            if(audioOnUnlock)
+            {
+                audioPlay.Play();
+            }
+
             yield return new WaitForSecondsRealtime(1f);
             if(QuestKey != "")
             {

@@ -24,18 +24,19 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player" && !isLocked)
+        if(other.gameObject.tag == "Player" && !isLocked && doorAnim.GetBool("slide") != true)
         {
             SlideDoor(true);
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && !isLocked)
-        {
             doorOpenSFX.Play();
         }
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Player" && !isLocked)
+    //    {
+    //        doorOpenSFX.Play();
+    //    }
+    //}
 
     private void OnTriggerExit(Collider other)
     {
