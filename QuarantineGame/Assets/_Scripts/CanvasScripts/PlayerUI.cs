@@ -23,6 +23,8 @@ struct Thought
 
 public class PlayerUI : MonoBehaviour
 {
+    public string date = "";
+
     //public variables
     public Text innerThoughtsUI;
     public Text questLogUI;
@@ -59,6 +61,7 @@ public class PlayerUI : MonoBehaviour
         {
             blackoutAnim = blackout.GetComponent<Animator>();
         }
+        EventManager.OnInnerThoughtInitiated(date, 10, 200, false);
     }
 
     public void FixedUpdate()
@@ -72,6 +75,13 @@ public class PlayerUI : MonoBehaviour
             if(currentThought.time < 0)
             {
                 Thoughts.RemoveAt(0);
+                if(blackoutAnim != null)
+                {
+                    if(!blackoutAnim.GetBool("Unpause"))
+                    {
+                        blackoutAnim.SetBool("Unpause", true);
+                    }
+                }
                 if (currentThought.priority == 150 && EventManager.ending)
                 {
                     var index = SceneManager.GetActiveScene().buildIndex;
@@ -162,7 +172,7 @@ public class PlayerUI : MonoBehaviour
 
     public void PlayBlackout()
     {
-        //Debug.Log("Trying to play");
+        //Debug.Log("Hello From Black Out");
         blackoutAnim.SetBool("Activated", true);
 
     }
