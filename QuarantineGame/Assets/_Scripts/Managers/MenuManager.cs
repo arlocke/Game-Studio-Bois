@@ -181,6 +181,11 @@ public class MenuManager : MonoBehaviour
     private void Seize(bool facts)
     {
         seize = facts;
+        if(facts == false)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     public IEnumerator DelayedUnlock()

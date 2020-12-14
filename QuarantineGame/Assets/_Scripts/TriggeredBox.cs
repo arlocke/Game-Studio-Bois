@@ -288,4 +288,19 @@ public class TriggeredBox : MonoBehaviour
             }
         }
     }
+
+    public void DelayedLoad(string questList)
+    {
+        if(questCompleting)
+        {
+            if (keyBasedCompletion)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+    }
 }

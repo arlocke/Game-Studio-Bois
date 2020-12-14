@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Clock : MonoBehaviour
 {
-
     public List<Text> clocksToDisplay = new List<Text>();
     //public Text timeText; //Drag drop timeText in editor
 
@@ -17,12 +16,15 @@ public class Clock : MonoBehaviour
     private float hoursPerDay = 24f; 
     private float minutesPerHour = 60f;
     private bool tutorial = false;
+    private bool loaded = false;
 
     string hoursString;
     string minutesString;
 
     private void Awake()
     {
+        EventManager.SaveInitiated += Save;
+        EventManager.LoadInitiated += Load;
         EventManager.StartTutorial += StartTutorial;
         EventManager.EndTutorial += EndTutorial;
         EventManager.FastForward += SkipTime;
@@ -31,7 +33,10 @@ public class Clock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time += 450; //has the player start at 7:30am (60 * 7.5 = 450)
+        if(!loaded)
+        {
+            time += 450; //has the player start at 7:30am (60 * 7.5 = 450)
+        }
     }
 
     void FixedUpdate()
@@ -83,6 +88,8 @@ public class Clock : MonoBehaviour
 
     private void OnDestroy()
     {
+        EventManager.SaveInitiated -= Save;
+        EventManager.LoadInitiated -= Load;
         EventManager.StartTutorial -= StartTutorial;
         EventManager.EndTutorial -= EndTutorial;
         EventManager.FastForward -= SkipTime;
@@ -95,5 +102,19 @@ public class Clock : MonoBehaviour
         {
             time = 1140;
         }
+    }
+
+    public void Save()
+    {
+        QuestData dud = new QuestData(time.ToString());
+        Debug.Log(dud.QuestList);
+        SaveLoad.SaveQuests(dud, "time_stored");
+    }
+
+    public void Load()
+    {
+        loaded = true;
+        QuestData dud = SaveLoad.LoadQuests("time_stored");
+        time = float.Parse(dud.QuestList);
     }
 }
