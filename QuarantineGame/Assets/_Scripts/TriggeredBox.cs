@@ -8,6 +8,7 @@ public class TriggeredBox : MonoBehaviour
     public bool unlocking = false;
     public bool spawning = false;
     public bool enabling = false;
+    public bool audioBased = false;
     public bool questCompleting = false; //Completes Quest on Trigger.
     public bool questSetting = false; //Sets Quest on Trigger.
     public bool keyBasedCompletion = false; //Uses list of keys to complete. If false, uses internal quest name.
@@ -22,6 +23,7 @@ public class TriggeredBox : MonoBehaviour
     public Transform[] enablable;
     public Vector3 spawnLocation;
     public Vector3 spawnRotation;
+    public AudioSource audioCenter;
 
     //Internal Settings
     private bool safeToUse = true;
@@ -67,6 +69,14 @@ public class TriggeredBox : MonoBehaviour
                 Debug.Log("This quest completing trigger volume has no internal name when it is not using keys: " + transform.name);
             }
         }
+        if(audioBased)
+        {
+            if(audioCenter == null)
+            {
+                safeToUse = false;
+                Debug.Log("This audio based trigger volume has no audio center: " + transform.name);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -106,6 +116,10 @@ public class TriggeredBox : MonoBehaviour
                 if (enabling)
                 {
                     Enable();
+                }
+                if(audioBased)
+                {
+                    audioCenter.Play();
                 }
             }
             
@@ -179,6 +193,10 @@ public class TriggeredBox : MonoBehaviour
                     {
                         Enable();
                     }
+                    if (audioBased)
+                    {
+                        audioCenter.Play();
+                    }
                 }
                 keyName = "";
             }
@@ -205,6 +223,10 @@ public class TriggeredBox : MonoBehaviour
                     if (enabling)
                     {
                         Enable();
+                    }
+                    if (audioBased)
+                    {
+                        audioCenter.Play();
                     }
                 }
             }
@@ -259,6 +281,10 @@ public class TriggeredBox : MonoBehaviour
             if (enabling)
             {
                 Enable();
+            }
+            if (audioBased)
+            {
+                audioCenter.Play();
             }
         }
     }
