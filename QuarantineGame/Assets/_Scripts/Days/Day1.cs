@@ -25,7 +25,7 @@ public class Day1 : MonoBehaviour
     bool Email3 = false;
     bool Email4 = false;
 
-    bool timeToWork = false; //activate time
+    bool timeToWork = false; //
 
     public Text questLogUI; //make sure to click and drag
 

@@ -9,9 +9,6 @@ public class Day5 : MonoBehaviour
 
     private float time;
     bool Thought1 = false;
-    bool Thought2 = false;
-    bool Thought4 = false;
-    bool Thought5 = false;
     bool Thought6 = false;
     bool Thought7 = false;
     bool Thought8 = false;
@@ -36,7 +33,7 @@ public class Day5 : MonoBehaviour
 
         if (time == 451 && !Thought1) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("My head is throbbing what happened last night? What's this piece of paper?", 10.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("My head is throbbing", 10.0f, 5, false);
             Thought1 = true;
         }
 
@@ -54,15 +51,14 @@ public class Day5 : MonoBehaviour
             Email1 = true;
         }
 
-        if (time >= 480 && !Email2) //8:00
+        if (time >= 550 && !Email2) //8:00
         {
-            EventManager.OnAddEmailInitiated("\nSender: Carol from HR  " +
-                "\n Sent: 8:00 am " +
-                "\n Subject: Dear Mr. Gahara" +
-                "\n \n You are invited to an urgent restructure meeting with the rest of the Data Entry Specialist team on:" +
-                "\n \n Tuesday, April 22nd, 2087 from 9am-12pm" +
-                "\n " +
-                "\n Thank you, \n -Carol Day (HR Dept, Neo-Flonkerton Data Entry Incorporated)");
+            EventManager.OnAddEmailInitiated("\nSender: Carol from HR" +
+                "\n Sent: 9:10 am " +
+                "\n Subject: Notice of termination " +
+                "\n \n This curtousy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
+                " has been *MISSING ADJECTIVE* and *MISSING ADDITIONAL ADJECTIVE*. Please inform *MISSING FRIEND FILE* that you will not be attending work as I'm sure they'll miss you!" +
+                " Take care and remember, only you can make Neo-Flonkerton great again!  \n \n END OF AUTOMATED FIRING EMAIL");
             Email2 = true;
         }
 
@@ -73,90 +69,61 @@ public class Day5 : MonoBehaviour
             timeToWork = true;
         }
 
-        if (time == 600 && !Thought4) //10;00
+        if (time == 720 && !Thought6 && !EventManager.OnQuestCheck("Food")) //12
         {
-            EventManager.OnInnerThoughtInitiated("I should really attend that work meeting... my boss will literally fire me.", 10.0f, 5, false);
-            Thought4 = true;
-        }
-
-        if (time == 700 && !Thought5)
-        {
-            EventManager.OnInnerThoughtInitiated("If I don't attend the meeting I am actually going to be fired!", 10.0f, 5, false);
-            Thought5 = true;
-        }
-
-        if (time == 720 && !Thought6 && !EventManager.OnQuestCheck("Work")) //12
-        {
-            EventManager.OnInnerThoughtInitiated("I missed the meeting.... I'm fired", 10.0f, 5, false);
-            if (questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
-            {
-                questLogUI.text = questLogUI.text.Replace("Work", "<color=red>Work - Missed</color>");
-            }
-            else if (!questLogUI.text.Contains("Work"))
-            {
-                questLogUI.text += "<color=red>Work - Missed</color>\n";
-            }
-            EventManager.OnRemoveWorkPromptInitiated();
-            EventManager.OnAddEmailInitiated("\nSender: Carol from HR" +
-                "\n Sent: 12:00 pm " +
-                "\n Subject: Notice of termination " +
-                "\n \n This curtousy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
-                " has been *MISSING ADJECTIVE* and *MISSING ADDITIONAL ADJECTIVE*. Please inform *MISSING FRIEND FILE* that you will not be attending work as I'm sure they'll miss you!" +
-                " Take care and remember, only you can make Neo-Flonkerton great again!  \n \n END OF AUTOMATED FIRING EMAIL");
+            EventManager.OnInnerThoughtInitiated("I'm so hungry, but I don't want anymore cereal...", 10.0f, 5, false);
             Thought6 = true;
         }
 
-        if (time == 900 && !Thought7 && !EventManager.OnQuestCheck("Unlock Cabinet")) //3
+        if (time == 850 && !Thought7 && !EventManager.OnQuestCheck("Unlock Hall")) //3
         {
-            EventManager.OnInnerThoughtInitiated("I need to unlock that cabinet! I bet there's something in there to help me", 5.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("I need to unlock the hallway.. I gotta get to the mail box", 5.0f, 5, false);
             Thought7 = true;
         }
 
-        if (time == 960 && !Thought8 && !EventManager.OnQuestCheck("Unlock Wardrobe")) //4
+        if (time == 900 && !Thought8 && !EventManager.OnQuestCheck("Unlock Bar")) //4
         {
-            EventManager.OnInnerThoughtInitiated("I need to unlock that wardrobe! I bet the plunger is in there.", 5.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("I gotta find my ID card... I bet it's in the bar", 5.0f, 5, false);
             Thought8 = true;
         }
 
-        if (time == 1020 && !Thought9 && !EventManager.OnQuestCheck("Unclog Toilet")) //5
+        if (time == 1020 && !Thought9 && !EventManager.OnQuestCheck("Mail DNA")) //5
         {
-            EventManager.OnInnerThoughtInitiated("I need to unclog the toilet! My landlord will be pissed!", 5.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("I'm running out of time to mail the DNA vial!", 5.0f, 5, false);
             Thought9 = true;
         }
 
-        if (time == 800 && !Thought10 && !EventManager.OnQuestCheck("Pills")) //3
+        if (time == 1100 && !Thought10 && !EventManager.OnQuestCheck("Pills")) //3
         {
             EventManager.OnInnerThoughtInitiated("Where are my pills?", 5.0f, 5, false);
             Thought10 = true;
-        }
-
-        if (time == 860 && !Thought2 && !EventManager.OnQuestCheck("Food")) //12
-        {
-            EventManager.OnInnerThoughtInitiated("I'm so hungry... I gotta eat something.", 5.0f, 5, false);
-            Thought2 = true;
         }
 
         if (time >= 900 && !Email3) //3:00
         {
             EventManager.OnAddEmailInitiated("\nSender:  Mr. Humphree " +
                 "\n Sent: 3:00 pm " +
-                "\n Subject: Mr Gahara - Noise Complaint" +
-                "\n \n This is my final warning. We have numerous reports of violent noises coming from your penthouse apartment from the hours of midnight to 6 am. If there's an animal" +
-                " or you've invited Glorthanks into your apartment, you will be evicted immediately. I have half a mind to send an investigation crew to your apartment. This is your final warning. " +
+                "\n Subject: Mr Gahara - Eviction Notice" +
+                "\n \n This email is to notify you of your immediate eviction due to breach of quarantine. Upon investigation by the Bureau of Health and Safety, you have been" +
+                "classified as a low level of citizen according to societal worth. Therefore, you will be escorted from your penthouse apartment and sent" +
+                "to a Z-Block hygiene camp where you will be processed. Per the request of your landlord, Mr White, we have been instructed to remove you " +
+                "from your apartment on March 25th at 3am . Please be ready and we look forward to processing you!" +
                 "\n " +
-                "\n Thank you, \n -Mr Humphree (Chief landlord of the EmailCenter)");
+                "\n Thank you, \n -Officer Vinny \n Neo-Flonkerton Viral Outbreak Task Force");
             Email3 = true;
         }
 
-        if (time >= 600 && !Email4) //10:00
+        if (time >= 660 && !Email4) //11:00
         {
             EventManager.OnAddEmailInitiated("\nSender: My Love <3  " +
-                "\n Sent: 10:00 am " +
-                "\n Subject: Babe?" +
-                "\n \n My father said you sent threatening messages last night.... What is happening babe? Why aren't you calling me back? And why do you keep leaving hour long" +
-                " voicemails of you just breathing at 3 am? I don't understand are you mad about something? Just talk to me! :*(" +
+                "\n Sent: 11:00 am " +
+                "\n Subject: It's over" +
+                "\n \n Never call me again. This is the last message I will ever send to you. After this I will block you on all social media and sever" +
+                "all our connections. I never want to see you again... You have ruined my family and my entire adult life... I can never forgive you for " +
+                "what you did. I fell in love with the man you used to be. Now you've become a monster... I hope you die." +
+                "\n\n\n" +
                 "\n " +
-                "\n -Maia");
+                "\n -Maia (your girlfriend)");
             Email4 = true;
         }
 

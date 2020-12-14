@@ -62975,6 +62975,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1385932692025439929, guid: c813ed0cfdcab7445ac96765a139e29c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e2c6608fd33a554ea3f6980f4014805, type: 2}
     - target: {fileID: 4421511896964935798, guid: c813ed0cfdcab7445ac96765a139e29c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -99654,7 +99659,7 @@ Transform:
   - {fileID: 2931653686926738337}
   - {fileID: 3770829566614757258}
   - {fileID: 384244099}
-  - {fileID: 8149188567988010707}
+  - {fileID: 5572412589243180914}
   - {fileID: 106423717}
   - {fileID: 1398668583}
   - {fileID: 889560143}
@@ -105353,6 +105358,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b3762255e6096246a6b703903507b5d, type: 3}
+--- !u!4 &5572412589243180914 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 5572412589243180913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5782865786063550805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105792,6 +105802,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1406964261, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
+      propertyPath: date
+      value: March 20, 2087
+      objectReference: {fileID: 0}
     - target: {fileID: 1492906153, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -105904,6 +105918,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 64720345}
+    - target: {fileID: 2400279268728146168, guid: 925f1ea78e1f02b468f983970d5f7121,
+        type: 3}
+      propertyPath: m_Text
+      value: March 20, 2087
+      objectReference: {fileID: 0}
     - target: {fileID: 7783024771466382100, guid: 925f1ea78e1f02b468f983970d5f7121,
         type: 3}
       propertyPath: m_Name
@@ -105969,14 +105988,13 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 446268741}
+    - target: {fileID: 8545506810982628533, guid: 925f1ea78e1f02b468f983970d5f7121,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
---- !u!4 &8149188567988010707 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4342196175090768290, guid: 2b3762255e6096246a6b703903507b5d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5572412589243180913}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8405100313119717005
 PrefabInstance:
   m_ObjectHideFlags: 0

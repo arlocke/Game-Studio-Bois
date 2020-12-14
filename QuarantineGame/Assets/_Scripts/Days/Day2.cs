@@ -53,7 +53,7 @@ public class Day2 : MonoBehaviour
                 "\n Sent: 8:00 am " +
                 "\n Subject: Dear Mr. Gahara" +
                 "\n \n You are invited to an urgent meeting with the rest of the Data Entry Specialist team on:" +
-                "\n \n Tuesday, April 20th, 2087 from 9am-12pm" +
+                "\n \n Tuesday, March 20th, 2087 from 9am-12pm" +
                 "\n " +
                 "\n Thank you, \n -Carol Day (HR Dept, Neo-Flonkerton Data Entry Incorporated)");
             Email2 = true;

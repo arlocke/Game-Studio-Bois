@@ -21,8 +21,6 @@ public class Clock : MonoBehaviour
     string hoursString;
     string minutesString;
 
-    float lastTime = 0.0f;
-
     private void Awake()
     {
         EventManager.StartTutorial += StartTutorial;
