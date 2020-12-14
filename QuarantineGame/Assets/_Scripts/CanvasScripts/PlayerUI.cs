@@ -61,7 +61,18 @@ public class PlayerUI : MonoBehaviour
         {
             blackoutAnim = blackout.GetComponent<Animator>();
         }
-        EventManager.OnInnerThoughtInitiated(date, 10, 200, false);
+        EventManager.OnInnerThoughtInitiated(date, 5, 200, false);
+    }
+
+    private void Start()
+    {
+        if (blackoutAnim != null)
+        {
+            if (!blackoutAnim.GetBool("Unpause"))
+            {
+                EventManager.OnSeize(true);
+            }
+        }
     }
 
     public void FixedUpdate()
@@ -72,7 +83,14 @@ public class PlayerUI : MonoBehaviour
             {
                 currentThought.time -= Time.fixedDeltaTime;
             }
-            if(currentThought.time < 0)
+            else if (blackoutAnim != null)
+            {
+                if (!blackoutAnim.GetBool("Unpause"))
+                {
+                    currentThought.time -= Time.fixedDeltaTime;
+                }
+            }
+            if (currentThought.time < 0)
             {
                 Thoughts.RemoveAt(0);
                 if(blackoutAnim != null)
@@ -80,6 +98,7 @@ public class PlayerUI : MonoBehaviour
                     if(!blackoutAnim.GetBool("Unpause"))
                     {
                         blackoutAnim.SetBool("Unpause", true);
+                        EventManager.OnSeize(false);
                     }
                 }
                 if (currentThought.priority == 150 && EventManager.ending)

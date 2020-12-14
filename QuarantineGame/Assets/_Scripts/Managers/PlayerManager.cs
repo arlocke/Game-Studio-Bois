@@ -71,7 +71,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         //Control Input For Crouching.
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !seized)
         {
             CheckCrouch();
         }
@@ -87,7 +87,10 @@ public class PlayerManager : MonoBehaviour
             {
                 Move();
             }
-            Tutorial();
+            if(!seized)
+            {
+                Tutorial();
+            }
         }
         else
         {
