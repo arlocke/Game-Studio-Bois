@@ -120,7 +120,15 @@ public class TriggeredBox : MonoBehaviour
         }
         foreach (var component in unlockables)
         {
-            component.isKinematic = false;
+            DoorScript dud = component.transform.GetComponent<DoorScript>();
+            if(dud != null)
+            {
+                dud.isLocked = false;
+            }
+            else
+            {
+                component.isKinematic = false;
+            }
         }
     }
 
