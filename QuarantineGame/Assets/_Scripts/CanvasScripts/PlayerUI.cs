@@ -42,6 +42,8 @@ public class PlayerUI : MonoBehaviour
     public void Awake()
     {
         Debug.Log(transform.gameObject.name);
+        EventManager.SaveInitiated += SaveQuests;
+        EventManager.LoadInitiated += LoadQuests;
         EventManager.AddQuest += ActivateQuestUI;
         EventManager.CompleteQuest += CompleteQuestUI;
         EventManager.QuestCheck += IsQuestCompleted;
@@ -204,6 +206,8 @@ public class PlayerUI : MonoBehaviour
 
     private void OnDestroy()
     {
+        EventManager.SaveInitiated -= SaveQuests;
+        EventManager.LoadInitiated -= LoadQuests;
         EventManager.AddQuest -= ActivateQuestUI;
         EventManager.CompleteQuest -= CompleteQuestUI;
         EventManager.QuestCheck -= IsQuestCompleted;
@@ -251,5 +255,21 @@ public class PlayerUI : MonoBehaviour
     public void endTutorial()
     {
         isTutorial = false;
+    }
+
+    public void SaveQuests()
+    {
+        QuestData dud = new QuestData(questLogUI.text);
+        SaveLoad.SaveQuests(dud, "quest_log");
+    }
+
+    public void LoadQuests()
+    {
+        QuestData dud = SaveLoad.LoadQuests("quest_log");
+        if(dud != null)
+        {
+            questLogUI.text = dud.QuestList;
+            EventManager.OnDelayedLoad(questLogUI.text);
+        }
     }
 }

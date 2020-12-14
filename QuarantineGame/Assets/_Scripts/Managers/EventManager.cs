@@ -33,6 +33,7 @@ public static class EventManager
     public static System.Action Blackout;
     public static System.Action BlackoutReverse;
     public static System.Action End;
+    public static System.Action<string> DelayedLoad;
 
     public static void OnSaveInitiated()
     {
@@ -140,5 +141,10 @@ public static class EventManager
     public static void OnBlackoutReverseInitiated()
     {
         BlackoutReverse?.Invoke();
+    }
+
+    public static void OnDelayedLoad(string questList)
+    {
+        DelayedLoad?.Invoke(questList);
     }
 }

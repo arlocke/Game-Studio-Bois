@@ -104,4 +104,49 @@ public static class SaveLoad
         stream.Close();
         Debug.Log("Successfully Saved Destroyed Objects");
     }
+
+    public static void SaveQuests(QuestData QuestString, string key)
+    {
+        Debug.Log("Trying To Save Object");
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/saves/";
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+        path += key + ".txt";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        formatter.Serialize(stream, QuestString);
+        stream.Close();
+        Debug.Log("Successfully Saved Object");
+    }
+
+    public static QuestData LoadQuests(string key)
+    {
+        string path = Application.persistentDataPath + "/saves/";
+        if (Directory.Exists(path))
+        {
+            path += key + ".txt";
+            if (File.Exists(path))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(path, FileMode.Open);
+
+                QuestData data = formatter.Deserialize(stream) as QuestData;
+                stream.Close();
+
+                return data;
+            }
+            else
+            {
+                Debug.LogError("Save file not found in " + path);
+                return null;
+            }
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

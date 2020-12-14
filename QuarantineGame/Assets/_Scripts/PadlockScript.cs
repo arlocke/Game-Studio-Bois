@@ -22,6 +22,11 @@ public class PadlockScript : MonoBehaviour
     [SerializeField]
     private CanvasGroup Padlock;
 
+    public void Awake()
+    {
+        EventManager.DelayedLoad += DelayedLoad;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -145,6 +150,31 @@ public class PadlockScript : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             open = false;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.DelayedLoad -= DelayedLoad;
+    }
+
+    public void DelayedLoad(string questList)
+    {
+        string dud = EventManager.NameFromLoader(QuestKey);
+        if (!dud.Equals("") && dud != null)
+        {
+            if (EventManager.OnQuestCheck(dud))
+            {
+                Display.text = "Unlocked";
+                if (!scriptUnlock)
+                {
+                    DoorsBody.isKinematic = false;
+                }
+                else
+                {
+                    DoorScript.isLocked = false;
+                }
+            }
         }
     }
 }
