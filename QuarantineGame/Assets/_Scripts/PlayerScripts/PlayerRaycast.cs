@@ -20,7 +20,8 @@ public class PlayerRaycast : MonoBehaviour
     public Text innerThoughtsUI;
     public Text LookedAtThing;
     public SleepPrompt sPrompt;
-   
+    public TakePillsPrompt pPrompt;
+    public TakeVaccinePrompt vPrompt;
 
     //Private Serialized Fields
     [SerializeField] private int rayLength = 10;
@@ -121,15 +122,32 @@ public class PlayerRaycast : MonoBehaviour
                         LookedAtThing.text = "< " + seenName + " >";
 
                         CrosshairActive();
-                        if (Input.GetMouseButtonDown(0))
+                        if (seenName == "The Pills")
                         {
-                            var dud = hit.transform.GetComponent<QuestObjective>();
-                            if (dud != null)
+                            if (Input.GetMouseButtonDown(0) && pPrompt != null)
                             {
-                                dud.SetComplete();
-                                if (dud.key == "1")
+                                pPrompt.Open();
+                            }
+                        }
+                        else if (seenName == "The Vaccine")
+                        {
+                            if (Input.GetMouseButtonDown(0) && vPrompt != null)
+                            {
+                                vPrompt.Open();
+                            }
+                        }
+                        else
+                        {
+                            if (Input.GetMouseButtonDown(0))
+                            {
+                                var dud = hit.transform.GetComponent<QuestObjective>();
+                                if (dud != null)
                                 {
-                                    EventManager.OnInnerThoughtInitiated("Here are my pills", 4.0f, 96, true);
+                                    dud.SetComplete();
+                                    if (dud.key == "1")
+                                    {
+                                        EventManager.OnInnerThoughtInitiated("Here are my pills", 4.0f, 96, true);
+                                    }
                                 }
                             }
                         }

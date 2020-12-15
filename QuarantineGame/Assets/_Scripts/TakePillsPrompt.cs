@@ -14,7 +14,7 @@ public class TakePillsPrompt : MonoBehaviour
         self.blocksRaycasts = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        gameManager.CompleteDay();
+        SceneManager.LoadScene(7);
     }
 
     public void No()
