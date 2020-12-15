@@ -23,6 +23,41 @@ public class Day2 : MonoBehaviour
 
     public Text questLogUI; //make sure to click and drag
 
+    private void Awake()
+    {
+        EventManager.LoadInitiated += Load;
+    }
+
+    private void Load()
+    {
+        QuestData dud = SaveLoad.LoadQuests("time_stored");
+        time = float.Parse(dud.QuestList);
+        dud = SaveLoad.LoadQuests("quest_log");
+
+        if (time > 540 && time < 720)
+        {
+            EventManager.OnActivateWorkPromptInitiated();
+        }
+        else if (time > 720)
+        {
+            if (dud.QuestList.Contains("Missed"))
+            {
+                EventManager.OnAddEmailInitiated("\nSender: The Boss" +
+                "\n Sent: 12:00 pm " +
+                "\n Subject: THIS IS THE FINAL STRAW " +
+                "\n \n yOU MUST BE A REAL COMEDIAN GAHARA!! YOU MUST THINK THIS IS REAL FUNNY! AFTER I STUCK UP FOR YOU THIS ENTIRE TIME?" +
+                "I HAVE HAD ENOUGH WITH YOUR SHENANIGANS... \n \n" +
+                "I bet the rumors are true.. you really are losing your mind. \n" +
+                "don't prove me right Gahara. Show up tomorrow... -Mr. White ");
+                Thought6 = true;
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.LoadInitiated -= Load;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
