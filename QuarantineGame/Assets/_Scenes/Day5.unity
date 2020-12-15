@@ -4057,7 +4057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 2
-  disabling: 0
+  disabling: 1
 --- !u!4 &89359884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5415332690265491247, guid: 09047e0ab4c01a740b3a52f09650e80d,
@@ -68291,44 +68291,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 548479609}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1327772983 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8503289918987813052, guid: 3cb28bd11f447b04e83a81d783543682,
-    type: 3}
-  m_PrefabInstance: {fileID: 450113411}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1327772984
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327772983}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.08173603, y: 0.004078496, z: 0.10789901}
-  m_Center: {x: -0.040868014, y: 0.0013702477, z: -0.053949505}
---- !u!114 &1327772985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327772983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe332d350fcfa794cbb4051cd09a38cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceFromCamera: 1
-  mouseRotateSpeed: 50
-  dSpeed: 10
-  rSpeed: 100
-  isHit: 0
-  arrived: 0
-  snapped: 0
 --- !u!1001 &1330980053
 PrefabInstance:
   m_ObjectHideFlags: 0
