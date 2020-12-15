@@ -98,9 +98,9 @@ public class Clock : MonoBehaviour
     private void SkipTime(float flatValue)
     {
         time += flatValue;
-        if(time >= 1200)
+        if(time >= 720)
         {
-            time = 1140;
+            time = 720;
         }
     }
 
