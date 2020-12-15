@@ -26,8 +26,7 @@ public class ComputerCanvas : MonoBehaviour
     private float originalWidth;
     private float originalHeight;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         computerScreen = GetComponent<Canvas>();
         EventManager.AddEmail += StartAddEmail;
@@ -40,6 +39,12 @@ public class ComputerCanvas : MonoBehaviour
         originalRot = transform.localRotation;
         originalWidth = self.rect.width;
         originalHeight = self.rect.height;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     public void StartAddEmail(string Email)

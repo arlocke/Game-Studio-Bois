@@ -43,8 +43,10 @@ public class Day3 : MonoBehaviour
         }
         else if (time > 720)
         {
+            Debug.Log("It's Missed Time");
             if (dud.QuestList.Contains("Missed"))
             {
+                Debug.Log("You Actually Missed It");
                 EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: THIS IS THE FINAL STRAW " +
