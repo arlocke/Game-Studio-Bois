@@ -293,13 +293,18 @@ public class TriggeredBox : MonoBehaviour
     {
         if(questCompleting)
         {
-            if (keyBasedCompletion)
+            foreach (string key in keys)
             {
+                var keyName = EventManager.NameFromLoader(key);
 
-            }
-            else
-            {
-
+                if(keyName != null)
+                {
+                    if (questList.Contains(keyName + " - Completed"))
+                    {
+                        Switch(key);
+                        break;
+                    }
+                }
             }
         }
     }

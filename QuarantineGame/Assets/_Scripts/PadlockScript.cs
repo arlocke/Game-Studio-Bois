@@ -168,10 +168,12 @@ public class PadlockScript : MonoBehaviour
                 Display.text = "Unlocked";
                 if (!scriptUnlock)
                 {
+                    locked = false;
                     DoorsBody.isKinematic = false;
                 }
                 else
                 {
+                    locked = false;
                     DoorScript.isLocked = false;
                 }
             }
