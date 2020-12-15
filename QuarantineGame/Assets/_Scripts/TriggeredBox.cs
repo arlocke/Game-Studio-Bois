@@ -32,6 +32,7 @@ public class TriggeredBox : MonoBehaviour
 
     private void Awake()
     {
+        EventManager.DelayedLoad += DelayedLoad;
         if(keys.Length <= 0)
         {
             safeToUse = false;
@@ -77,6 +78,11 @@ public class TriggeredBox : MonoBehaviour
                 Debug.Log("This audio based trigger volume has no audio center: " + transform.name);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.DelayedLoad -= DelayedLoad;
     }
 
     private void OnTriggerEnter(Collider other)
