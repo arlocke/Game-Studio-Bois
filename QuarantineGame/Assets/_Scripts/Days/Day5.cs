@@ -43,7 +43,7 @@ public class Day5 : MonoBehaviour
                 "\n Sent: 6:66 am" +
                 "\n Subject:  <color=magenta> THE FATE OF THE WORLD Ver 2.0 </color>" +
                 "\n \n   <color=cyan> I'm sure you have questions and I'll answer them all in due time. All you need to know now, is your DNA is special and I need a sample of it" +
-                "to save the human race. I have sent you a </color> <color=red>DNA VIAL</color> <color=cyan>that will extract a skin sample upon touch. Simply send that through the mail and I will answer more of your" +
+                " to save the human race. I have sent you a </color><color=red>DNA VIAL</color><color=cyan> that will extract a skin sample upon touch. Simply send that through the mail and I will answer more of your" +
                 " questions later. Just know you are a special individual Gahara. The world is depending on you. I must sign off now, someone seems to be busting down my door." +
                 "Just remember... Don't trust anyone, don't trust your girlfriend, don't trust the government and whatever " +
                 "you do </color> <color=red>AVOID DRONES AT ALL COSTS!!!</color> " +
@@ -56,7 +56,7 @@ public class Day5 : MonoBehaviour
             EventManager.OnAddEmailInitiated("\nSender: Carol from HR" +
                 "\n Sent: 9:10 am " +
                 "\n Subject: Notice of termination " +
-                "\n \n This curtousy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
+                "\n \n This courtesy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
                 " has been *MISSING ADJECTIVE* and *MISSING ADDITIONAL ADJECTIVE*. Please inform *MISSING FRIEND FILE* that you will not be attending work as I'm sure they'll miss you!" +
                 " Take care and remember, only you can make Neo-Flonkerton great again!  \n \n END OF AUTOMATED FIRING EMAIL");
             Email2 = true;
@@ -65,7 +65,6 @@ public class Day5 : MonoBehaviour
         if (time == 540 && !timeToWork) //9:00
         {
             EventManager.OnInnerThoughtInitiated("I guess I can attend the work meeting now...", 5.0f, 5, false);
-            EventManager.OnActivateWorkPromptInitiated();
             timeToWork = true;
         }
 
@@ -123,7 +122,7 @@ public class Day5 : MonoBehaviour
                 "what you did. I fell in love with the man you used to be. Now you've become a monster... I hope you die." +
                 "\n\n\n" +
                 "\n " +
-                "\n -Maia (your girlfriend)");
+                "\n -Maia (your girlfriend if you still remember)");
             Email4 = true;
         }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5208208428052769070}
   - component: {fileID: 3827007757736268568}
   - component: {fileID: 7359104084877717473}
+  - component: {fileID: 3915313346265660661}
   m_Layer: 0
   m_Name: TVTable
   m_TagString: Untagged
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3915313346265660661
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087169073935096637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 67.394104, y: 28.0054, z: 31.439604}
+  m_Center: {x: 33.697052, y: 14.0027, z: 15.719802}
