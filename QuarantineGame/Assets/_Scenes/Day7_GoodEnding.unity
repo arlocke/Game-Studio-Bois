@@ -62889,7 +62889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1975913587, guid: 3ea981c0013e06942bd3eb8e68ebe145, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1975913587, guid: 3ea981c0013e06942bd3eb8e68ebe145, type: 3}
       propertyPath: m_Lightmapping
