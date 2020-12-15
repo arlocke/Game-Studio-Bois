@@ -11,6 +11,28 @@ public class QuestGiver : MonoBehaviour
     public bool activated = false; //if quest has already been discovered
     //public Text questLogUI; //Click and drag the QuestLog from the FPSPlayer -> Canvas -> QuestLog
 
+    public void Awake()
+    {
+        EventManager.DelayedLoad += DelayedLoad;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.DelayedLoad -= DelayedLoad;
+    }
+
+    public void DelayedLoad(string questList)
+    {
+        string dud = EventManager.NameFromLoader(key);
+        if (!dud.Equals("") && dud != null)
+        {
+            if (questList.Contains(dud))
+            {
+                activated = true;
+                gameObject.SetActive(false);
+            }
+        }
+    }
 
     public void UpdateQuestLog()
     {
