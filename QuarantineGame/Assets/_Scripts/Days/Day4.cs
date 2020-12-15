@@ -28,6 +28,40 @@ public class Day4 : MonoBehaviour
 
     public Text questLogUI; //make sure to click and drag
 
+    private void Awake()
+    {
+        EventManager.LoadInitiated += Load;
+    }
+
+    private void Load()
+    {
+        QuestData dud = SaveLoad.LoadQuests("time_stored");
+        time = float.Parse(dud.QuestList);
+        dud = SaveLoad.LoadQuests("quest_log");
+
+        if (time > 540 && time < 720)
+        {
+            EventManager.OnActivateWorkPromptInitiated();
+        }
+        else if (time > 720)
+        {
+            if (dud.QuestList.Contains("Missed"))
+            {
+                EventManager.OnAddEmailInitiated("\nSender: Carol from HR" +
+                "\n Sent: 12:00 pm " +
+                "\n Subject: Notice of termination " +
+                "\n \n This curtousy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
+                " has been *MISSING ADJECTIVE* and *MISSING ADDITIONAL ADJECTIVE*. Please inform *MISSING FRIEND FILE* that you will not be attending work as I'm sure they'll miss you!" +
+                " Take care and remember, only you can make Neo-Flonkerton great again!  \n \n END OF AUTOMATED FIRING EMAIL");
+                Thought6 = true;
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.LoadInitiated -= Load;
+    }
 
     // Update is called once per frame
     void FixedUpdate()

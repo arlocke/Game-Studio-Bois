@@ -29,12 +29,46 @@ public class Day1 : MonoBehaviour
 
     public Text questLogUI; //make sure to click and drag
 
+    private void Awake()
+    {
+        EventManager.LoadInitiated += Load;
+    }
+
     private void Start()
     {
         if(PlayerPrefs.GetInt("Load", 0) == 0)
         {
             EventManager.OnStartTutorial();
         }
+    }
+
+    private void Load()
+    {
+        QuestData dud = SaveLoad.LoadQuests("time_stored");
+        time = float.Parse(dud.QuestList);
+        dud = SaveLoad.LoadQuests("quest_log");
+
+        if (time > 540 && time < 720)
+        {
+            EventManager.OnActivateWorkPromptInitiated();
+        }
+        else if(time > 720)
+        {
+            if(dud.QuestList.Contains("Missed"))
+            {
+                EventManager.OnAddEmailInitiated("\nSender: The Boss" +
+                "\n Sent: 12:00 pm " +
+                "\n Subject: WHAT THE ABSOLUTE F**K GAHARA " +
+                "\n \n IS THIS A JOKE?????? ARE YOU TRYING TO LOSE YOUR JOB??? IT WAS LITERALLY THE FIRST MEETING OF THE QUARTER!!!! YOU ARE THE " +
+                "SENIOR DATA ANALYST!!! THIS IS WHY WE PAY YOU 7 FIGURES!!! YOU'RE ON THIN ICE JACKASS!!!");
+                Thought6 = true;
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.LoadInitiated -= Load;
     }
 
     // Update is called once per frame

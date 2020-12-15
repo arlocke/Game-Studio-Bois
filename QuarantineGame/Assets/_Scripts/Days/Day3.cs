@@ -26,6 +26,39 @@ public class Day3 : MonoBehaviour
 
     public Text questLogUI; //make sure to click and drag
 
+    private void Awake()
+    {
+        EventManager.LoadInitiated += Load;
+    }
+
+    private void Load()
+    {
+        QuestData dud = SaveLoad.LoadQuests("time_stored");
+        time = float.Parse(dud.QuestList);
+        dud = SaveLoad.LoadQuests("quest_log");
+
+        if (time > 540 && time < 720)
+        {
+            EventManager.OnActivateWorkPromptInitiated();
+        }
+        else if (time > 720)
+        {
+            if (dud.QuestList.Contains("Missed"))
+            {
+                EventManager.OnAddEmailInitiated("\nSender: The Boss" +
+                "\n Sent: 12:00 pm " +
+                "\n Subject: THIS IS THE FINAL STRAW " +
+                "\n \n I take this as your unofficial notice of resignation. I hope you rot in an impoverished Z block community surrounded by Glorthank sex androids. And by " +
+                "the way, we will be pursuing legal action against you for the harrasing emails you send us in the middle of this night. Go F**K yourself Gahara. \n \n -Mr. White ");
+                Thought6 = true;
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.LoadInitiated -= Load;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
