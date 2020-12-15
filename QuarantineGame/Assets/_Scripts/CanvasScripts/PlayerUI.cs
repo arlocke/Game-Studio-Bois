@@ -54,6 +54,7 @@ public class PlayerUI : MonoBehaviour
         EventManager.ContainedCheck += CheckQuestContained;
         EventManager.StartTutorial += startTutorial;
         EventManager.EndTutorial += endTutorial;
+        EventManager.Seize += TextOnOff;
 
         if (innerThoughtsUI != null)
         {
@@ -218,6 +219,7 @@ public class PlayerUI : MonoBehaviour
         EventManager.ContainedCheck -= CheckQuestContained;
         EventManager.StartTutorial -= startTutorial;
         EventManager.EndTutorial -= endTutorial;
+        EventManager.Seize -= TextOnOff;
     }
 
     public void addInner(string ThoughtText, float DelayTime, int priority, bool overWritable)
@@ -271,5 +273,10 @@ public class PlayerUI : MonoBehaviour
             questLogUI.text = dud.QuestList;
             EventManager.OnDelayedLoad(questLogUI.text);
         }
+    }
+
+    public void TextOnOff(bool facts)
+    {
+        questLogUI.enabled = !facts;
     }
 }
