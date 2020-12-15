@@ -106685,6 +106685,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: March 22, 2087
       objectReference: {fileID: 0}
+    - target: {fileID: 7783024771112364035, guid: 925f1ea78e1f02b468f983970d5f7121,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 446268741}
     - target: {fileID: 7783024771466382100, guid: 925f1ea78e1f02b468f983970d5f7121,
         type: 3}
       propertyPath: m_Name
