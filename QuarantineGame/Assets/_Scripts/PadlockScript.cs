@@ -53,7 +53,7 @@ public class PadlockScript : MonoBehaviour
 
     public void buttonPressed(int num)
     {
-        if(safeToUse && locked && !checking && open)
+        if(safeToUse && locked && !checking && open && Display.text != "Unlocked")
         {
             if (Display.text != "####")
             {
@@ -129,7 +129,7 @@ public class PadlockScript : MonoBehaviour
 
     public void Open()
     {
-        if (locked && Padlock != null && Display != null)
+        if (Padlock != null && Display != null)
         {
             Time.timeScale = 0;
             Padlock.alpha = 1;
