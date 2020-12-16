@@ -88,7 +88,7 @@ public class PlayerUI : MonoBehaviour
     {
         if(currentThought.priority > -1)
         {
-            if(!isTutorial && !isSeized)
+            if((!isTutorial && !isSeized) || EventManager.ending)
             {
                 currentThought.time -= Time.fixedDeltaTime;
             }
@@ -273,7 +273,7 @@ public class PlayerUI : MonoBehaviour
     {
         questLogUI.gameObject.SetActive(!facts);
         isSeized = facts;
-        if(facts)
+        if(facts && !EventManager.ending)
         {
             innerThoughtsUI.enabled = false;
         }
