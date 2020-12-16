@@ -29,11 +29,13 @@ public class PlayerUI : MonoBehaviour
     public Text innerThoughtsUI;
     public Text questLogUI;
     public GameObject blackout;
+    public CanvasGroup DateAlpha;
 
     public Animator fadeInInnerThoughts;
     public Animator blackoutAnim;
 
     private bool isTutorial = false;
+    private bool isSeized = false;
 
     private Thought currentThought = new Thought(-1, "", 0, true);
     private Thought dudThought = new Thought(-1, "", 0, true);
@@ -64,7 +66,11 @@ public class PlayerUI : MonoBehaviour
         {
             blackoutAnim = blackout.GetComponent<Animator>();
         }
-        EventManager.OnInnerThoughtInitiated(date, 5, 200, false);
+        if (DateAlpha != null)
+        {
+            StartCoroutine(BeginningDate());
+        }
+        //EventManager.OnInnerThoughtInitiated(date, 5, 200, false);
     }
 
     private void Start()
@@ -82,28 +88,13 @@ public class PlayerUI : MonoBehaviour
     {
         if(currentThought.priority > -1)
         {
-            if(!isTutorial)
+            if(!isTutorial && !isSeized)
             {
                 currentThought.time -= Time.fixedDeltaTime;
-            }
-            else if (blackoutAnim != null)
-            {
-                if (!blackoutAnim.GetBool("Unpause"))
-                {
-                    currentThought.time -= Time.fixedDeltaTime;
-                }
             }
             if (currentThought.time < 0)
             {
                 Thoughts.RemoveAt(0);
-                if(blackoutAnim != null)
-                {
-                    if(!blackoutAnim.GetBool("Unpause"))
-                    {
-                        blackoutAnim.SetBool("Unpause", true);
-                        EventManager.OnSeize(false);
-                    }
-                }
                 if (currentThought.priority == 150 && EventManager.ending)
                 {
                     var index = SceneManager.GetActiveScene().buildIndex;
@@ -281,5 +272,37 @@ public class PlayerUI : MonoBehaviour
     public void TextOnOff(bool facts)
     {
         questLogUI.gameObject.SetActive(!facts);
+        isSeized = facts;
+        if(facts)
+        {
+            innerThoughtsUI.enabled = false;
+        }
+        else
+        {
+            innerThoughtsUI.enabled = true;
+        }
+    }
+
+    private IEnumerator BeginningDate()
+    {
+        while(DateAlpha.alpha < 1)
+        {
+            DateAlpha.alpha += 0.05f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        yield return new WaitForSeconds(2f);
+        while (DateAlpha.alpha > 0)
+        {
+            DateAlpha.alpha -= 0.05f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        if(blackoutAnim != null)
+        {
+            if (!blackoutAnim.GetBool("Unpause"))
+            {
+                blackoutAnim.SetBool("Unpause", true);
+                EventManager.OnSeize(false);
+            }
+        }
     }
 }
