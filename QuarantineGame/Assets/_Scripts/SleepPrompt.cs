@@ -34,6 +34,15 @@ public class SleepPrompt : MonoBehaviour
             
     }
 
+    public void YesOnLastDay()
+    {
+        self.alpha = 0;
+        self.blocksRaycasts = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        SceneManager.LoadScene(9);
+    }
+
     public void No()
     {
         self.alpha = 0;

@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Day7_GoodEnding.unity
     guid: 664106d33186550489e3f6edce549ce8
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/_Scenes/Credits.unity
+    guid: 4708d00fc9f65304bab65ee413a47488
   m_configObjects: {}

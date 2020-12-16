@@ -26343,12 +26343,12 @@ PrefabInstance:
     - target: {fileID: 4114879626544122836, guid: e9358aba1c6de0143b72868f3e346ad3,
         type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4114879626544122836, guid: e9358aba1c6de0143b72868f3e346ad3,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4560495383450290877, guid: e9358aba1c6de0143b72868f3e346ad3,
         type: 3}

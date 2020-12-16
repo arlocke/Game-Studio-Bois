@@ -7633,11 +7633,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 165963624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d92321e5e64c9049bd10e171873948a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f69ef79d31e48c4e94bc8503d240d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clock: {fileID: 1053299238}
-  questLogUI: {fileID: 945890538}
 --- !u!4 &165963626
 Transform:
   m_ObjectHideFlags: 0
@@ -10856,6 +10855,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046557563063255396, guid: b52066e4103848f44b8ebd063e971152,
+        type: 3}
+      propertyPath: isLocked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3083598740989236542, guid: b52066e4103848f44b8ebd063e971152,
         type: 3}
@@ -43734,13 +43738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6edaa7edcd6433548bfe18f99257ee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestEditor:
-  - key: 1
-    questName: Pills
-  - key: 2
-    questName: Work
-  - key: 3
-    questName: Food
+  QuestEditor: []
 --- !u!4 &885856057
 Transform:
   m_ObjectHideFlags: 0
@@ -66258,6 +66256,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3046557563063255396, guid: b52066e4103848f44b8ebd063e971152,
+        type: 3}
+      propertyPath: isLocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3083598740989236542, guid: b52066e4103848f44b8ebd063e971152,
         type: 3}
       propertyPath: m_Name
@@ -76804,7 +76807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: 6d3197d9c450381439fe9a75314f0124, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -105205,6 +105208,16 @@ PrefabInstance:
       propertyPath: questLogUI
       value: 
       objectReference: {fileID: 945890538}
+    - target: {fileID: 3232822059025475729, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -203.5814
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232822059025475729, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 943.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd, type: 3}
 --- !u!1001 &3619304456003042715
@@ -106113,7 +106126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1406964261, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
       propertyPath: date
-      value: March 19, 2087
+      value: March 25, 2087
       objectReference: {fileID: 0}
     - target: {fileID: 1406964261, guid: 925f1ea78e1f02b468f983970d5f7121, type: 3}
       propertyPath: DateAlpha
@@ -106210,7 +106223,7 @@ PrefabInstance:
     - target: {fileID: 2400279268728146168, guid: 925f1ea78e1f02b468f983970d5f7121,
         type: 3}
       propertyPath: m_Text
-      value: March 19, 2087
+      value: March 25, 2087
       objectReference: {fileID: 0}
     - target: {fileID: 2400279268728146168, guid: 925f1ea78e1f02b468f983970d5f7121,
         type: 3}
@@ -106231,6 +106244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991915379853387958, guid: 925f1ea78e1f02b468f983970d5f7121,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: YesOnLastDay
       objectReference: {fileID: 0}
     - target: {fileID: 7783024771112364035, guid: 925f1ea78e1f02b468f983970d5f7121,
         type: 3}
