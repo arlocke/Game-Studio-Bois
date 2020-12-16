@@ -78,7 +78,7 @@ public class Day1 : MonoBehaviour
 
         if(time == 451 && !Thought1) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Looks like I'm all set... Just gotta get through today's tasks and then I can go back to bed!", 7.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("Looks like I'm all set... Just gotta get through today's tasks and then I can go back to bed!", 5.0f, 5, true);
             Thought1 = true;
         }
 
