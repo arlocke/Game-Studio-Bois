@@ -60,10 +60,12 @@ MonoBehaviour:
   unlocking: 1
   spawning: 0
   enabling: 0
+  audioBased: 0
   questCompleting: 0
   questSetting: 0
   keyBasedCompletion: 0
   playerTriggered: 0
+  oneTimeUse: 1
   nonKeyQuestName: 
   keys:
   - 102
@@ -73,6 +75,7 @@ MonoBehaviour:
   enablable: []
   spawnLocation: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
+  audioCenter: {fileID: 0}
 --- !u!1 &1006392788671193300
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +280,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1

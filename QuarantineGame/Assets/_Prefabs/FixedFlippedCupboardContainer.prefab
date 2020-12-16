@@ -125,7 +125,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: 3328671009859483155, guid: eb96afab016f81f479eb19b671223363, type: 3}
+  m_Mesh: {fileID: 1174176730520643772, guid: 508a7bbc503b58f46a8ec52bf4974c62, type: 3}
 --- !u!54 &1006392789569421917
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.17463899, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -30.925198, y: 38.77809, z: -1.4467068}
+  m_ConnectedAnchor: {x: -30.866144, y: 38.778088, z: -0.3542714}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -203,7 +203,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -236,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 1558878339246052179, guid: 817f41c152a79b3459c57275a1709b69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.571
+      value: -1.568
       objectReference: {fileID: 0}
     - target: {fileID: 1558878339246052179, guid: 817f41c152a79b3459c57275a1709b69,
         type: 3}
@@ -246,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 1558878339246052179, guid: 817f41c152a79b3459c57275a1709b69,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.049
+      value: -0.012
       objectReference: {fileID: 0}
     - target: {fileID: 1558878339246052179, guid: 817f41c152a79b3459c57275a1709b69,
         type: 3}
@@ -291,7 +291,7 @@ PrefabInstance:
     - target: {fileID: 1558878339246052179, guid: 817f41c152a79b3459c57275a1709b69,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.05
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1558878339246052179, guid: 817f41c152a79b3459c57275a1709b69,
         type: 3}
