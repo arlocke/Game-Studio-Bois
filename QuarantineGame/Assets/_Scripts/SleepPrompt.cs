@@ -14,7 +14,24 @@ public class SleepPrompt : MonoBehaviour
         self.blocksRaycasts = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        gameManager.CompleteDay();
+        if (EventManager.OnQuestCheck("Pills") == true)
+        {
+            if (EventManager.EndingType())
+            {
+                EventManager.ending = true;
+                EventManager.Seize(true);
+                EventManager.OnEnd();
+            }
+            else
+            {
+                EventManager.OnInnerThoughtInitiated("I've taken my medicine, but I still have stuff to do...", 6.0f, 97, false);
+            }
+        }
+        else
+        {
+            EventManager.OnInnerThoughtInitiated("I need to take my pills first...", 6.0f, 97, false);
+        }
+            
     }
 
     public void No()

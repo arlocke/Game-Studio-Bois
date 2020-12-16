@@ -126,15 +126,18 @@ public class PlayerUI : MonoBehaviour
                         Debug.Log("Reloading self");
                     }
                 }
-                if (Thoughts.Count < 1)
-                {
-                    currentThought = dudThought;
-                }
                 else
                 {
-                    currentThought = Thoughts[0];
+                    if (Thoughts.Count < 1)
+                    {
+                        currentThought = dudThought;
+                    }
+                    else
+                    {
+                        currentThought = Thoughts[0];
+                    }
+                    innerThoughtsUI.text = currentThought.message;
                 }
-                innerThoughtsUI.text = currentThought.message;
             }
         }
     }
