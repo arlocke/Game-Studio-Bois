@@ -50,9 +50,9 @@ public class Day4 : MonoBehaviour
                 EventManager.OnAddEmailInitiated("\nSender: Carol from HR" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: Notice of termination " +
-                "\n \n This curtousy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
-                " has been *MISSING ADJECTIVE* and *MISSING ADDITIONAL ADJECTIVE*. Please inform *MISSING FRIEND FILE* that you will not be attending work as I'm sure they'll miss you!" +
-                " Take care and remember, only you can make Neo-Flonkerton great again!  \n \n END OF AUTOMATED FIRING EMAIL");
+                "\n \n This email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go..." +
+                " \n \n  <color=magenta>Your Social Credit Score has fallen 11,492 points due to your lack of empoloyment</color>" +
+                "  \n \n END OF AUTO EMAIL");
                 Thought6 = true;
             }
         }
@@ -79,9 +79,9 @@ public class Day4 : MonoBehaviour
             EventManager.OnAddEmailInitiated("\nSender: <color=blue> HACKERZ FRUM HELL </color> " +
                 "\n Sent: 6:66 am" +
                 "\n Subject:  <color=magenta> THE FATE OF THE WORLD </color>" +
-                "\n \n   <color=cyan> Thx for sending that <color=red>COMPACT DISC</color> bruh. I can't meet u irl as imma being watched... U get it right? Lolz XD anyways I've set up dis" +
-                " private connection so we can work together without interference from the man!!! Imma send you the tools to save the world soon. I hafta move constantly to avoid capture" +
-                ". Much difficulty... Stay safe and whatever u do..</color> <color=red>AVOID DRONES AT ALL COSTS!!!</color><color=cyan> The fate of the world is in ur hands Gahara.  </color> " +
+                "\n \n   <color=cyan> Thank you for sending that <color=red>COMPACT DISC</color>. I can't meet u irl as im being watched... U get it right? Anyways I've set up this" +
+                " private connection so we can work together without interference from pesky security programs and surveillance agents. Im going to send you some very items tools soon.. things to save the world. It will be difficult as I have to move constantly to avoid capture." +
+                " Very difficult in these trying times... Stay safe and whatever u do..</color> <color=red>AVOID DRONES AT ALL COSTS!!!</color><color=cyan> The fate of the world is in ur hands Gahara.  </color> " +
                 "\n - ANON");
             Email1 = true;
         }
@@ -132,9 +132,9 @@ public class Day4 : MonoBehaviour
             EventManager.OnAddEmailInitiated("\nSender: Carol from HR" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: Notice of termination " +
-                "\n \n This curtousy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
-                " has been *MISSING ADJECTIVE* and *MISSING ADDITIONAL ADJECTIVE*. Please inform *MISSING FRIEND FILE* that you will not be attending work as I'm sure they'll miss you!" +
-                " Take care and remember, only you can make Neo-Flonkerton great again!  \n \n END OF AUTOMATED FIRING EMAIL");
+                "\n \n This email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go..." +
+                " \n \n  <color=magenta>Your Social Credit Score has fallen 11,492 points due to your lack of empoloyment</color>" +
+                "  \n \n END OF AUTO EMAIL");
             Thought6 = true;
         }
 
@@ -152,7 +152,7 @@ public class Day4 : MonoBehaviour
 
         if (time == 1020 && !Thought9 && !EventManager.OnQuestCheck("Unclog Toilet")) //5
         {
-            EventManager.OnInnerThoughtInitiated("I need to unclog the toilet! My landlord will be pissed!", 5.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("I need to unclog the toilet! My landlord will be mad!", 5.0f, 5, false);
             Thought9 = true;
         }
 

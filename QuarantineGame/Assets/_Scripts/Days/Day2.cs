@@ -46,9 +46,9 @@ public class Day2 : MonoBehaviour
                 "\n Sent: 12:00 pm " +
                 "\n Subject: THIS IS THE FINAL STRAW " +
                 "\n \n yOU MUST BE A REAL COMEDIAN GAHARA!! YOU MUST THINK THIS IS REAL FUNNY! AFTER I STUCK UP FOR YOU THIS ENTIRE TIME?" +
-                "I HAVE HAD ENOUGH WITH YOUR SHENANIGANS... \n \n" +
+                "I HAVE HAD ENOUGH OF YOUR SHENANIGANS... \n \n" +
                 "I bet the rumors are true.. you really are losing your mind. \n" +
-                "don't prove me right Gahara. Show up tomorrow... -Mr. White ");
+                "Don't prove me right Gahara. Show up tomorrow... -Mr. White ");
                 Thought6 = true;
             }
         }
@@ -66,7 +66,7 @@ public class Day2 : MonoBehaviour
 
         if (time == 451 && !Thought1) //7:31
         {
-            EventManager.OnInnerThoughtInitiated("Another day.. Wonder how my girlfriend is doing?", 10.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("Another day.. Wonder how my girlfriend is doing?", 5.0f, 5, false);
             Thought1 = true;
         }
 
@@ -132,7 +132,7 @@ public class Day2 : MonoBehaviour
                 "\n \n yOU MUST BE A REAL COMEDIAN GAHARA!! YOU MUST THINK THIS IS REAL FUNNY! AFTER I STUCK UP FOR YOU THIS ENTIRE TIME?" +
                 "I HAVE HAD ENOUGH WITH YOUR SHENANIGANS... \n \n" +
                 "I bet the rumors are true.. you really are losing your mind. \n" +
-                "don't prove me right Gahara. Show up tomorrow... -Mr. White ");
+                "Don't prove me right Gahara. Show up tomorrow... -Mr. White ");
             Thought6 = true;
         }
 
@@ -151,10 +151,10 @@ public class Day2 : MonoBehaviour
         if (time >= 900 && !Email3) //3:00
         {
             EventManager.OnAddEmailInitiated("\nSender:  Mr. Humphree " +
-                "\n Sent: 8:00 am " +
+                "\n Sent: 3:00 pm am " +
                 "\n Subject: To all tenants" +
-                "\n \n Just a friendly reminder that all penthouse tenants, while you are isolated from B block tenants," +
-                " are not allowed outside during the allotted quarantine period. Since there are only a handful of" +
+                "\n \n Just a friendly reminder that all penthouse tenants, although you are isolated from B block residents," +
+                " you are not allowed outside during the allotted quarantine period. Since there are only a handful of" +
                 " you, I also hope you will be able to resolve disputes among yourselves. There have been reports of strange " +
                 "noises in the middle of the night. I would like to remind everyone also that there are absolutely" +
                 " no pets allowed in the EmailCenter apartment building." +

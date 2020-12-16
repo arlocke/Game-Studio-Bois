@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4245449299325939589}
   - component: {fileID: 1386181140762290461}
   m_Layer: 9
-  m_Name: bowl
+  m_Name: Bowl
   m_TagString: Throwable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 5debc5584aba3cb428855380df3f3652, type: 3}
+  - {fileID: 2100000, guid: ab4f90e3d52a1dd4d960ca3d4e2889e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,3 +129,4 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 1

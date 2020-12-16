@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4775789275308256080}
   - component: {fileID: 2317704150316246984}
   m_Layer: 9
-  m_Name: bat
+  m_Name: Bat
   m_TagString: Throwable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 0f505fee2ad53984f85e7cb7a5922dba, type: 3}
+  - {fileID: 2100000, guid: 29a53e22585d0d04587db1f8ff92e7e2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   minSpeed: 0
   rotationSpeed: 100
   isHit: 0
+  returnGravity: 1
 --- !u!64 &2317704150316246984
 MeshCollider:
   m_ObjectHideFlags: 0

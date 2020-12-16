@@ -105,7 +105,7 @@ public class Day5 : MonoBehaviour
                 "\n Subject: Mr Gahara - Eviction Notice" +
                 "\n \n <color=red>This email is to notify you of your immediate eviction due to breach of quarantine. Due to your low Social Credit Score you will be escorted from your penthouse apartment and sent" +
                 "to a Z-Block hygiene camp where you will be processed. Per the request of your landlord, Mr Humphree, we have been instructed to remove you " +
-                "from your apartment on March 25th at 3am . Please be ready and we look forward to processing you!</color>" +
+                "from your apartment at the convenient time of 3 am on March 25th . Please be ready at that time, and we look forward to processing you!</color>" +
                 "\n " +
                 "\n Thank you, \n -Officer Vinny \n Viral Outbreak Task Force Officer");
             Email3 = true;

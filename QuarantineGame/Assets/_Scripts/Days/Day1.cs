@@ -58,9 +58,9 @@ public class Day1 : MonoBehaviour
             {
                 EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 12:00 pm " +
-                "\n Subject: WHAT THE ABSOLUTE F**K GAHARA " +
-                "\n \n IS THIS A JOKE?????? ARE YOU TRYING TO LOSE YOUR JOB??? IT WAS LITERALLY THE FIRST MEETING OF THE QUARTER!!!! YOU ARE THE " +
-                "SENIOR DATA ANALYST!!! THIS IS WHY WE PAY YOU 7 FIGURES!!! YOU'RE ON THIN ICE JACKASS!!!");
+                "\n Subject: WHAT THE HEll GAHARA " +
+                "\n \n It was literally the first meeting of the quarter! How could you miss it! I expect you to be there tomorrow at exactly 9 am tomorrow. Are we clear? Don't test my patience, " +
+                "we all know how much of a loose cannon you can be sometimes.. \n\n  - Mr. White");
                 Thought6 = true;
             }
         }
@@ -132,7 +132,7 @@ public class Day1 : MonoBehaviour
 
         if (time == 720 && !Thought6 && !EventManager.OnQuestCheck("Work")) //12
         {
-            EventManager.OnInnerThoughtInitiated("Oh my God!! How did I miss my work meeting?!? WTF is wrong with me?!", 10.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("Oh my God!! How did I miss my work meeting?!? What is wrong with me?!", 10.0f, 5, false);
             if(questLogUI.text.Contains("Work") && !questLogUI.text.Contains("Work - Completed"))
             {
                 questLogUI.text = questLogUI.text.Replace("Work", "<color=red>Work - Missed</color>");
@@ -144,9 +144,9 @@ public class Day1 : MonoBehaviour
             EventManager.OnRemoveWorkPromptInitiated();
             EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 12:00 pm " +
-                "\n Subject: WHAT THE ABSOLUTE F**K GAHARA " +
-                "\n \n IS THIS A JOKE?????? ARE YOU TRYING TO LOSE YOUR JOB??? IT WAS LITERALLY THE FIRST MEETING OF THE QUARTER!!!! YOU ARE THE " +
-                "SENIOR DATA ANALYST!!! THIS IS WHY WE PAY YOU 7 FIGURES!!! YOU'RE ON THIN ICE JACKASS!!!");
+                "\n Subject: WHAT THE HEll GAHARA " +
+                "\n \n It was literally the first meeting of the quarter! How could you miss it! I expect you to be there tomorrow at exactly 9 am tomorrow. Are we clear? Don't test my patience, " +
+                "we all know how much of a loose cannon you can be sometimes.. \n\n  - Mr. White");
             Thought6 = true;
         }
 
@@ -174,7 +174,7 @@ public class Day1 : MonoBehaviour
 
         if (time == 900 && !Thought10 && !EventManager.OnQuestCheck("Pills")) //12
         {
-            EventManager.OnInnerThoughtInitiated("Dang, where did I put my pills?", 5.0f, 5, false);
+            EventManager.OnInnerThoughtInitiated("I have to take my pills everyday. I put them in the medicine cabinet in my bathroom last night", 5.0f, 5, false);
             Thought10 = true;
         }
 

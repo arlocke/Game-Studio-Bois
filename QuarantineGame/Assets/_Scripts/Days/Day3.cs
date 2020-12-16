@@ -50,8 +50,8 @@ public class Day3 : MonoBehaviour
                 EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: THIS IS THE FINAL STRAW " +
-                "\n \n I take this as your unofficial notice of resignation. I hope you rot in an impoverished Z block community surrounded by Glorthank sex androids. And by " +
-                "the way, we will be pursuing legal action against you for the harrasing emails you send us in the middle of this night. Go F**K yourself Gahara. \n \n -Mr. White ");
+                "\n \n I take this as your unofficial notice of resignation. I hope you rot in an impoverished Z block community surrounded by Glorthank scum. And by " +
+                "the way, we will be pursuing legal action against you for the harrasing emails you send the other employees in the middle of this night. Go rot in hell Gahara. \n \n -Mr. White ");
                 Thought6 = true;
             }
         }
@@ -75,12 +75,12 @@ public class Day3 : MonoBehaviour
 
         if (time >= 451 && !Email1) //7:30
         {
-            EventManager.OnAddEmailInitiated("\nSender: ANON " +
+            EventManager.OnAddEmailInitiated("\nSender: NULL " +
                 "\n Sent: NULL" +
                 "\n Subject: NULL " +
-                "\n \n   <color=red>We cannot communicate anonymously over email. You must mail us the COMPACT DISC left in your apartment for us to establish a secure line over" +
+                "\n \n   <color=red>We cannot communicate safely over email. You must mail us the COMPACT DISC left in your apartment for us to establish a secure line over" +
                 " your network. Do not ask questions. We need your help. You are the key to saving the world. We look forward to working with you Gahara.</color> " +
-                "\n - ANON");
+                "\n\n - ANON");
             Email1 = true;
         }
 
@@ -130,8 +130,8 @@ public class Day3 : MonoBehaviour
             EventManager.OnAddEmailInitiated("\nSender: The Boss" +
                 "\n Sent: 12:00 pm " +
                 "\n Subject: THIS IS THE FINAL STRAW " +
-                "\n \n I take this as your unofficial notice of resignation. I hope you rot in an impoverished Z block community surrounded by Glorthank sex androids. And by " +
-                "the way, we will be pursuing legal action against you for the harrasing emails you send us in the middle of this night. Go F**K yourself Gahara. \n \n -Mr. White ");
+                "\n \n I take this as your unofficial notice of resignation. I hope you rot in an impoverished Z block community surrounded by Glorthank scum. And by " +
+                "the way, we will be pursuing legal action against you for the harrasing emails you send the other employees in the middle of this night. Go rot in hell Gahara. \n \n -Mr. White ");
             Thought6 = true;
         }
 
@@ -158,8 +158,8 @@ public class Day3 : MonoBehaviour
             EventManager.OnAddEmailInitiated("\nSender:  Mr. Humphree " +
                 "\n Sent: 3:00 pm " +
                 "\n Subject: Mr Gahara - ID Card" +
-                "\n \n I am sorry to not have informed you earlier but the ID card necessary for using the mail box located in your apartments airlock has been sent via Email and is ready" +
-                " for 3D printing. Simply print the .3DX file I just sent and you should find the ID card in your 3D printer. Then tap the ID card on your mailbox and it will unlock and be available for use." +
+                "\n \n I am sorry to not have informed you earlier but the ID card necessary for using the mail box located in your apartments airlock has been sent via Email." +
+                " The 3DX file should have automatically been 3D printed this morning when I sent the email. <color=cyan>Simply tap the ID card on your mailbox door and it will unlock</color> and be available for use." +
                 " We hope you will find our new mailing system useful during this pandemic." +
                 "\n " +
                 "\n Thank you, \n -Mr Humphree (Chief landlord of the EmailCenter)");
@@ -171,9 +171,9 @@ public class Day3 : MonoBehaviour
             EventManager.OnAddEmailInitiated("\nSender: My Love <3  " +
                 "\n Sent: 10:00 am " +
                 "\n Subject: Hey Babe <3" +
-                "\n \n You missed my call again last night? I assumed you were sleeping but you sent me those weird emails with those bizarre URL links at 3:33 am last night. What's going on? " +
+                "\n \n You missed my call again last night? I assumed you were sleeping but you sent me those weird emails with those bizarre URL links at 3:00 am last night. What's going on? " +
                 "I know you must be stressed from work and quarantining all by yourself but don't go crazy on me! I still love you. My parents are already trying to set me up with a local" +
-                " businessman from their church.. I miss you a lot. Stay safe and talk to me if you need to." +
+                " businessman from their church... I can't stand them. \n \n I miss you a lot and I wish I was there to help you. Stay safe and talk to me if you need to." +
                 "\n " +
                 "With love, \n -Maia");
             Email4 = true;
