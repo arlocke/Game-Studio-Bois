@@ -22,6 +22,7 @@ public class PlayerRaycast : MonoBehaviour
     public SleepPrompt sPrompt;
     public TakePillsPrompt pPrompt;
     public TakeVaccinePrompt vPrompt;
+    public Collider playerCollider;
 
     //Private Serialized Fields
     [SerializeField] private int rayLength = 10;
@@ -85,7 +86,7 @@ public class PlayerRaycast : MonoBehaviour
                             {
                                 LookedAtThing.text = "< LeftClick to throw \n" +
                                                          " RightClick to release >";
-                                isCarrying = hitThrowable.PickUp(transform);
+                                isCarrying = hitThrowable.PickUp(transform, playerCollider);
                             }
                         }
                     }

@@ -27,6 +27,7 @@ public class ThrowableObject : MonoBehaviour
     //protected Vector3 pinnedPosition;
     protected Rigidbody self;
     protected Transform carrier;
+    protected Collider carrierCollider;
     //protected Quaternion lookRot;
 
     // Start is called before the first frame update
@@ -92,13 +93,15 @@ public class ThrowableObject : MonoBehaviour
     //    }
     //}
 
-    public bool PickUp(Transform tran)
+    public bool PickUp(Transform tran, Collider playCol)
     {
         Debug.Log("Picking Up");
         if (isHit)
         {
             //transform.parent = tran;
             carrier = tran;
+            carrierCollider = playCol;
+            Physics.IgnoreCollision(carrierCollider, transform.GetComponent<Collider>(), true);
             beingCarried = true;
             self.useGravity = false;
             disToCarrier = Mathf.Abs(Vector3.Distance(carrier.position, transform.position));
@@ -109,6 +112,7 @@ public class ThrowableObject : MonoBehaviour
 
     public void DropDown()
     {
+        Physics.IgnoreCollision(carrierCollider, transform.GetComponent<Collider>(), false);
         disToCarrier = 0.0f;
         Debug.Log("Dropping");
         //transform.parent = null;
@@ -118,10 +122,12 @@ public class ThrowableObject : MonoBehaviour
             self.useGravity = true;
         }
         carrier = null;
+        carrierCollider = null;
     }
 
     public void ThrowDown()
     {
+        Physics.IgnoreCollision(carrierCollider, transform.GetComponent<Collider>(), false);
         disToCarrier = 0.0f;
         Debug.Log("Dropping");
         //transform.parent = null;
@@ -130,6 +136,7 @@ public class ThrowableObject : MonoBehaviour
         //add a throw impulse on drop.
         self.AddForce(carrier.forward * throwForce, ForceMode.Impulse);
         carrier = null;
+        carrierCollider = null;
     }
 }
 
