@@ -280,6 +280,6 @@ public class PlayerUI : MonoBehaviour
 
     public void TextOnOff(bool facts)
     {
-        questLogUI.enabled = !facts;
+        questLogUI.gameObject.SetActive(!facts);
     }
 }
