@@ -132,8 +132,16 @@ public class MenuManager : MonoBehaviour
 
     public void UpdateKeyText(string key, KeyCode code)
     {
-        Text tmp = Array.Find(keybindButtons, x => x.name == key).GetComponentInChildren<Text>();
-        tmp.text = code.ToString();
+        var dud = Array.Find(keybindButtons, x => x.name == key);
+        Text tmp = null;
+        if (dud != null)
+        {
+            tmp = dud.GetComponentInChildren<Text>();
+        }
+        if (tmp != null)
+        {
+            tmp.text = code.ToString();
+        }
     }
 
     public void Resume()

@@ -122,7 +122,7 @@ public class KeyBindManager : MonoBehaviour
         BindkeyInitalize("LEFT", KeyCode.A);
 
         BindkeyInitalize("ACT1", KeyCode.P);
-        BindkeyInitalize("ACT2", KeyCode.Alpha2);
+        BindkeyInitalize("ACT2", KeyCode.LeftControl);
         BindkeyInitalize("ACT3", KeyCode.Alpha3);
         BindkeyInitalize("ACT4", KeyCode.Alpha4);
 
