@@ -11,6 +11,9 @@ public class PlayerRaycast : MonoBehaviour
     public bool isCarrying = false; //Is currently carrying an object!
     public string currentRoom; //Placeholder string for room the player is currently in
 
+    public AudioSource pickupSFX;
+    public AudioSource throwSFX;
+
     //Public Classes
     public GameManager gameManager;
     public ThrowableObject hitThrowable;
@@ -84,6 +87,7 @@ public class PlayerRaycast : MonoBehaviour
                             //Pick up object.
                             if (Input.GetMouseButtonDown(0))
                             {
+                                pickupSFX.Play();
                                 LookedAtThing.text = "< LeftClick to throw \n" +
                                                          " RightClick to release >";
                                 isCarrying = hitThrowable.PickUp(transform, playerCollider);
@@ -275,6 +279,7 @@ public class PlayerRaycast : MonoBehaviour
                 {
                     if (hitThrowable != null)
                     {
+                        throwSFX.Play();
                         hitThrowable.ThrowDown();
                         isCarrying = false;
                     }
