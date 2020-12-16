@@ -4652,12 +4652,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1055493842}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &105177114 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 105177114, guid: 4a15740ab34a9e14ebaf51d2743f1351,
-    type: 3}
-  m_PrefabInstance: {fileID: 259161900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &105578732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12679,19 +12673,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 105177114, guid: 4a15740ab34a9e14ebaf51d2743f1351, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 609579007725932033, guid: 4a15740ab34a9e14ebaf51d2743f1351,
         type: 3}
       propertyPath: m_Name
       value: Mail_wall
-      objectReference: {fileID: 0}
-    - target: {fileID: 1578009421047149039, guid: 4a15740ab34a9e14ebaf51d2743f1351,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4480783903537036306, guid: 4a15740ab34a9e14ebaf51d2743f1351,
         type: 3}
@@ -24596,81 +24581,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 492175168}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &492214402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 492214403}
-  - component: {fileID: 492214405}
-  - component: {fileID: 492214404}
-  m_Layer: 0
-  m_Name: Register2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &492214403
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492214402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -88.2, y: 123.7, z: -22.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1832785074}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &492214404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492214402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f25125a71cdd6f46b74da79523ce835, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unlocking: 0
-  spawning: 0
-  enabling: 0
-  audioBased: 0
-  questCompleting: 1
-  questSetting: 0
-  keyBasedCompletion: 1
-  playerTriggered: 0
-  oneTimeUse: 1
-  nonKeyQuestName: 
-  keys:
-  - 4
-  unlockables: []
-  spawnable: {fileID: 0}
-  enablable: []
-  spawnLocation: {x: 0, y: 0, z: 0}
-  spawnRotation: {x: 0, y: 0, z: 0}
-  audioCenter: {fileID: 0}
---- !u!65 &492214405
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492214402}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 163.22992, y: 83.9454, z: 44.073093}
-  m_Center: {x: 14.848649, y: 6.784162, z: -3.5536797}
 --- !u!1001 &492318810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92048,12 +91958,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1536651612}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1832785074 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4480783903537036306, guid: 4a15740ab34a9e14ebaf51d2743f1351,
-    type: 3}
-  m_PrefabInstance: {fileID: 259161900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1834177273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102298,82 +102202,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2027963625}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2028212402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2028212403}
-  - component: {fileID: 2028212405}
-  - component: {fileID: 2028212404}
-  m_Layer: 0
-  m_Name: Register
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2028212403
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028212402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -88.2, y: 123.7, z: -22.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1832785074}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2028212404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028212402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f25125a71cdd6f46b74da79523ce835, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unlocking: 1
-  spawning: 0
-  enabling: 0
-  audioBased: 0
-  questCompleting: 1
-  questSetting: 0
-  keyBasedCompletion: 1
-  playerTriggered: 0
-  oneTimeUse: 1
-  nonKeyQuestName: 
-  keys:
-  - 5
-  unlockables:
-  - {fileID: 105177114}
-  spawnable: {fileID: 0}
-  enablable: []
-  spawnLocation: {x: 0, y: 0, z: 0}
-  spawnRotation: {x: 0, y: 0, z: 0}
-  audioCenter: {fileID: 0}
---- !u!65 &2028212405
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028212402}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 163.22992, y: 73.19181, z: 117.69473}
-  m_Center: {x: 14.84865, y: -12.46277, z: 0.24008155}
 --- !u!1001 &2028800069
 PrefabInstance:
   m_ObjectHideFlags: 0
