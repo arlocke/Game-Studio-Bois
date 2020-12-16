@@ -107,7 +107,6 @@ public static class SaveLoad
 
     public static void SaveQuests(QuestData QuestString, string key)
     {
-        Debug.Log("Trying To Save Object");
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/saves/";
         if (!Directory.Exists(path))
@@ -119,7 +118,6 @@ public static class SaveLoad
 
         formatter.Serialize(stream, QuestString);
         stream.Close();
-        Debug.Log("Successfully Saved Object");
     }
 
     public static QuestData LoadQuests(string key)
@@ -134,6 +132,51 @@ public static class SaveLoad
                 FileStream stream = new FileStream(path, FileMode.Open);
 
                 QuestData data = formatter.Deserialize(stream) as QuestData;
+                stream.Close();
+
+                return data;
+            }
+            else
+            {
+                Debug.LogError("Save file not found in " + path);
+                return null;
+            }
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public static void SaveKeybinds(KeybindsSaver Binds, string key)
+    {
+        Debug.Log("Trying To Save Bind");
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/saves/";
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+        path += key + ".txt";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        formatter.Serialize(stream, Binds);
+        stream.Close();
+        Debug.Log("Successfully Saved Binds");
+    }
+
+    public static KeybindsSaver LoadKeybinds(string key)
+    {
+        string path = Application.persistentDataPath + "/saves/";
+        if (Directory.Exists(path))
+        {
+            path += key + ".txt";
+            if (File.Exists(path))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(path, FileMode.Open);
+
+                KeybindsSaver data = formatter.Deserialize(stream) as KeybindsSaver;
                 stream.Close();
 
                 return data;

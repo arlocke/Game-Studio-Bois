@@ -28,18 +28,32 @@ public class KeyBindManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        KeyBinds = new Dictionary<string, KeyCode>();
-        ActionBinds = new Dictionary<string, KeyCode>();
+    }
 
-        Bindkey("UP", KeyCode.W);
-        Bindkey("DOWN", KeyCode.S);
-        Bindkey("RIGHT", KeyCode.D);
-        Bindkey("LEFT", KeyCode.A);
+    public void BindkeyInitalize(string key, KeyCode keyBind)
+    {
+        Dictionary<string, KeyCode> currentDictionary = KeyBinds;
 
-        Bindkey("ACT1", KeyCode.P);
-        Bindkey("ACT2", KeyCode.Alpha2);
-        Bindkey("ACT3", KeyCode.Alpha3);
-        Bindkey("ACT4", KeyCode.Alpha4);
+        if (key.Contains("ACT"))
+        {
+            currentDictionary = ActionBinds;
+        }
+        if (!currentDictionary.ContainsKey(key))
+        {
+            currentDictionary.Add(key, keyBind);
+            MenuManager.MyInstance.UpdateKeyText(key, keyBind);
+        }
+        else if (currentDictionary.ContainsValue(keyBind))
+        {
+            string myKey = currentDictionary.FirstOrDefault(x => x.Value == keyBind).Key;
+            currentDictionary[myKey] = KeyCode.None;
+            MenuManager.MyInstance.UpdateKeyText(key, KeyCode.None);
+        }
+
+        currentDictionary[key] = keyBind;
+        MenuManager.MyInstance.UpdateKeyText(key, keyBind);
+        StartCoroutine(MenuManager.MyInstance.DelayedUnlock());
+        bindName = string.Empty;
     }
 
     public void Bindkey(string key, KeyCode keyBind)
@@ -66,6 +80,7 @@ public class KeyBindManager : MonoBehaviour
         MenuManager.MyInstance.UpdateKeyText(key, keyBind);
         StartCoroutine(MenuManager.MyInstance.DelayedUnlock());
         bindName = string.Empty;
+        EventManager.OnKeySave();
     }
 
     public void KeyBindOnClick(string bindName)
@@ -82,7 +97,7 @@ public class KeyBindManager : MonoBehaviour
 
             if(e.isKey)
             {
-                if(bindName == "ACT1" && e.keyCode != KeyCode.Space)
+                if (bindName == "ACT1" && e.keyCode != KeyCode.Space)
                 {
                     Bindkey(bindName, e.keyCode);
                 }
@@ -90,8 +105,50 @@ public class KeyBindManager : MonoBehaviour
                 {
                     Bindkey(bindName, e.keyCode);
                 }
-                
             }
         }
+    }
+
+    public void Awake()
+    {
+        EventManager.KeySave += SaveKeyBinds;
+
+        KeyBinds = new Dictionary<string, KeyCode>();
+        ActionBinds = new Dictionary<string, KeyCode>();
+
+        BindkeyInitalize("UP", KeyCode.W);
+        BindkeyInitalize("DOWN", KeyCode.S);
+        BindkeyInitalize("RIGHT", KeyCode.D);
+        BindkeyInitalize("LEFT", KeyCode.A);
+
+        BindkeyInitalize("ACT1", KeyCode.P);
+        BindkeyInitalize("ACT2", KeyCode.Alpha2);
+        BindkeyInitalize("ACT3", KeyCode.Alpha3);
+        BindkeyInitalize("ACT4", KeyCode.Alpha4);
+
+        LoadKeybinds();
+    }
+
+    public void SaveKeyBinds()
+    {
+        KeybindsSaver keys = new KeybindsSaver(KeyBinds, ActionBinds);
+        SaveLoad.SaveKeybinds(keys, "keys_Saved");
+    }
+
+    public void LoadKeybinds()
+    {
+        KeybindsSaver keys = SaveLoad.LoadKeybinds("keys_Saved");
+        if(keys != null)
+        {
+            foreach (var key in keys.Binds)
+            {
+                BindkeyInitalize(key.key, key.keyCode);
+            }
+        }
+    }
+
+    public void OnDestroy()
+    {
+        EventManager.KeySave -= SaveKeyBinds;
     }
 }
