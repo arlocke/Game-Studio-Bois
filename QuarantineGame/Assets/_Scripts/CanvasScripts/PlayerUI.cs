@@ -35,7 +35,6 @@ public class PlayerUI : MonoBehaviour
     public Animator blackoutAnim;
 
     private bool isTutorial = false;
-    private bool isSeized = false;
 
     private Thought currentThought = new Thought(-1, "", 0, true);
     private Thought dudThought = new Thought(-1, "", 0, true);
@@ -68,6 +67,7 @@ public class PlayerUI : MonoBehaviour
         }
         if (DateAlpha != null)
         {
+            innerThoughtsUI.enabled = false;
             StartCoroutine(BeginningDate());
         }
         //EventManager.OnInnerThoughtInitiated(date, 5, 200, false);
@@ -88,7 +88,7 @@ public class PlayerUI : MonoBehaviour
     {
         if(currentThought.priority > -1)
         {
-            if((!isTutorial && !isSeized) || EventManager.ending)
+            if((!isTutorial && blackoutAnim.GetBool("Unpause")) || EventManager.ending)
             {
                 currentThought.time -= Time.fixedDeltaTime;
             }
@@ -272,15 +272,14 @@ public class PlayerUI : MonoBehaviour
     public void TextOnOff(bool facts)
     {
         questLogUI.gameObject.SetActive(!facts);
-        isSeized = facts;
-        if(facts && !EventManager.ending)
-        {
-            innerThoughtsUI.enabled = false;
-        }
-        else
-        {
-            innerThoughtsUI.enabled = true;
-        }
+        //if(facts && !EventManager.ending)
+        //{
+        //    innerThoughtsUI.enabled = false;
+        //}
+        //else
+        //{
+        //    innerThoughtsUI.enabled = true;
+        //}
     }
 
     private IEnumerator BeginningDate()
@@ -300,6 +299,7 @@ public class PlayerUI : MonoBehaviour
         {
             if (!blackoutAnim.GetBool("Unpause"))
             {
+                innerThoughtsUI.enabled = true;
                 blackoutAnim.SetBool("Unpause", true);
                 EventManager.OnSeize(false);
             }
