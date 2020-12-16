@@ -15,6 +15,8 @@ public class ThrowableObject : MonoBehaviour
     public bool returnGravity = true;
 
     protected float disToCarrier = 0.0f;
+    protected float minDisToCarrier = 0.0f;
+    protected float maxDisToCarrierExt = 2.5f;
     protected float currentDistance = 0.0f;
     protected float currentSpeed = 0.0f;
     protected bool beingCarried = false;
@@ -43,6 +45,14 @@ public class ThrowableObject : MonoBehaviour
         if(carrier != null)
         {
             disToCarrier += Input.mouseScrollDelta.y;
+            if(disToCarrier < minDisToCarrier)
+            {
+                disToCarrier = minDisToCarrier;
+            }
+            else if(disToCarrier > (minDisToCarrier + maxDisToCarrierExt))
+            {
+                disToCarrier = minDisToCarrier + maxDisToCarrierExt;
+            }
             Vector3 temp = carrier.position + (carrier.forward * disToCarrier);
             currentDistance = Vector3.Distance(temp, self.position);
             currentSpeed = Mathf.SmoothStep(minSpeed, maxSpeed, currentDistance / maxDistance);
@@ -92,6 +102,7 @@ public class ThrowableObject : MonoBehaviour
             beingCarried = true;
             self.useGravity = false;
             disToCarrier = Mathf.Abs(Vector3.Distance(carrier.position, transform.position));
+            minDisToCarrier = disToCarrier;
         }
         return isHit;
     }
