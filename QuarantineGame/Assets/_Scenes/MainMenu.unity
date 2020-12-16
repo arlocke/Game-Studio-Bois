@@ -2398,6 +2398,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cereal Box
       objectReference: {fileID: 0}
+    - target: {fileID: 4187711167122459123, guid: a27a563f1a9fa4241913782f9d8ea873,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c2cbb6f422d6224085f7365cee1510b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a27a563f1a9fa4241913782f9d8ea873, type: 3}
 --- !u!1001 &792753007
@@ -5263,7 +5268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.94729495, b: 1, a: 0.105882354}
+  m_Color: {r: 0.21226418, g: 0.87640244, b: 1, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

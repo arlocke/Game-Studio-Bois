@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 105177112}
   - component: {fileID: 105177113}
   m_Layer: 9
-  m_Name: polySurface28
+  m_Name: Mail Box Door
   m_TagString: Throwable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 332165805776177321}
   - component: {fileID: 8961332997828927855}
   m_Layer: 9
-  m_Name: polySurface30
+  m_Name: Mail Box Door
   m_TagString: Throwable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

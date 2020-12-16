@@ -44,10 +44,10 @@ public class Day5 : MonoBehaviour
                 "\n Subject:  <color=magenta> THE FATE OF THE WORLD Ver 2.0 </color>" +
                 "\n \n   <color=cyan> I'm sure you have questions and I'll answer them all in due time. All you need to know now, is your DNA is special and I need a sample of it" +
                 " to save the human race. I have sent you a </color><color=red>DNA VIAL</color><color=cyan> that will extract a skin sample upon touch. Simply send that through the mail and I will answer more of your" +
-                " questions later. Just know you are a special individual Gahara. The world is depending on you. I must sign off now, someone seems to be busting down my door." +
+                " questions later. Just know you are a special individual Gahara. The world is depending on you. I must sign off now, someone seems to be busting down my door.\n\n" +
                 "Just remember... Don't trust anyone, don't trust your girlfriend, don't trust the government and whatever " +
                 "you do </color> <color=red>AVOID DRONES AT ALL COSTS!!!</color> " +
-                "\n - ANON");
+                "\n\n - ANON");
             Email1 = true;
         }
 
@@ -56,9 +56,9 @@ public class Day5 : MonoBehaviour
             EventManager.OnAddEmailInitiated("\nSender: Carol from HR" +
                 "\n Sent: 9:10 am " +
                 "\n Subject: Notice of termination " +
-                "\n \n This courtesy email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go but your time with us" +
-                " has been *MISSING ADJECTIVE* and *MISSING ADDITIONAL ADJECTIVE*. Please inform *MISSING FRIEND FILE* that you will not be attending work as I'm sure they'll miss you!" +
-                " Take care and remember, only you can make Neo-Flonkerton great again!  \n \n END OF AUTOMATED FIRING EMAIL");
+                "\n \n This email has been sent to inform you of your termination from Data Entry Incorporated. We are sorry to see you go..." +
+                " \n \n  <color=pink>Your Social Credit Score has fallen 11,492 points due to your lack of empoloyment</color>" +
+                "  \n \n END OF AUTO EMAIL");
             Email2 = true;
         }
 
@@ -100,15 +100,14 @@ public class Day5 : MonoBehaviour
 
         if (time >= 900 && !Email3) //3:00
         {
-            EventManager.OnAddEmailInitiated("\nSender:  Mr. Humphree " +
+            EventManager.OnAddEmailInitiated("\nSender:  Neo-Flonkerton Viral Task Force  " +
                 "\n Sent: 3:00 pm " +
                 "\n Subject: Mr Gahara - Eviction Notice" +
-                "\n \n This email is to notify you of your immediate eviction due to breach of quarantine. Upon investigation by the Bureau of Health and Safety, you have been" +
-                "classified as a low level of citizen according to societal worth. Therefore, you will be escorted from your penthouse apartment and sent" +
-                "to a Z-Block hygiene camp where you will be processed. Per the request of your landlord, Mr White, we have been instructed to remove you " +
-                "from your apartment on March 25th at 3am . Please be ready and we look forward to processing you!" +
+                "\n \n <color=red>This email is to notify you of your immediate eviction due to breach of quarantine. Due to your low Social Credit Score you will be escorted from your penthouse apartment and sent" +
+                "to a Z-Block hygiene camp where you will be processed. Per the request of your landlord, Mr Humphree, we have been instructed to remove you " +
+                "from your apartment on March 25th at 3am . Please be ready and we look forward to processing you!</color>" +
                 "\n " +
-                "\n Thank you, \n -Officer Vinny \n Neo-Flonkerton Viral Outbreak Task Force");
+                "\n Thank you, \n -Officer Vinny \n Viral Outbreak Task Force Officer");
             Email3 = true;
         }
 
@@ -117,7 +116,7 @@ public class Day5 : MonoBehaviour
             EventManager.OnAddEmailInitiated("\nSender: My Love <3  " +
                 "\n Sent: 11:00 am " +
                 "\n Subject: It's over" +
-                "\n \n Never call me again. This is the last message I will ever send to you. After this I will block you on all social media and sever" +
+                "\n \n Never call me again. This is the last message I will ever send to you. After this I will block you on all social media and sever " +
                 "all our connections. I never want to see you again... You have ruined my family and my entire adult life... I can never forgive you for " +
                 "what you did. I fell in love with the man you used to be. Now you've become a monster... I hope you die." +
                 "\n\n\n" +
