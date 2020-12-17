@@ -25,7 +25,7 @@ public class Day7 : MonoBehaviour
             Thought1 = true;
         }
 
-        if (time >= 451 && !Email1) //7:30
+        if (time >= 452 && !Email1) //7:30
         {
             EventManager.OnAddEmailInitiated("\nSender: My Babe <3 " +
                 "\n Sent: 7:00 am" +
@@ -39,23 +39,23 @@ public class Day7 : MonoBehaviour
             Email1 = true;
         }
 
-        if (time >= 495 && !Email2) //7:30
+        if (time >= 451 && !Email2) //7:30
         {
             EventManager.OnAddEmailInitiated("\nSender: The Boss " +
-                "\n Sent: 8:15 am" +
+                "\n Sent: 7:00 am" +
                 "\n Subject: Promotion Notice " +
                 "\n \n Gahara," +
                 "\n \n Sorry to bother you over the weekend but I thought you’d like to know your request for a raise came back. In fact the Elite Board of Data Entry has decided to promote you to a Senior " +
                 "Management position. I’m bummed to see you leave, but your performance this week was so stellar I know you’re too damn smart to be working in this division. It’s been a pleasure working " +
                 "with you Gahara. I wish the best for you." +
                 "\n \n -Bob White ");
-            Email1 = true;
+            Email2 = true;
         }
 
-        if (time >= 540 && !Email3) //7:30
+        if (time >= 450 && !Email3) //7:30
         {
             EventManager.OnAddEmailInitiated("\nSender: NASA: Mars Recruitment Division " +
-                "\n Sent: 9:00 am" +
+                "\n Sent: 7:00 am" +
                 "\n Subject: Approval of Immigration  " +
                 "\n \n Gahara," +
                 "\n \n We are pleased to inform you that you have been approved for the next Mars colonization effort that will take place in 2088. You along with a significant other are invited to become " +
@@ -63,7 +63,7 @@ public class Day7 : MonoBehaviour
                 " strive to create a society bereft of corruption and manipulation. If you desire a life of free will and prosperity away from the inadequacies of our Earthly government, then please join us " +
                 "on the Galaxy’s superior planet. We await your reply Mr. Gahara." +
                 "\n \n -Mars Recruitment Division ");
-            Email1 = true;
+            Email3 = true;
         }
 
         if (time == 580 && !Thought2)

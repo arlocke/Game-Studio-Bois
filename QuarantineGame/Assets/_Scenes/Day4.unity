@@ -22680,6 +22680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {fileID: 1203885721}
+  position2: {fileID: 0}
+  Day5: 0
 --- !u!65 &447810839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42951,7 +42953,7 @@ PrefabInstance:
     - target: {fileID: 2815853100913974196, guid: 06b97d90e1211a3489c96b38b19a52fc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -225.6
+      value: 66.4
       objectReference: {fileID: 0}
     - target: {fileID: 2815853100913974196, guid: 06b97d90e1211a3489c96b38b19a52fc,
         type: 3}
@@ -68430,7 +68432,12 @@ PrefabInstance:
     - target: {fileID: 3230274020067072668, guid: 2ac621544df594a4cbe7170a397a8b69,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 2.0042522
+      value: 2.0042536
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230274020067072668, guid: 2ac621544df594a4cbe7170a397a8b69,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 2.0610514
       objectReference: {fileID: 0}
     - target: {fileID: 5958149367665463661, guid: 2ac621544df594a4cbe7170a397a8b69,
         type: 3}
