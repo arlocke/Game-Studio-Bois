@@ -94382,7 +94382,7 @@ Light:
     serializedVersion: 2
     m_Bits: 1847
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -109162,12 +109162,12 @@ PrefabInstance:
     - target: {fileID: 3232822059025475729, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 450
+      value: 1088.8
       objectReference: {fileID: 0}
     - target: {fileID: 3232822059025475729, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00020217896
+      value: -276.35727
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd, type: 3}

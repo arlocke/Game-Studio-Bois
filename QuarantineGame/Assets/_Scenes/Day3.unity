@@ -16600,6 +16600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {fileID: 1170699211}
+  position2: {fileID: 0}
+  Day5: 0
 --- !u!65 &334605201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -67072,7 +67074,7 @@ Light:
     serializedVersion: 2
     m_Bits: 1847
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -109209,12 +109211,12 @@ PrefabInstance:
     - target: {fileID: 3232822059025475729, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 450
+      value: 840.5
       objectReference: {fileID: 0}
     - target: {fileID: 3232822059025475729, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -152.22615
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f32c238c507ff24bb7dbfa1e16d3fcd, type: 3}
