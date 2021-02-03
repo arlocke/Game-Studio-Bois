@@ -19,6 +19,7 @@ public class TutorialAutoLock : MonoBehaviour
         }
         else
         {
+            safeToUse = true;
             target.isLocked = true;
         }
     }

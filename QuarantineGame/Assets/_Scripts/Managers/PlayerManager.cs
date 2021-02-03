@@ -162,17 +162,24 @@ public class PlayerManager : MonoBehaviour
     {
         controller.enabled = false;
         PlayerData data = SaveLoad.LoadPlayer();
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-        Vector3 rotation;
-        rotation.x = data.rotation[0];
-        rotation.y = data.rotation[1];
-        rotation.z = data.rotation[2];
-        camScript.setY(rotation.y);
-        transform.position = position;
-        controller.enabled = true;
+        if (data != null)
+        {
+            Vector3 position;
+            position.x = data.position[0];
+            position.y = data.position[1];
+            position.z = data.position[2];
+            Vector3 rotation;
+            rotation.x = data.rotation[0];
+            rotation.y = data.rotation[1];
+            rotation.z = data.rotation[2];
+            camScript.setY(rotation.y);
+            transform.position = position;
+            controller.enabled = true;
+        }
+        else
+        {
+            Debug.Log("No player data detected - player manager load");
+        }
     }
 
     //This allows the controller to hit things which are rigid bodies!!!

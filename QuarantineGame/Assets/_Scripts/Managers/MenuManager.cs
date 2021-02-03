@@ -36,6 +36,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+        //Debug.Log(Application.persistentDataPath);
         EventManager.Seize += Seize;
         keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
     }
@@ -180,9 +181,17 @@ public class MenuManager : MonoBehaviour
     {
         if(!Input.GetKeyDown(KeyCode.Space) && !selectLock)
         {
-            Time.timeScale = 1;
-            PlayerPrefs.SetInt("Load", 1);
-            SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene", 1), LoadSceneMode.Single);
+            PlayerData temp = SaveLoad.LoadPlayer();
+            if(temp != null)
+            {
+                Time.timeScale = 1;
+                PlayerPrefs.SetInt("Load", 1);
+                SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene", 1), LoadSceneMode.Single);
+            }
+            else
+            {
+                Debug.Log("No save file detected. Can not load.");
+            }
         }
     }
 
